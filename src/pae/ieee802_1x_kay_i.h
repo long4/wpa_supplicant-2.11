@@ -107,6 +107,9 @@ struct ieee802_1x_mka_participant {
 
 	struct mka_key kek;
 	struct mka_key ick;
+	u32 cak_handle;
+	u32 ick_handle;
+	u64 kek_handle;
 
 	struct ieee802_1x_mka_ki lki;
 	u8 lan;

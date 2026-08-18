@@ -59,6 +59,10 @@ enum mka_created_mode {
 struct data_key {
 	u8 *key;
 	int key_len;
+	u32 key_handle;
+	u8 wrapped_key[40];
+	size_t wrapped_key_len;
+	u64 kek_handle;
 	struct ieee802_1x_mka_ki key_identifier;
 	enum confidentiality_offset confidentiality_offset;
 	u8 an;

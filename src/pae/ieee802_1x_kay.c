@@ -1660,6 +1660,12 @@ ieee802_1x_mka_encode_dist_sak_body(
 		return -1;
 	}
 
+	size_t wrap_len = (cipher_suite_tbl[cs_index].sak_len / 8) + 8;
+	if (wrap_len <= sizeof(sak->wrapped_key)) {
+		os_memcpy(sak->wrapped_key, body->sak + sak_pos, wrap_len);
+		sak->wrapped_key_len = wrap_len;
+	}
+
 	ieee802_1x_mka_dump_dist_sak_body(body);
 
 	return 0;
@@ -1815,6 +1821,14 @@ ieee802_1x_mka_decode_dist_sak_body(
 
 	sa_key->key = unwrap_sak;
 	sa_key->key_len = sak_len;
+	if (wrap_sak && body_len > 16) {
+		size_t wlen = body_len - 16;
+		if (wlen > sizeof(sa_key->wrapped_key))
+			wlen = sizeof(sa_key->wrapped_key);
+		os_memcpy(sa_key->wrapped_key, wrap_sak, wlen);
+		sa_key->wrapped_key_len = wlen;
+	}
+	sa_key->kek_handle = participant->kek_handle;
 
 	sa_key->confidentiality_offset = body->confid_offset;
 	sa_key->an = body->dan;
@@ -2226,6 +2240,7 @@ ieee802_1x_kay_generate_new_sak(struct ieee802_1x_mka_participant *participant)
 
 	sa_key->key = key;
 	sa_key->key_len = key_len;
+	sa_key->kek_handle = participant->kek_handle;
 	os_memcpy(sa_key->key_identifier.mi, participant->mi, MI_LEN);
 	sa_key->key_identifier.kn = kay->dist_kn;
 
