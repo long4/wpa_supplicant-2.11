@@ -1,0 +1,1694 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1900"
+   height="2400"
+   viewBox="0 0 1900 2400"
+   version="1.1"
+   id="svg183"
+   sodipodi:docname="应用-MACsec密钥生命周期.svg"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview183"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.7960512"
+     inkscape:cx="860.49885"
+     inkscape:cy="541.74402"
+     inkscape:window-width="1920"
+     inkscape:window-height="973"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg183" />
+  <defs
+     id="defs6">
+    <style
+       id="style1">
+      .bg { fill:#f7f8fb; }
+      .lane { fill:#ffffff; stroke:#263244; stroke-width:2; rx:10; }
+      .tool { fill:#e8f3ff; stroke:#2563eb; stroke-width:1.5; rx:8; }
+      .pkg { fill:#fff7ed; stroke:#c2410c; stroke-width:1.5; rx:8; }
+      .sess { fill:#f5f3ff; stroke:#7c3aed; stroke-width:1.5; rx:8; }
+      .store { fill:#f8fafc; stroke:#475569; stroke-width:1.4; rx:8; }
+      .runtime { fill:#ecfdf3; stroke:#15803d; stroke-width:1.5; rx:8; }
+      .warn { fill:#fff1f2; stroke:#be123c; stroke-width:1.5; rx:8; }
+      .note { fill:#ffffff; stroke:#94a3b8; stroke-width:1.2; rx:8; }
+      .titleMain { font:700 26px Arial, sans-serif; fill:#172033; }
+      .laneTitle { font:700 20px Arial, sans-serif; fill:#172033; }
+      .title { font:700 16px Arial, sans-serif; fill:#111827; }
+      .text { font:13px Arial, sans-serif; fill:#273244; }
+      .small { font:12px Arial, sans-serif; fill:#405066; }
+      .line { stroke:#475569; stroke-width:2.1; fill:none; marker-end:url(#arrow); }
+      .toolLine { stroke:#2563eb; stroke-width:2.2; fill:none; marker-end:url(#arrowTool); }
+      .pkgLine { stroke:#c2410c; stroke-width:2.2; fill:none; marker-end:url(#arrowPkg); }
+      .sessLine { stroke:#7c3aed; stroke-width:2.2; fill:none; marker-end:url(#arrowSess); }
+      .runLine { stroke:#15803d; stroke-width:2.2; fill:none; marker-end:url(#arrowRun); }
+      .warnLine { stroke:#be123c; stroke-width:2.2; fill:none; marker-end:url(#arrowWarn); stroke-dasharray:7 6; }
+      .dash { stroke-dasharray:7 6; }
+    </style>
+    <marker
+       id="arrow"
+       markerWidth="10"
+       markerHeight="10"
+       refX="8"
+       refY="3"
+       orient="auto"
+       markerUnits="strokeWidth">
+      <path
+         d="M0,0 L0,6 L9,3 z"
+         fill="#475569"
+         id="path1" />
+    </marker>
+    <marker
+       id="arrowTool"
+       markerWidth="10"
+       markerHeight="10"
+       refX="8"
+       refY="3"
+       orient="auto"
+       markerUnits="strokeWidth">
+      <path
+         d="M0,0 L0,6 L9,3 z"
+         fill="#2563eb"
+         id="path2" />
+    </marker>
+    <marker
+       id="arrowPkg"
+       markerWidth="10"
+       markerHeight="10"
+       refX="8"
+       refY="3"
+       orient="auto"
+       markerUnits="strokeWidth">
+      <path
+         d="M0,0 L0,6 L9,3 z"
+         fill="#c2410c"
+         id="path3" />
+    </marker>
+    <marker
+       id="arrowSess"
+       markerWidth="10"
+       markerHeight="10"
+       refX="8"
+       refY="3"
+       orient="auto"
+       markerUnits="strokeWidth">
+      <path
+         d="M0,0 L0,6 L9,3 z"
+         fill="#7c3aed"
+         id="path4" />
+    </marker>
+    <marker
+       id="arrowRun"
+       markerWidth="10"
+       markerHeight="10"
+       refX="8"
+       refY="3"
+       orient="auto"
+       markerUnits="strokeWidth">
+      <path
+         d="M0,0 L0,6 L9,3 z"
+         fill="#15803d"
+         id="path5" />
+    </marker>
+    <marker
+       id="arrowWarn"
+       markerWidth="10"
+       markerHeight="10"
+       refX="8"
+       refY="3"
+       orient="auto"
+       markerUnits="strokeWidth">
+      <path
+         d="M0,0 L0,6 L9,3 z"
+         fill="#be123c"
+         id="path6" />
+    </marker>
+  </defs>
+  <rect
+     class="bg"
+     x="0"
+     y="0"
+     width="1900"
+     height="2400"
+     id="rect6" />
+  <text
+     x="48"
+     y="48"
+     class="titleMain"
+     id="text6">MACsec 密钥生命周期：CAK 保护与 SAK 安装</text>
+  <text
+     x="48"
+     y="78"
+     class="text"
+     id="text7">MACsec 与 HDCP 共用 SESS 受保护密钥服务，但 MACsec 的数据面 key 是 SAK；CAK 由 SESS 保护，运行时根据 MKA 和端口上下文生成、解包、安装、切换和清除 SAK。</text>
+  <rect
+     class="lane"
+     x="40"
+     y="115"
+     width="1820"
+     height="910"
+     id="rect7" />
+  <text
+     x="75"
+     y="155"
+     class="laneTitle"
+     id="text8">一、基本概念：两个端点、Key Server、两条通道、一条密钥链</text>
+  <rect
+     class="note"
+     x="80"
+     y="185"
+     width="430"
+     height="330"
+     id="rect8" />
+  <text
+     x="105"
+     y="214"
+     class="title"
+     id="text9">MACsec 端点 A</text>
+  <rect
+     class="runtime"
+     x="105"
+     y="232"
+     width="380"
+     height="54"
+     id="rect9" />
+  <text
+     x="125"
+     y="255"
+     class="text"
+     id="text10"><tspan
+       font-weight="700"
+       id="tspan9">KaY（运行 MKA）</tspan></text>
+  <text
+     x="125"
+     y="273"
+     class="small"
+     id="text11">准备 CKN、port、SCI、AN、peer 等功能上下文。</text>
+  <rect
+     class="sess"
+     x="105"
+     y="302"
+     width="380"
+     height="54"
+     id="rect11" />
+  <text
+     x="125"
+     y="325"
+     class="text"
+     id="text12"><tspan
+       font-weight="700"
+       id="tspan11">TEE：Secure MACsec Service</tspan></text>
+  <text
+     x="125"
+     y="343"
+     class="small"
+     id="text13">验证调用身份、端口归属和 MACsec 策略。</text>
+  <rect
+     class="store"
+     x="105"
+     y="372"
+     width="180"
+     height="58"
+     id="rect13" />
+  <text
+     x="125"
+     y="395"
+     class="text"
+     id="text14"><tspan
+       font-weight="700"
+       id="tspan13">SESS：CAK Store</tspan></text>
+  <text
+     x="125"
+     y="412"
+     class="small"
+     id="text15">按 CKN 选择 CAK</text>
+  <text
+     x="125"
+     y="426"
+     class="small"
+     id="text16">CAK 不返回</text>
+  <rect
+     class="sess"
+     x="305"
+     y="372"
+     width="180"
+     height="58"
+     id="rect16" />
+  <text
+     x="325"
+     y="395"
+     class="text"
+     id="text17"><tspan
+       font-weight="700"
+       id="tspan16">ICK / KEK</tspan></text>
+  <text
+     x="325"
+     y="412"
+     class="small"
+     id="text18">SESS 内部派生</text>
+  <text
+     x="325"
+     y="426"
+     class="small"
+     id="text19">TEE 不接触明文</text>
+  <rect
+     class="runtime"
+     x="105"
+     y="452"
+     width="180"
+     height="50"
+     id="rect19" />
+  <text
+     x="125"
+     y="474"
+     class="text"
+     id="text20"><tspan
+       font-weight="700"
+       id="tspan19">SAK</tspan></text>
+  <text
+     x="125"
+     y="492"
+     class="small"
+     id="text21">随机生成或解包得到</text>
+  <rect
+     class="runtime"
+     x="305"
+     y="452"
+     width="180"
+     height="50"
+     id="rect21" />
+  <text
+     x="325"
+     y="474"
+     class="text"
+     id="text22"><tspan
+       font-weight="700"
+       id="tspan21">SecY / SA slot</tspan></text>
+  <text
+     x="325"
+     y="492"
+     class="small"
+     id="text23">使用 SAK 保护数据帧</text>
+  <path
+     class="runLine"
+     d="M295 286 L295 302"
+     id="path23" />
+  <path
+     class="sessLine"
+     d="M215 356 L215 372"
+     id="path24" />
+  <path
+     class="sessLine"
+     d="M285 401 L305 401"
+     id="path25" />
+  <path
+     class="sessLine"
+     d="M395 430 L395 442 L195 442 L195 452"
+     id="path26" />
+  <path
+     class="runLine"
+     d="M285 477 L305 477"
+     id="path27" />
+  <rect
+     class="note"
+     x="1390"
+     y="185"
+     width="430"
+     height="330"
+     id="rect27" />
+  <text
+     x="1415"
+     y="214"
+     class="title"
+     id="text27">MACsec 端点 B</text>
+  <rect
+     class="runtime"
+     x="1415"
+     y="232"
+     width="380"
+     height="54"
+     id="rect28" />
+  <text
+     x="1435"
+     y="255"
+     class="text"
+     id="text28"><tspan
+       font-weight="700"
+       id="tspan28">KaY（运行 MKA）</tspan></text>
+  <text
+     x="1435"
+     y="273"
+     class="small"
+     id="text29">准备 CKN、port、SCI、AN、peer 等功能上下文。</text>
+  <rect
+     class="sess"
+     x="1415"
+     y="302"
+     width="380"
+     height="54"
+     id="rect29" />
+  <text
+     x="1435"
+     y="325"
+     class="text"
+     id="text30"><tspan
+       font-weight="700"
+       id="tspan29">TEE：Secure MACsec Service</tspan></text>
+  <text
+     x="1435"
+     y="343"
+     class="small"
+     id="text31">验证调用身份、端口归属和 MACsec 策略。</text>
+  <rect
+     class="store"
+     x="1415"
+     y="372"
+     width="180"
+     height="58"
+     id="rect31" />
+  <text
+     x="1435"
+     y="395"
+     class="text"
+     id="text32"><tspan
+       font-weight="700"
+       id="tspan31">SESS：CAK Store</tspan></text>
+  <text
+     x="1435"
+     y="412"
+     class="small"
+     id="text33">按 CKN 选择 CAK</text>
+  <text
+     x="1435"
+     y="426"
+     class="small"
+     id="text34">CAK 不返回</text>
+  <rect
+     class="sess"
+     x="1615"
+     y="372"
+     width="180"
+     height="58"
+     id="rect34" />
+  <text
+     x="1635"
+     y="395"
+     class="text"
+     id="text35"><tspan
+       font-weight="700"
+       id="tspan34">ICK / KEK</tspan></text>
+  <text
+     x="1635"
+     y="412"
+     class="small"
+     id="text36">SESS 内部派生</text>
+  <text
+     x="1635"
+     y="426"
+     class="small"
+     id="text37">TEE 不接触明文</text>
+  <rect
+     class="runtime"
+     x="1415"
+     y="452"
+     width="180"
+     height="50"
+     id="rect37" />
+  <text
+     x="1435"
+     y="474"
+     class="text"
+     id="text38"><tspan
+       font-weight="700"
+       id="tspan37">SAK</tspan></text>
+  <text
+     x="1435"
+     y="492"
+     class="small"
+     id="text39">随机生成或解包得到</text>
+  <rect
+     class="runtime"
+     x="1615"
+     y="452"
+     width="180"
+     height="50"
+     id="rect39" />
+  <text
+     x="1635"
+     y="474"
+     class="text"
+     id="text40"><tspan
+       font-weight="700"
+       id="tspan39">SecY / SA slot</tspan></text>
+  <text
+     x="1635"
+     y="492"
+     class="small"
+     id="text41">使用 SAK 保护数据帧</text>
+  <path
+     class="runLine"
+     d="M1605 286 L1605 302"
+     id="path41" />
+  <path
+     class="sessLine"
+     d="M1525 356 L1525 372"
+     id="path42" />
+  <path
+     class="sessLine"
+     d="M1595 401 L1615 401"
+     id="path43" />
+  <path
+     class="sessLine"
+     d="M1705 430 L1705 442 L1505 442 L1505 452"
+     id="path44" />
+  <path
+     class="runLine"
+     d="M1595 477 L1615 477"
+     id="path45" />
+  <rect
+     class="store"
+     x="555"
+     y="185"
+     width="790"
+     height="70"
+     id="rect45" />
+  <text
+     x="585"
+     y="208"
+     class="title"
+     id="text45">CA - Connectivity Association</text>
+  <text
+     x="585"
+     y="230"
+     class="small"
+     id="text46">逻辑成员关系：Endpoint A 和 Endpoint B 属于同一组。</text>
+  <text
+     x="585"
+     y="248"
+     class="small"
+     id="text47">双方使用同一 CKN 找到对应 CAK。</text>
+  <rect
+     class="pkg"
+     x="555"
+     y="275"
+     width="790"
+     height="100"
+     id="rect47" />
+  <text
+     x="585"
+     y="301"
+     class="title"
+     id="text48">MKA 控制通道（uncontrolled port）</text>
+  <text
+     x="585"
+     y="322"
+     class="small"
+     id="text49">Key Server 是本轮负责发 SAK 的端点角色，不是独立服务器；下次 rekey 可换端点。</text>
+  <text
+     x="585"
+     y="342"
+     class="small"
+     id="text50">Key Server 的 KaY 先经 TEE 授权，再请求本端 SESS / TRNG 生成随机 SAK。</text>
+  <text
+     x="585"
+     y="362"
+     class="small"
+     id="text51">SESS 用 KEK 加密成 wrapped SAK；ICK 是 MAC key，用来校验控制消息完整性和来源。</text>
+  <rect
+     class="runtime"
+     x="555"
+     y="395"
+     width="790"
+     height="100"
+     id="rect51" />
+  <text
+     x="585"
+     y="421"
+     class="title"
+     id="text52">MACsec 数据通道（controlled port）</text>
+  <text
+     x="585"
+     y="444"
+     class="small"
+     id="text53">传受保护以太网数据帧。</text>
+  <text
+     x="585"
+     y="464"
+     class="small"
+     id="text54">每个方向是一条 SC，由 SCI 标识；当前 SA 由 AN 选择。</text>
+  <text
+     x="585"
+     y="484"
+     class="small"
+     id="text55">安全保护：SA key slot 中的 SAK 保护负载机密性，并按 MACsec 规则做完整性；PN 防重放。</text>
+  <path
+     class="line"
+     d="M510 260 L555 214"
+     id="path55" />
+  <path
+     class="line"
+     d="M1345 214 L1390 260"
+     id="path56" />
+  <path
+     class="pkgLine"
+     d="M485 259 L555 322"
+     id="path57" />
+  <path
+     class="pkgLine"
+     d="M1345 322 L1415 259"
+     id="path58" />
+  <path
+     class="pkgLine dash"
+     d="M1415 276 L1345 360"
+     id="path59" />
+  <path
+     class="pkgLine dash"
+     d="M555 360 L485 276"
+     id="path60" />
+  <path
+     class="runLine"
+     d="M485 477 L555 445"
+     id="path61" />
+  <path
+     class="runLine"
+     d="M1345 445 L1415 477"
+     id="path62" />
+  <path
+     class="runLine dash"
+     d="M1415 490 L1345 480"
+     id="path63" />
+  <path
+     class="runLine dash"
+     d="M555 480 L485 490"
+     id="path64" />
+  <rect
+     class="note"
+     x="80"
+     y="525"
+     width="1740"
+     height="92"
+     id="rect64" />
+  <text
+     x="105"
+     y="552"
+     class="title"
+     id="text64">端点内部密钥链</text>
+  <rect
+     class="runtime"
+     x="105"
+     y="566"
+     width="200"
+     height="28"
+     id="rect65" />
+  <text
+     x="120"
+     y="585"
+     class="small"
+     id="text65">1. KaY 提交功能上下文</text>
+  <rect
+     class="sess"
+     x="330"
+     y="566"
+     width="200"
+     height="28"
+     id="rect66" />
+  <text
+     x="345"
+     y="585"
+     class="small"
+     id="text66">2. TEE 授权调用者</text>
+  <rect
+     class="store"
+     x="555"
+     y="566"
+     width="190"
+     height="28"
+     id="rect67" />
+  <text
+     x="570"
+     y="585"
+     class="small"
+     id="text67">3. CKN 选择 CAK</text>
+  <rect
+     class="sess"
+     x="770"
+     y="566"
+     width="200"
+     height="28"
+     id="rect68" />
+  <text
+     x="785"
+     y="585"
+     class="small"
+     id="text68">4. CAK 派生 ICK / KEK</text>
+  <rect
+     class="sess"
+     x="995"
+     y="566"
+     width="230"
+     height="28"
+     id="rect69" />
+  <text
+     x="1010"
+     y="585"
+     class="small"
+     id="text69">5. 生成或解包 SAK</text>
+  <rect
+     class="sess"
+     x="1250"
+     y="566"
+     width="200"
+     height="28"
+     id="rect70" />
+  <text
+     x="1265"
+     y="585"
+     class="small"
+     id="text70">6. 写入 SA key slot</text>
+  <rect
+     class="runtime"
+     x="1475"
+     y="566"
+     width="310"
+     height="28"
+     id="rect71" />
+  <text
+     x="1490"
+     y="585"
+     class="small"
+     id="text71">7. SecY 使用 SAK 保护数据帧</text>
+  <path
+     class="runLine"
+     d="M305 580 L330 580"
+     id="path71" />
+  <path
+     class="sessLine"
+     d="M530 580 L555 580"
+     id="path72" />
+  <path
+     class="sessLine"
+     d="M745 580 L770 580"
+     id="path73" />
+  <path
+     class="sessLine"
+     d="M970 580 L995 580"
+     id="path74" />
+  <path
+     class="sessLine"
+     d="M1225 580 L1250 580"
+     id="path75" />
+  <path
+     class="runLine"
+     d="M1450 580 L1475 580"
+     id="path76" />
+  <rect
+     class="note"
+     x="80"
+     y="640"
+     width="1740"
+     height="350"
+     id="rect76" />
+  <text
+     x="105"
+     y="668"
+     class="title"
+     id="text76">缩写说明</text>
+  <rect
+     class="store"
+     x="105"
+     y="690"
+     width="390"
+     height="145"
+     id="rect77" />
+  <text
+     x="125"
+     y="716"
+     class="title"
+     id="text77">成员关系</text>
+  <text
+     x="125"
+     y="742"
+     class="small"
+     id="text78"><tspan
+       font-weight="700"
+       id="tspan77">CA - Connectivity Association</tspan></text>
+  <text
+     x="125"
+     y="762"
+     class="small"
+     id="text79">允许互通的一组 MACsec 端点关系，</text>
+  <text
+     x="125"
+     y="782"
+     class="small"
+     id="text80">是逻辑关系，不是实际数据通道。</text>
+  <text
+     x="125"
+     y="806"
+     class="small"
+     id="text81"><tspan
+       font-weight="700"
+       id="tspan80">CKN - CAK Name</tspan></text>
+  <text
+     x="125"
+     y="826"
+     class="small"
+     id="text82">选择 CA / CAK 的公开名字，类似 key handle。</text>
+  <rect
+     class="pkg"
+     x="535"
+     y="690"
+     width="520"
+     height="145"
+     id="rect82" />
+  <text
+     x="555"
+     y="716"
+     class="title"
+     id="text83">控制面实体</text>
+  <text
+     x="555"
+     y="742"
+     class="small"
+     id="text84"><tspan
+       font-weight="700"
+       id="tspan83">MKA - MACsec Key Agreement</tspan></text>
+  <text
+     x="555"
+     y="762"
+     class="small"
+     id="text85">控制协议，负责成员协商、SAK 分发和 rekey。</text>
+  <text
+     x="555"
+     y="786"
+     class="small"
+     id="text86"><tspan
+       font-weight="700"
+       id="tspan85">KaY - Key Agreement Entity</tspan></text>
+  <text
+     x="555"
+     y="806"
+     class="small"
+     id="text87">运行 MKA 的控制实体，维护 peer / CA / CKN / rekey。</text>
+  <text
+     x="555"
+     y="826"
+     class="small"
+     id="text88"><tspan
+   font-weight="700"
+   id="tspan87">TEE / Secure MACsec Service</tspan>：授权调用者和端口，再调用 SESS。</text>
+  <rect
+     class="runtime"
+     x="1095"
+     y="690"
+     width="690"
+     height="130"
+     id="rect88" />
+  <text
+     x="1115"
+     y="716"
+     class="title"
+     id="text89">数据面对象</text>
+  <text
+     x="1115"
+     y="742"
+     class="small"
+     id="text90"><tspan
+   font-weight="700"
+   id="tspan89">SecY - MAC Security Entity</tspan>：MACsec 数据面实体，使用 SAK 保护真实数据帧。</text>
+  <text
+     x="1115"
+     y="766"
+     class="small"
+     id="text91"><tspan
+   font-weight="700"
+   id="tspan90">SC - Secure Channel</tspan>：单方向安全通道；<tspan
+   font-weight="700"
+   id="tspan91">SCI - Secure Channel Identifier</tspan>：SC 标识。</text>
+  <text
+     x="1115"
+     y="790"
+     class="small"
+     id="text93"><tspan
+   font-weight="700"
+   id="tspan92">SA - Secure Association</tspan>：SC 下的一组实际加密状态；<tspan
+   font-weight="700"
+   id="tspan93">AN</tspan> 选择当前 SA。</text>
+  <text
+     x="1115"
+     y="814"
+     class="small"
+     id="text94"><tspan
+   font-weight="700"
+   id="tspan94">PN - Packet Number</tspan>：防重放计数，接近耗尽时触发 rekey。</text>
+  <rect
+     class="sess"
+     x="105.04856"
+     y="845.04858"
+     width="1679.9028"
+     height="136.04942"
+     id="rect94" />
+  <text
+     x="125"
+     y="872"
+     class="title"
+     id="text95">密钥材料</text>
+  <text
+     x="125"
+     y="898"
+     class="small"
+     id="text96"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:Arial, sans-serif"><tspan
+   font-weight="700"
+   id="tspan95">CAK - CA  Key</tspan>：控制面根 key material，由 SESS 保护，用来派生 ICK / KEK，不直接写入数据面。</text>
+  <text
+     x="125"
+     y="922"
+     class="small"
+     id="text97"><tspan
+   font-weight="700"
+   id="tspan96">ICK - Integrity Check Key</tspan>：MKA 控制消息的 MAC key，保证控制信息完整性和来源，不负责加密。</text>
+  <text
+     x="125"
+     y="946"
+     class="small"
+     id="text98"><tspan
+   font-weight="700"
+   id="tspan97">KEK - Key Encryption Key</tspan>：加密 / 包装 SAK，保护 SAK 在控制通道分发时的机密性。</text>
+  <text
+     x="125"
+     y="970"
+     class="small"
+     id="text99"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:normal;font-family:Arial, sans-serif"><tspan
+   font-weight="700"
+   id="tspan98">SAK - SA Key</tspan>：Key Server 随机生成的数据面工作 key，安装到 SecY 的 SA key slot 后保护负载机密性，并按 MACsec 规则做完整性。</text>
+  <g
+     transform="translate(0 610)"
+     id="g183">
+    <rect
+       class="lane"
+       x="40"
+       y="445"
+       width="1820"
+       height="270"
+       id="rect99" />
+    <text
+       x="75"
+       y="485"
+       class="laneTitle"
+       id="text100">二、CAK 进入 SoC：长期控制面材料被认证导入，数据面不直接使用 CAK</text>
+    <rect
+       class="tool"
+       x="80"
+       y="525"
+       width="310"
+       height="125"
+       id="rect100" />
+    <text
+       x="105"
+       y="558"
+       class="title"
+       id="text101">MACsec Key Source</text>
+    <text
+       x="105"
+       y="586"
+       class="text"
+       id="text102">CAK 或 CAK 派生材料</text>
+    <text
+       x="105"
+       y="610"
+       class="small"
+       id="text103">来自 KMS/HSM、授权服务器或受控产线。</text>
+    <text
+       x="105"
+       y="630"
+       class="small"
+       id="text104">不是每次数据面使用的 SAK。</text>
+    <rect
+       class="pkg"
+       x="465"
+       y="525"
+       width="340"
+       height="125"
+       id="rect104" />
+    <text
+       x="490"
+       y="558"
+       class="title"
+       id="text105">Signed Provisioning Package</text>
+    <text
+       x="490"
+       y="586"
+       class="text"
+       id="text106">绑定 imported_cak_blob 和 metadata</text>
+    <text
+       x="490"
+       y="610"
+       class="small"
+       id="text107">metadata: <tspan
+   font-weight="700"
+   id="tspan106">key_id</tspan>、<tspan
+   font-weight="700"
+   id="tspan107">usage=MACSEC</tspan>、</text>
+    <text
+       x="490"
+       y="630"
+       class="small"
+       id="text108"><tspan
+   font-weight="700"
+   id="tspan108">allowed_port_mask</tspan>、cipher_suite、policy_hash。</text>
+    <rect
+       class="sess"
+       x="880"
+       y="525"
+       width="355"
+       height="125"
+       id="rect108" />
+    <text
+       x="905"
+       y="558"
+       class="title"
+       id="text109">SESS CAK Import / Sealing</text>
+    <text
+       x="905"
+       y="586"
+       class="text"
+       id="text110">硬件解包 CAK blob，生成 sealed_cak_object</text>
+    <text
+       x="905"
+       y="610"
+       class="small"
+       id="text111">CAK 不进入普通 AP 内存，也不写入 MACsec 数据面 key slot。</text>
+    <rect
+       class="store"
+       x="1310"
+       y="525"
+       width="390"
+       height="125"
+       id="rect111" />
+    <text
+       x="1335"
+       y="558"
+       class="title"
+       id="text112">External Secure Storage</text>
+    <text
+       x="1335"
+       y="586"
+       class="text"
+       id="text113">保存 sealed_macsec_cak_object</text>
+    <text
+       x="1335"
+       y="610"
+       class="small"
+       id="text114">SESS sealing 绑定 CAK、metadata 和设备约束。</text>
+    <text
+       x="1335"
+       y="630"
+       class="small"
+       id="text115">OTP 只保存 macsec_disable 等硬策略。</text>
+    <path
+       class="toolLine"
+       d="M390 587 L465 587"
+       id="path115" />
+    <path
+       class="pkgLine"
+       d="M805 587 L880 587"
+       id="path116" />
+    <path
+       class="sessLine"
+       d="M1235 587 L1310 587"
+       id="path117" />
+    <rect
+       class="warn"
+       x="80"
+       y="665"
+       width="760"
+       height="34"
+       id="rect117" />
+    <text
+       x="105"
+       y="687"
+       class="small"
+       id="text117">边界：CAK 是控制面根材料；MACsec Engine 数据面寄存器最终安装的是 SAK，不是 CAK。</text>
+    <rect
+       class="note"
+       x="920"
+       y="665"
+       width="780"
+       height="34"
+       id="rect118" />
+    <text
+       x="945"
+       y="687"
+       class="small"
+       id="text118">CAK 可以用于 MKA 派生 ICK / KEK；SESS 根据实现选择参与 KDF 或 unwrap，不把 CAK 返回给普通软件。</text>
+    <rect
+       class="lane"
+       x="40"
+       y="755"
+       width="1820"
+       height="500"
+       id="rect119" />
+    <text
+       x="75"
+       y="795"
+       class="laneTitle"
+       id="text119">三、运行时 SAK 处理：Key Server 生成分发，Peer 接收解包</text>
+    <rect
+       class="runtime"
+       x="80"
+       y="835"
+       width="270"
+       height="82"
+       id="rect1" />
+    <text
+       x="105"
+       y="864"
+       class="title"
+       id="text1">MACsec Driver</text>
+    <text
+       x="105"
+       y="890"
+       class="text"
+       id="text2">端口状态、cipher_suite、非密钥配置</text>
+    <text
+       x="105"
+       y="910"
+       class="small"
+       id="text3">不形成 SA 请求，不接触 key 明文。</text>
+    <rect
+       class="runtime"
+       x="80"
+       y="990"
+       width="270"
+       height="115"
+       id="rect3" />
+    <text
+       x="105"
+       y="1020"
+       class="title"
+       id="text4">KaY / MKA Control</text>
+    <text
+       x="105"
+       y="1046"
+       class="text"
+       id="text5">维护 CKN、SCI、AN、peer、role</text>
+    <text
+       x="105"
+       y="1070"
+       class="text"
+       id="text24">判断本端是 Key Server 还是 Peer</text>
+    <text
+       x="105"
+       y="1092"
+       class="small"
+       id="text25">组装 SA request，不直接访问 SESS。</text>
+    <rect
+       class="note"
+       x="390"
+       y="850"
+       width="315"
+       height="105"
+       id="rect25" />
+    <text
+       x="415"
+       y="878"
+       class="title"
+       id="text26">SA Request Context</text>
+    <text
+       x="415"
+       y="903"
+       class="text"
+       id="text42"><tspan
+   font-weight="700"
+   id="tspan26">CKN</tspan>、<tspan
+   font-weight="700"
+   id="tspan27">port_id</tspan>、<tspan
+   font-weight="700"
+   id="tspan30">direction</tspan>、<tspan
+   font-weight="700"
+   id="tspan32">SCI</tspan>、<tspan
+   font-weight="700"
+   id="tspan33">AN</tspan></text>
+    <text
+       x="415"
+       y="927"
+       class="text"
+       id="text43">peer_id、policy_id、PN 初值</text>
+    <text
+       x="415"
+       y="947"
+       class="small"
+       id="text44">功能上下文，TEE 授权后才交给 SESS。</text>
+    <rect
+       class="sess"
+       x="390"
+       y="1015"
+       width="315"
+       height="90"
+       id="rect44" />
+    <text
+       x="415"
+       y="1044"
+       class="title"
+       id="text56">TEE / Secure MACsec Service</text>
+    <text
+       x="415"
+       y="1070"
+       class="text"
+       id="text57">检查调用身份、端口归属、链路状态</text>
+    <text
+       x="415"
+       y="1092"
+       class="small"
+       id="text58">授权通过后调用 SESS IF1 / IF2。</text>
+    <rect
+       class="note"
+       x="745"
+       y="825"
+       width="770"
+       height="180"
+       id="rect58" />
+    <text
+       x="770"
+       y="854"
+       class="title"
+       id="text59">Key Server 侧对象流</text>
+    <rect
+       class="sess"
+       x="770"
+       y="875"
+       width="180"
+       height="62"
+       id="rect59" />
+    <text
+       x="790"
+       y="899"
+       class="small"
+       id="text60"><tspan
+         font-weight="700"
+         id="tspan59">SESS IF1</tspan></text>
+    <text
+       x="790"
+       y="918"
+       class="small"
+       id="text61">选 CAK，派生 ICK / KEK</text>
+    <rect
+       class="sess"
+       x="975"
+       y="875"
+       width="180"
+       height="62"
+       id="rect61" />
+    <text
+       x="995"
+       y="899"
+       class="small"
+       id="text62"><tspan
+         font-weight="700"
+         id="tspan61">SESS IF2</tspan></text>
+    <text
+       x="995"
+       y="918"
+       class="small"
+       id="text63">TRNG 生成随机 SAK</text>
+    <rect
+       class="pkg"
+       x="1180"
+       y="875"
+       width="145"
+       height="62"
+       id="rect63" />
+    <text
+       x="1200"
+       y="899"
+       class="small"
+       id="text72"><tspan
+         font-weight="700"
+         id="tspan63">KEK wrap</tspan></text>
+    <text
+       x="1200"
+       y="918"
+       class="small"
+       id="text73">生成 wrapped_sak</text>
+    <rect
+       class="pkg"
+       x="1350"
+       y="875"
+       width="140"
+       height="62"
+       id="rect73" />
+    <text
+       x="1370"
+       y="899"
+       class="small"
+       id="text74"><tspan
+         font-weight="700"
+         id="tspan73">MKA Msg</tspan></text>
+    <text
+       x="1370"
+       y="918"
+       class="small"
+       id="text75">ICV + wrapped_sak</text>
+    <rect
+       class="sess"
+       x="975"
+       y="955"
+       width="350"
+       height="34"
+       id="rect75" />
+    <text
+       x="995"
+       y="977"
+       class="small"
+       id="text92">本地 SAK handle 保留在 secure key path，等待 IF3 安装。</text>
+    <rect
+       class="note"
+       x="745"
+       y="1035"
+       width="770"
+       height="170"
+       id="rect92" />
+    <text
+       x="770"
+       y="1064"
+       class="title"
+       id="text116">Peer 侧对象流</text>
+    <rect
+       class="pkg"
+       x="770"
+       y="1085"
+       width="180"
+       height="62"
+       id="rect116" />
+    <text
+       x="790"
+       y="1109"
+       class="small"
+       id="text120"><tspan
+         font-weight="700"
+         id="tspan116">Received MKA Msg</tspan></text>
+    <text
+       x="790"
+       y="1128"
+       class="small"
+       id="text121">ICV + wrapped_sak</text>
+    <rect
+       class="sess"
+       x="975"
+       y="1085"
+       width="180"
+       height="62"
+       id="rect121" />
+    <text
+       x="995"
+       y="1109"
+       class="small"
+       id="text122"><tspan
+         font-weight="700"
+         id="tspan121">SESS IF1</tspan></text>
+    <text
+       x="995"
+       y="1128"
+       class="small"
+       id="text123">派生 ICK / KEK</text>
+    <rect
+       class="sess"
+       x="1180"
+       y="1085"
+       width="145"
+       height="62"
+       id="rect123" />
+    <text
+       x="1200"
+       y="1109"
+       class="small"
+       id="text124"><tspan
+         font-weight="700"
+         id="tspan123">ICK verify</tspan></text>
+    <text
+       x="1200"
+       y="1128"
+       class="small"
+       id="text125">校验控制消息</text>
+    <rect
+       class="sess"
+       x="1350"
+       y="1085"
+       width="140"
+       height="62"
+       id="rect125" />
+    <text
+       x="1370"
+       y="1109"
+       class="small"
+       id="text126"><tspan
+         font-weight="700"
+         id="tspan125">KEK unwrap</tspan></text>
+    <text
+       x="1370"
+       y="1128"
+       class="small"
+       id="text127">解出 SAK handle</text>
+    <rect
+       class="sess"
+       x="975"
+       y="1160"
+       width="350"
+       height="30"
+       id="rect127" />
+    <text
+       x="995"
+       y="1180"
+       class="small"
+       id="text128">SAK 不返回普通软件，等待 IF3 安装。</text>
+    <rect
+       class="store"
+       x="1550"
+       y="850"
+       width="260"
+       height="95"
+       id="rect128" />
+    <text
+       x="1575"
+       y="878"
+       class="title"
+       id="text129">OTP / Hard Policy</text>
+    <text
+       x="1575"
+       y="903"
+       class="text"
+       id="text130">macsec_disable、LCS、RMA</text>
+    <text
+       x="1575"
+       y="925"
+       class="small"
+       id="text131">只收窄能力，不保存 CAK / SAK。</text>
+    <rect
+       class="note"
+       x="1550"
+       y="1055"
+       width="260"
+       height="110"
+       id="rect131" />
+    <text
+       x="1575"
+       y="1083"
+       class="title"
+       id="text132">SAK Lifetime State</text>
+    <text
+       x="1575"
+       y="1108"
+       class="text"
+       id="text133">current / next / old SA</text>
+    <text
+       x="1575"
+       y="1132"
+       class="text"
+       id="text134">Tx / Rx、PN、AN、rekey</text>
+    <text
+       x="1575"
+       y="1152"
+       class="small"
+       id="text135">运行时状态，不写 OTP。</text>
+    <path
+       class="runLine"
+       d="M215 917 L215 990"
+       id="path135" />
+    <path
+       class="runLine"
+       d="M350 1048 L370 1048 L370 900 L390 900"
+       id="path136" />
+    <path
+       class="line dash"
+       d="M547 955 L547 1015"
+       id="path137" />
+    <path
+       class="sessLine"
+       d="M705 1060 L725 1060 L725 906 L770 906"
+       id="path138" />
+    <path
+       class="sessLine"
+       d="M705 1060 L725 1060 L725 1116 L770 1116"
+       id="path139" />
+    <path
+       class="sessLine"
+       d="M950 906 L975 906"
+       id="path140" />
+    <path
+       class="sessLine"
+       d="M1155 906 L1180 906"
+       id="path141" />
+    <path
+       class="pkgLine"
+       d="M1325 906 L1350 906"
+       id="path142" />
+    <path
+       class="pkgLine dash"
+       d="M1420 937 L1420 1040 L860 1040 L860 1085"
+       id="path143" />
+    <path
+       class="sessLine"
+       d="M950 1116 L975 1116"
+       id="path144" />
+    <path
+       class="sessLine"
+       d="M1155 1116 L1180 1116"
+       id="path145" />
+    <path
+       class="sessLine"
+       d="M1325 1116 L1350 1116"
+       id="path146" />
+    <path
+       class="line dash"
+       d="M1515 898 L1550 898"
+       id="path147" />
+    <path
+       class="line dash"
+       d="M1515 1110 L1550 1110"
+       id="path148" />
+    <rect
+       class="lane"
+       x="40"
+       y="1295"
+       width="1820"
+       height="330"
+       id="rect160" />
+    <text
+       x="75"
+       y="1335"
+       class="laneTitle"
+       id="text160">四、安装和切换 SAK：把 SAK 安装到 SA key slot，支持不停流 rekey</text>
+    <rect
+       class="sess"
+       x="80"
+       y="1395"
+       width="335"
+       height="130"
+       id="rect161" />
+    <text
+       x="105"
+       y="1428"
+       class="title"
+       id="text161">SESS IF3：Install / Clear SA Key</text>
+    <text
+       x="105"
+       y="1456"
+       class="text"
+       id="text162">检查 port、direction、SCI、AN、cipher_suite</text>
+    <text
+       x="105"
+       y="1480"
+       class="text"
+       id="text163">通过 secure key path 安装或清除 SAK</text>
+    <text
+       x="105"
+       y="1504"
+       class="small"
+       id="text164">目标是硬件 key slot，不是普通可读寄存器。</text>
+    <rect
+       class="runtime"
+       x="505"
+       y="1375"
+       width="420"
+       height="185"
+       id="rect164" />
+    <text
+       x="530"
+       y="1408"
+       class="title"
+       id="text165">MACsec Engine SA Key Slots</text>
+    <rect
+       class="store"
+       x="535"
+       y="1432"
+       width="160"
+       height="42"
+       id="rect165" />
+    <text
+       x="555"
+       y="1459"
+       class="text"
+       id="text166">Tx current SA</text>
+    <rect
+       class="store"
+       x="725"
+       y="1432"
+       width="160"
+       height="42"
+       id="rect166" />
+    <text
+       x="745"
+       y="1459"
+       class="text"
+       id="text167">Tx next SA</text>
+    <rect
+       class="store"
+       x="535"
+       y="1492"
+       width="160"
+       height="42"
+       id="rect167" />
+    <text
+       x="555"
+       y="1519"
+       class="text"
+       id="text168">Rx peer SA</text>
+    <rect
+       class="store"
+       x="725"
+       y="1492"
+       width="160"
+       height="42"
+       id="rect168" />
+    <text
+       x="745"
+       y="1519"
+       class="text"
+       id="text169">Old SA clear</text>
+    <rect
+       class="note"
+       x="535"
+       y="1540"
+       width="350"
+       height="42"
+       id="rect169a" />
+    <text
+       x="555"
+       y="1558"
+       class="small"
+       id="text169a">SA key slot 是硬件内部 SA context entry，</text>
+    <text
+       x="555"
+       y="1574"
+       class="small"
+       id="text169b">绑定 SAK、SCI、AN、PN、Tx/Rx 等状态。</text>
+    <rect
+       class="runtime"
+       x="1015"
+       y="1395"
+       width="325"
+       height="130"
+       id="rect169" />
+    <text
+       x="1040"
+       y="1428"
+       class="title"
+       id="text170">MACsec Data Path</text>
+    <text
+       x="1040"
+       y="1456"
+       class="text"
+       id="text171">使用 active SAK 做帧加解密</text>
+    <text
+       x="1040"
+       y="1480"
+       class="text"
+       id="text172">维护 PN、replay、SCI、AN</text>
+    <text
+       x="1040"
+       y="1504"
+       class="small"
+       id="text173">非密钥状态可由 driver 配置并由策略约束。</text>
+    <rect
+       class="warn"
+       x="1430"
+       y="1375"
+       width="330"
+       height="185"
+       id="rect173" />
+    <text
+       x="1455"
+       y="1408"
+       class="title"
+       id="text174">Rekey / Teardown</text>
+    <text
+       x="1455"
+       y="1436"
+       class="text"
+       id="text175">1. 先安装 next SAK</text>
+    <text
+       x="1455"
+       y="1460"
+       class="text"
+       id="text176">2. 切换 active AN</text>
+    <text
+       x="1455"
+       y="1484"
+       class="text"
+       id="text177">3. 清除 old SA key slot</text>
+    <text
+       x="1455"
+       y="1508"
+       class="small"
+       id="text178">link down、reset、timeout、policy revoke 都要清 key。</text>
+    <path
+       class="sessLine"
+       d="M1060 1195 L1060 1260 L247 1260 L247 1395"
+       id="path178" />
+    <path
+       class="sessLine"
+       d="M415 1460 L505 1460"
+       id="path179" />
+    <path
+       class="runLine"
+       d="M925 1460 L1015 1460"
+       id="path180" />
+    <path
+       class="runLine"
+       d="M1340 1460 L1430 1460"
+       id="path181" />
+    <path
+       class="warnLine"
+       d="M1430 1498 L900 1498"
+       id="path182" />
+    <rect
+       class="note"
+       x="80"
+       y="1660"
+       width="1680"
+       height="55"
+       id="rect182" />
+    <text
+       x="105"
+       y="1694"
+       class="title"
+       id="text182">边界结论</text>
+    <text
+       x="210"
+       y="1694"
+       class="text"
+       id="text183">HDCP 主要是长期 key material 的安全启用；MACsec 是运行时 SAK 生命周期管理。SESS 负责 CAK/SAK 的可信处理和注入，MKA/driver 负责协议状态和端口配置。</text>
+  </g>
+</svg>

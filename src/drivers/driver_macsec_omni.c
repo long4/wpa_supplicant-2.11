@@ -377,6 +377,7 @@ static int macsec_omni_create_receive_sa(void *priv, struct receive_sa *sa)
 	char buf[512];
 	struct nlattr *nested_sa = (struct nlattr *)buf;
 	char *pos = buf + NLA_HDRLEN;
+	int ret;
 
 	wpa_printf(MSG_DEBUG, OMNI_MACSEC_DRV_PREFIX "%s: AN=%d", __func__, sa->an);
 
@@ -401,35 +402,25 @@ static int macsec_omni_create_receive_sa(void *priv, struct receive_sa *sa)
 	*(u32 *)(pos + NLA_HDRLEN) = sa->lowest_pn;
 	pos += NLA_ALIGN(attr->nla_len);
 
-#ifdef OBPKCS_MACSEC
-	/* Wrapped Key (40 bytes) & KEK Handle */
-	if (sa->pkey) {
-		attr = (struct nlattr *)pos;
-		attr->nla_type = OB_MACSEC_SA_PKCS_KEY_WRAP;
-		attr->nla_len = NLA_HDRLEN + OB_SAK_WRAPPED_LEN;
-		os_memcpy(pos + NLA_HDRLEN, sa->pkey->wrapped_key, OB_SAK_WRAPPED_LEN);
-		pos += NLA_ALIGN(attr->nla_len);
-
-		attr = (struct nlattr *)pos;
-		attr->nla_type = OB_MACSEC_SA_PKCS_KEK_HANDLE;
-		attr->nla_len = NLA_HDRLEN + sizeof(u64);
-		*(u64 *)(pos + NLA_HDRLEN) = sa->pkey->kek_handle;
-		pos += NLA_ALIGN(attr->nla_len);
-	}
-#else
-	if (sa->pkey && sa->pkey->key) {
-		attr = (struct nlattr *)pos;
-		attr->nla_type = OB_MACSEC_SA_ATTR_KEY;
-		attr->nla_len = NLA_HDRLEN + sa->pkey->key_len;
-		os_memcpy(pos + NLA_HDRLEN, sa->pkey->key, sa->pkey->key_len);
-		pos += NLA_ALIGN(attr->nla_len);
-	}
-#endif
-
 	nested_sa->nla_type = OB_MACSEC_ATTR_SA_CONFIG | NLA_F_NESTED;
 	nested_sa->nla_len = pos - buf;
 
-	return omni_macsec_send_cmd(drv, OB_MACSEC_CMD_CREATE_RX_SA, nested_sa);
+	/* 1. Send CREATE_RX_SA to kernel omnieth first to allocate and initialize SA context */
+	ret = omni_macsec_send_cmd(drv, OB_MACSEC_CMD_CREATE_RX_SA, nested_sa);
+	if (ret != 0)
+		return ret;
+
+#ifdef OBPKCS_MACSEC
+	/* 2. Program SAK into the initialized HW Key Slot via SESS Secure Bus */
+	if (sa->pkey) {
+		ret = sess_unwrap_and_program_sa_key(sa->pkey->kek_handle,
+						     sa->pkey->wrapped_key,
+						     sa->pkey->wrapped_key_len,
+						     0, sa->an, 0);
+	}
+#endif
+
+	return ret;
 }
 
 static int macsec_omni_delete_receive_sa(void *priv, struct receive_sa *sa)
@@ -492,6 +483,7 @@ static int macsec_omni_create_transmit_sa(void *priv, struct transmit_sa *sa)
 	char buf[512];
 	struct nlattr *nested_sa = (struct nlattr *)buf;
 	char *pos = buf + NLA_HDRLEN;
+	int ret;
 
 	wpa_printf(MSG_DEBUG, OMNI_MACSEC_DRV_PREFIX "%s: AN=%d", __func__, sa->an);
 
@@ -509,22 +501,7 @@ static int macsec_omni_create_transmit_sa(void *priv, struct transmit_sa *sa)
 	*(u32 *)(pos + NLA_HDRLEN) = sa->next_pn;
 	pos += NLA_ALIGN(attr->nla_len);
 
-#ifdef OBPKCS_MACSEC
-	/* Wrapped Key (40 bytes) & KEK Handle */
-	if (sa->pkey) {
-		attr = (struct nlattr *)pos;
-		attr->nla_type = OB_MACSEC_SA_PKCS_KEY_WRAP;
-		attr->nla_len = NLA_HDRLEN + OB_SAK_WRAPPED_LEN;
-		os_memcpy(pos + NLA_HDRLEN, sa->pkey->wrapped_key, OB_SAK_WRAPPED_LEN);
-		pos += NLA_ALIGN(attr->nla_len);
-
-		attr = (struct nlattr *)pos;
-		attr->nla_type = OB_MACSEC_SA_PKCS_KEK_HANDLE;
-		attr->nla_len = NLA_HDRLEN + sizeof(u64);
-		*(u64 *)(pos + NLA_HDRLEN) = sa->pkey->kek_handle;
-		pos += NLA_ALIGN(attr->nla_len);
-	}
-#else
+#ifndef OBPKCS_MACSEC
 	if (sa->pkey && sa->pkey->key) {
 		attr = (struct nlattr *)pos;
 		attr->nla_type = OB_MACSEC_SA_ATTR_KEY;
@@ -537,7 +514,22 @@ static int macsec_omni_create_transmit_sa(void *priv, struct transmit_sa *sa)
 	nested_sa->nla_type = OB_MACSEC_ATTR_SA_CONFIG | NLA_F_NESTED;
 	nested_sa->nla_len = pos - buf;
 
-	return omni_macsec_send_cmd(drv, OB_MACSEC_CMD_CREATE_TX_SA, nested_sa);
+	/* 1. Send CREATE_TX_SA to kernel omnieth first to allocate and initialize SA context */
+	ret = omni_macsec_send_cmd(drv, OB_MACSEC_CMD_CREATE_TX_SA, nested_sa);
+	if (ret != 0)
+		return ret;
+
+#ifdef OBPKCS_MACSEC
+	/* 2. Program SAK into the initialized HW Key Slot via SESS Secure Bus (dir 1: Tx) */
+	if (sa->pkey) {
+		ret = sess_unwrap_and_program_sa_key(sa->pkey->kek_handle,
+						     sa->pkey->wrapped_key,
+						     sa->pkey->wrapped_key_len,
+						     0, sa->an, 1);
+	}
+#endif
+
+	return ret;
 }
 
 static int macsec_omni_delete_transmit_sa(void *priv, struct transmit_sa *sa)
@@ -618,3 +610,57 @@ const struct wpa_driver_ops wpa_driver_macsec_omni_ops = {
 	.enable_transmit_sa = macsec_omni_enable_transmit_sa,
 	.disable_transmit_sa = macsec_omni_disable_transmit_sa,
 };
+
+#ifdef OBPKCS_MACSEC
+/* SESS Security Domain Client SMC Weak Stubs (Overridden when linked with TEEC / SMC lib) */
+int __attribute__((weak)) sess_acquire_cak_by_ckn(const u8 *ckn, size_t ckn_len, u32 *out_cak_handle)
+{
+	if (out_cak_handle)
+		*out_cak_handle = 0x00010001;
+	return 0;
+}
+
+int __attribute__((weak)) sess_derive_kek_ick(u32 cak_handle, const u8 *ckn, size_t ckn_len, u64 *out_kek_handle, u32 *out_ick_handle)
+{
+	if (out_kek_handle)
+		*out_kek_handle = 0x0002000200020002ULL;
+	if (out_ick_handle)
+		*out_ick_handle = 0x00030003;
+	return 0;
+}
+
+int __attribute__((weak)) sess_generate_sak(u64 kek_handle, u32 cipher_suite_id, u8 *out_wrapped_sak, size_t *out_wrapped_len, u32 *out_sak_handle)
+{
+	if (out_wrapped_sak && out_wrapped_len) {
+		os_memset(out_wrapped_sak, 0xA5, 40);
+		*out_wrapped_len = 40;
+	}
+	if (out_sak_handle)
+		*out_sak_handle = 0x00040004;
+	return 0;
+}
+
+int __attribute__((weak)) sess_unwrap_and_program_sa_key(u64 kek_handle, const u8 *wrapped_sak, size_t wrapped_len, u32 sc_idx, u32 sa_idx, u32 direction)
+{
+	return 0;
+}
+
+int __attribute__((weak)) sess_calc_mka_icv(u32 ick_handle, const u8 *mka_msg, size_t msg_len, u8 *out_icv, size_t *out_icv_len)
+{
+	if (out_icv && out_icv_len) {
+		os_memset(out_icv, 0x5A, 16);
+		*out_icv_len = 16;
+	}
+	return 0;
+}
+
+int __attribute__((weak)) sess_verify_mka_icv(u32 ick_handle, const u8 *mka_msg, size_t msg_len, const u8 *expected_icv, size_t icv_len)
+{
+	return 0;
+}
+
+int __attribute__((weak)) sess_reset_kt(void)
+{
+	return 0;
+}
+#endif /* OBPKCS_MACSEC */

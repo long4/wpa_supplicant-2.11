@@ -59,10 +59,12 @@ enum mka_created_mode {
 struct data_key {
 	u8 *key;
 	int key_len;
+#ifdef OBPKCS_MACSEC
 	u32 key_handle;
 	u8 wrapped_key[40];
 	size_t wrapped_key_len;
 	u64 kek_handle;
+#endif
 	struct ieee802_1x_mka_ki key_identifier;
 	enum confidentiality_offset confidentiality_offset;
 	u8 an;
@@ -284,5 +286,15 @@ int ieee802_1x_kay_get_status(struct ieee802_1x_kay *kay, char *buf,
 			      size_t buflen);
 int ieee802_1x_kay_get_mib(struct ieee802_1x_kay *kay, char *buf,
 			   size_t buflen);
+
+#ifdef OBPKCS_MACSEC
+int sess_acquire_cak_by_ckn(const u8 *ckn, size_t ckn_len, u32 *out_cak_handle);
+int sess_derive_kek_ick(u32 cak_handle, const u8 *ckn, size_t ckn_len, u64 *out_kek_handle, u32 *out_ick_handle);
+int sess_generate_sak(u64 kek_handle, u32 cipher_suite_id, u8 *out_wrapped_sak, size_t *out_wrapped_len, u32 *out_sak_handle);
+int sess_unwrap_and_program_sa_key(u64 kek_handle, const u8 *wrapped_sak, size_t wrapped_len, u32 sc_idx, u32 sa_idx, u32 direction);
+int sess_calc_mka_icv(u32 ick_handle, const u8 *mka_msg, size_t msg_len, u8 *out_icv, size_t *out_icv_len);
+int sess_verify_mka_icv(u32 ick_handle, const u8 *mka_msg, size_t msg_len, const u8 *expected_icv, size_t icv_len);
+int sess_reset_kt(void);
+#endif /* OBPKCS_MACSEC */
 
 #endif /* IEEE802_1X_KAY_H */

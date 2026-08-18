@@ -1660,11 +1660,13 @@ ieee802_1x_mka_encode_dist_sak_body(
 		return -1;
 	}
 
+#ifdef OBPKCS_MACSEC
 	size_t wrap_len = (cipher_suite_tbl[cs_index].sak_len / 8) + 8;
 	if (wrap_len <= sizeof(sak->wrapped_key)) {
 		os_memcpy(sak->wrapped_key, body->sak + sak_pos, wrap_len);
 		sak->wrapped_key_len = wrap_len;
 	}
+#endif
 
 	ieee802_1x_mka_dump_dist_sak_body(body);
 
@@ -1821,6 +1823,7 @@ ieee802_1x_mka_decode_dist_sak_body(
 
 	sa_key->key = unwrap_sak;
 	sa_key->key_len = sak_len;
+#ifdef OBPKCS_MACSEC
 	if (wrap_sak && body_len > 16) {
 		size_t wlen = body_len - 16;
 		if (wlen > sizeof(sa_key->wrapped_key))
@@ -1829,6 +1832,7 @@ ieee802_1x_mka_decode_dist_sak_body(
 		sa_key->wrapped_key_len = wlen;
 	}
 	sa_key->kek_handle = participant->kek_handle;
+#endif
 
 	sa_key->confidentiality_offset = body->confid_offset;
 	sa_key->an = body->dan;
@@ -1916,12 +1920,21 @@ ieee802_1x_mka_encode_icv_body(struct ieee802_1x_mka_participant *participant,
 		set_mka_param_body_len(body, length);
 	}
 
+#ifdef OBPKCS_MACSEC
+	size_t icv_calc_len = length;
+	if (sess_calc_mka_icv(participant->ick_handle, wpabuf_head(buf),
+			       wpabuf_len(buf), cmac, &icv_calc_len) != 0) {
+		wpa_printf(MSG_ERROR, "KaY: SESS failed to calculate ICV");
+		return -1;
+	}
+#else
 	if (mka_alg_tbl[participant->kay->mka_algindex].icv_hash(
 		    participant->ick.key, participant->ick.len,
 		    wpabuf_head(buf), wpabuf_len(buf), cmac)) {
 		wpa_printf(MSG_ERROR, "KaY: failed to calculate ICV");
 		return -1;
 	}
+#endif
 	wpa_hexdump(MSG_DEBUG, "KaY: ICV", cmac, length);
 
 	os_memcpy(wpabuf_put(buf, length), cmac, length);
@@ -2215,28 +2228,47 @@ ieee802_1x_kay_generate_new_sak(struct ieee802_1x_mka_participant *participant)
 	ctx_offset += sizeof(participant->mi);
 	os_memcpy(context + ctx_offset, &kay->dist_kn, sizeof(kay->dist_kn));
 
+	sa_key = os_zalloc(sizeof(*sa_key));
+	if (!sa_key) {
+		wpa_printf(MSG_ERROR, "KaY-%s: Out of memory", __func__);
+		goto fail;
+	}
+
+#ifdef OBPKCS_MACSEC
+	size_t wrap_len = sizeof(sa_key->wrapped_key);
+	if (sess_generate_sak(participant->kek_handle,
+			      cipher_suite_tbl[kay->macsec_csindex].id,
+			      sa_key->wrapped_key, &wrap_len,
+			      &sa_key->key_handle) == 0) {
+		sa_key->wrapped_key_len = wrap_len;
+		sa_key->kek_handle = participant->kek_handle;
+		wpa_printf(MSG_DEBUG, "KaY: SESS generated SAK. sak_h=0x%x, wrapped_len=%zu",
+			   sa_key->key_handle, wrap_len);
+	} else {
+		wpa_printf(MSG_ERROR, "KaY: SESS failed to generate SAK");
+		os_free(sa_key);
+		goto fail;
+	}
+#else
 	if (key_len == 16 || key_len == 32) {
 		if (ieee802_1x_sak_aes_cmac(participant->cak.key,
 					    participant->cak.len,
 					    context, ctx_len,
 					    key, key_len)) {
 			wpa_printf(MSG_ERROR, "KaY: Failed to generate SAK");
+			os_free(sa_key);
 			goto fail;
 		}
 	} else {
 		wpa_printf(MSG_ERROR, "KaY: SAK Length(%u) not supported",
 			   key_len);
+		os_free(sa_key);
 		goto fail;
 	}
+#endif
 	wpa_hexdump_key(MSG_DEBUG, "KaY: generated new SAK", key, key_len);
 	os_free(context);
 	context = NULL;
-
-	sa_key = os_zalloc(sizeof(*sa_key));
-	if (!sa_key) {
-		wpa_printf(MSG_ERROR, "KaY-%s: Out of memory", __func__);
-		goto fail;
-	}
 
 	sa_key->key = key;
 	sa_key->key_len = key_len;
@@ -3217,14 +3249,6 @@ static int ieee802_1x_kay_mkpdu_validity_check(struct ieee802_1x_kay *kay,
 	 * its size, not the fixed length 16 octets, indicated by the EAPOL
 	 * packet body length.
 	 */
-	if (len < mka_alg_tbl[kay->mka_algindex].icv_len ||
-	    mka_alg_tbl[kay->mka_algindex].icv_hash(
-		    participant->ick.key, participant->ick.len,
-		    buf, len - mka_alg_tbl[kay->mka_algindex].icv_len, icv)) {
-		wpa_printf(MSG_ERROR, "KaY: Failed to calculate ICV");
-		return -1;
-	}
-
 	msg_icv = ieee802_1x_mka_decode_icv_body(participant,
 						 (const u8 *) mka_hdr,
 						 mka_msg_len);
@@ -3234,6 +3258,22 @@ static int ieee802_1x_kay_mkpdu_validity_check(struct ieee802_1x_kay *kay,
 	}
 	wpa_hexdump(MSG_DEBUG, "KaY: Received ICV",
 		    msg_icv, mka_alg_tbl[kay->mka_algindex].icv_len);
+
+#ifdef OBPKCS_MACSEC
+	if (sess_verify_mka_icv(participant->ick_handle, buf,
+				len - mka_alg_tbl[kay->mka_algindex].icv_len,
+				msg_icv, mka_alg_tbl[kay->mka_algindex].icv_len) != 0) {
+		wpa_printf(MSG_WARNING, "KaY: SESS ICV verification failed");
+		return -1;
+	}
+#else
+	if (len < mka_alg_tbl[kay->mka_algindex].icv_len ||
+	    mka_alg_tbl[kay->mka_algindex].icv_hash(
+		    participant->ick.key, participant->ick.len,
+		    buf, len - mka_alg_tbl[kay->mka_algindex].icv_len, icv)) {
+		wpa_printf(MSG_ERROR, "KaY: Failed to calculate ICV");
+		return -1;
+	}
 	if (os_memcmp_const(msg_icv, icv,
 			    mka_alg_tbl[kay->mka_algindex].icv_len) != 0) {
 		wpa_printf(MSG_WARNING,
@@ -3242,6 +3282,7 @@ static int ieee802_1x_kay_mkpdu_validity_check(struct ieee802_1x_kay *kay,
 			    icv, mka_alg_tbl[kay->mka_algindex].icv_len);
 		return -1;
 	}
+#endif
 
 	return 0;
 }
@@ -3649,6 +3690,11 @@ ieee802_1x_kay_deinit(struct ieee802_1x_kay *kay)
 	ieee802_1x_cp_sm_deinit(kay->cp);
 	secy_deinit_macsec(kay);
 
+#ifdef OBPKCS_MACSEC
+	sess_reset_kt();
+	wpa_printf(MSG_DEBUG, "KaY: SESS Key Table reset performed");
+#endif
+
 	if (kay->l2_mka) {
 		l2_packet_deinit(kay->l2_mka);
 		kay->l2_mka = NULL;
@@ -3723,6 +3769,43 @@ ieee802_1x_kay_create_mka(struct ieee802_1x_kay *kay,
 			participant->cak.len);
 	if (life)
 		participant->cak_life = life + time(NULL);
+
+#ifdef OBPKCS_MACSEC
+	/* 1. Notify SESS to retrieve and bind CAK internally from TCM, acquiring cak_handle (0-byte plaintext CAK passed) */
+	if (sess_acquire_cak_by_ckn(ckn->name, ckn->len, &participant->cak_handle) != 0) {
+		wpa_printf(MSG_ERROR, "KaY: SESS failed to acquire CAK for CKN");
+		os_free(participant);
+		return NULL;
+	}
+
+	/* 2. Notify SESS to derive kek_handle and ick_handle inside the security domain */
+	if (sess_derive_kek_ick(participant->cak_handle, ckn->name, ckn->len,
+				&participant->kek_handle, &participant->ick_handle) != 0) {
+		wpa_printf(MSG_ERROR, "KaY: SESS failed to derive KEK/ICK");
+		os_free(participant);
+		return NULL;
+	}
+	wpa_printf(MSG_DEBUG, "KaY: SESS PKCS initialized. cak_h=0x%x, kek_h=0x%llx, ick_h=0x%x",
+		   participant->cak_handle, (unsigned long long)participant->kek_handle,
+		   participant->ick_handle);
+#else
+	if (mka_alg_tbl[kay->mka_algindex].kek_trfm(participant->cak.key,
+						   participant->cak.len,
+						   participant->ckn.name,
+						   participant->ckn.len,
+						   participant->kek.key,
+						   participant->kek.len) ||
+	    mka_alg_tbl[kay->mka_algindex].ick_trfm(participant->cak.key,
+						   participant->cak.len,
+						   participant->ckn.name,
+						   participant->ckn.len,
+						   participant->ick.key,
+						   participant->ick.len)) {
+		wpa_printf(MSG_ERROR, "KaY: Deriving KEK/ICK failed");
+		os_free(participant);
+		return NULL;
+	}
+#endif
 
 	switch (mode) {
 	case EAP_EXCHANGE:
