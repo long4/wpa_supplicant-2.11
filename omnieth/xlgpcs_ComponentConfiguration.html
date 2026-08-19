@@ -1,0 +1,314 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Parameters for DWC_xlgpcs - 2.20a</title><link rel="stylesheet" type="text/css" href="html.css"><meta name="generator" content="DocBook XSL Stylesheets V1.79.1"><link rel="home" href="#idp51791496" title="Parameters for DWC_xlgpcs - 2.20a"><link rel="next" href="#Parameter-Descriptions" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="article"><div class="titlepage"><div><div><h2 class="title"><a name="idp51791496"></a>Parameters for DWC_xlgpcs - 2.20a</h2></div></div><hr></div><div class="sect1"><div class="titlepage"></div><p>These tables define all of the user configuration options for this component. Entries which are grayed-out are disabled (read-only) in the current configuration.</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><a class="link" href="#paramtable-Features_SystemConfigurationsSettings" title="Table 1. Features / System Configurations Settings Parameters">Features / System Configurations Settings</a></li><li class="listitem"><a class="link" href="#paramtable-Features_PHYInterface" title="Table 2. Features / PHY Interface Parameters">Features / PHY Interface</a></li><li class="listitem"><a class="link" href="#paramtable-Features_MACInterface" title="Table 3. Features / MAC Interface Parameters">Features / MAC Interface</a></li><li class="listitem"><a class="link" href="#paramtable-Registers_IEEE_PORTIDDefaultsinCSR" title="Table 4. Registers / IEEE / PORT ID Defaults in CSR Parameters">Registers / IEEE / PORT ID Defaults in CSR</a></li></ul></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-Features_SystemConfigurationsSettings"></a>Features / System Configurations Settings Parameters</h3></div></div></div><div class="table"><a name="paramtable-Features_SystemConfigurationsSettings"></a><p class="title"><b>Table 1. Features / System Configurations Settings Parameters</b></p><div class="table-contents"><table class="table" summary="Features / System Configurations Settings Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td>Mode of Operation</td><td>25G</td><td>
+              <p>Configures the mode of operation of the DWC_xlgpcs.
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+25G: RTL configuration supports  25G and 10G modes.
+</li><li class="listitem">
+25G-50G: RTL configuration supports 50G, 25G, and 10G modes. If 'Single-lane Only configuration' is not selected, the configuration additionally supports 40G mode.
+</li><li class="listitem">
+40G: RTL configuration supports 40G and 10G modes.
+</li><li class="listitem">
+100G: RTL configuration supports 100G, 50G, 40G, 25G, and 10G modes.
+</li></ul></div>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">25G (0)</li><li class="listitem">25G-50G (1)</li><li class="listitem">40G (2)</li><li class="listitem">100G (3)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>40G</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_MAIN_MODE</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Single-lane Only configuration</td><td>1</td><td>
+              <p>Configures the RTL to a single-lane Only Configuration.
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+If 'Mode of Operation' is chosen as '25G-50G' and if this option is selected, the selected RTL configuration will be a single-lane configuration supporting 50Gx1 (PAM4), 25Gx1 (NRZ) and 10Gx1(NRZ) modes.
+</li><li class="listitem">
+If 'Mode of Operation' is chosen as '100G' and if this option is selected, the selected RTL configuration will be a single-lane configuration supporting 100Gx1 (PAM4), 50Gx1 (PAM4), 25Gx1 (NRZ) and 10Gx1(NRZ) modes.
+</li></ul></div>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(DWCXLP_MAIN_MODE == 1)||(DWCXLP_MAIN_MODE == 3)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_SINGLE_LANE</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Add PAM4 Mode Support</td><td>0</td><td>
+              <p>Adds Support for PAM4 Mode of operation as per IEEE802.3cd (50Gx1 or 50Gx2) or IEEE802.3ck specification (100Gx1).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(DWCXLP_MAIN_MODE == 1||DWCXLP_MAIN_MODE == 3)&amp;&amp;!DWCXLP_SINGLE_LANE</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_PAM4</p>
+            </td></tr><tr><td>Add CL73 Autoneg Support</td><td>1</td><td>
+              <p>Enable CL73 Auto-negotiation.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_CL73_AN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Support Alternate Autonegotiation flow</td><td>0</td><td>
+              <p>Adds Support for Alternate Clause 73 Auto-negotiation flow. As per this alternate flow, AN is performed only once with serdes configured to 10G NRZ mode. Switch to the negotiated speed is initiated in AN_GOOD_CHECK state without restarting the auto-negotiation. If this parameter is enabled, vendor-specific parallel-detect feature will work only for 10G NRZ mode. If this parameter is not selected, the legacy auto-negotiation flow, which involves two rounds of auto-negotiation will be supported and the vendor-specific parallel-detect feature can work in all the supported modes. User selection of this parameter is not allowed if the chosen configuration has PAM4 support or MDIO interface or Link-training support.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>!DWCXLP_PAM4&amp;&amp;DWCXLP_CL73_AN&amp;&amp;!DWCXLP_SNPS_XAUI_PHY&amp;&amp;!DWCXLP_MDIO_INTF</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_CL73_ALT</p>
+            </td></tr><tr><td>Add Timestamping Accuracy Support</td><td>1</td><td>
+              <p>Enables support for IEEE802.3cx timestamping feature.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXLP_25G_ONLY</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_TS_EN</p>
+            </td></tr><tr><td>Management Interface</td><td>APB3 Interface (32-bit register)</td><td>
+              <p>Specifies the serial Management Data Input/Output (MDIO) interface, or APB3 interface (3 types) with the Control and Status registers.
+ For 'APB3 Interface (legacy)' interface, DWC_xlgpcs registers are 16-bit wide and addresses of registers are multiples of 1. This is the legacy APB3 interface supported till 2.10a.
+ For 'APB3 Interface (16-bit register)' interface, DWC_xlgpcs registers are 16-bit wide but addresses of registers are multiples of 2.
+ For 'APB3 Interface (32-bit register)' interface, DWC_xlgpcs registers are 32-bit wide but addresses of registers are multiples of 4.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">MDIO Interface (0)</li><li class="listitem">MicroController Interface (1)</li><li class="listitem">APB3 Interface (legacy) (2)</li><li class="listitem">APB3 Interface (16-bit register) (3)</li><li class="listitem">APB3 Interface (32-bit register) (4)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>APB3 Interface (legacy)</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_CSR_INTERFACE</p>
+            </td></tr><tr><td>Enable Indirect Register Access</td><td>1</td><td>
+              <p>Enables indirect access to registers in the DWC_xlgpcs. By default, each DWC_xlgpcs register is accessible through 21-bit/22-bit(APB_16)/23-bit(APB3_32) wide address. By enabling this mode, the upper 13-bit of the address can be written to a pre-defined register so that only 8-bit or 9-bit (APB_16) or 10-bit (APB3_32) address bus is used for all register accesses in the DWC_xlgpcs.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXLP_CSR_INTERFACE!=0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_INDIRECT_ACCESS</p>
+            </td></tr><tr><td>Add CL74 Forward Error Correction Support</td><td>1</td><td>
+              <p>Enables the support for the CL74 Forward Error Correction (FEC) sub layer embedded in the PCS. This FEC can detect and correct single burst error up to 11 bits. This feature is useful for erroneous channel. The CL74 FEC will not be used in 100G Speed mode.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_FEC_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Add CL74 FEC Error Forwarding Support</td><td>1</td><td>
+              <p>Enables the CL74 FEC block to forward error information to the Block Synchronization module. This option adds more design latency and hardware in the Receive path. When you enable this option, if there are uncorrectable errors, then the error reporting ability is accurate on the XLGMII receive interface.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXLP_FEC_EN&amp;&amp;!DWCXLP_RSFEC_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_FEC_ERROR_FWD</p>
+            </td></tr><tr><td>Add (528,514) RS FEC Error Correction Support</td><td>1</td><td>
+              <p>Enables the support for the Reed-Solomon Forward Error Correction (FEC) RS(528,514) sub layer as per IEEE 802.3 clause-91/clause 108 embedded in the PCS for serial lane speeds at 25Gbps. This feature is not applicable for 10G/20G/40G mode of operation. RS-FEC Error-forwarding feature also gets added when you select this option</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(DWCXLP_MAIN_MODE != 2)&amp;&amp;!(DWCXLP_50G_25G||DWCXLP_100G_1LANE)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_RSFEC_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Add (544,514) RS FEC Error Correction Support</td><td>0</td><td>
+              <p>Enables the support for the Reed-Solomon Forward Error Correction (FEC) RS(544,514) sub layer along with Error-Forwarding Support. This feature is applicable for 100Gx1, 50Gx1 and 50Gx2 modes.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_RS544</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Add Interleaved RS(544,514) FEC Support</td><td>0</td><td>
+              <p>Enables the support for interleaved RS(544,514) FEC as per IEEE802.3ck specification for 100Gx1 mode.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXLP_100G_1LANE||DWCXLP_ADD_100G_1LANE</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_IRSFEC</p>
+            </td></tr><tr><td>Add Link Training Support</td><td>1</td><td>
+              <p>Enables the support for Link training protocol based on Clause-72 and Clause-92/Clause-93 in the PCS layer. Clause-92/93 based link training are not applicable for 10G/40G mode of operation. For PAM4 configurations, Link training is performed by the PHY and not by DWC_xlgpcs.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>!DWCXLP_RS544</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_LNK_TRAIN_EN</p>
+            </td></tr><tr><td>Add Clock Comp support</td><td>1</td><td>
+              <p>Enables the support for the Clock compensation operation to account for ppm differences between local and recovered clock.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_CLK_CMP_EN</p>
+            </td></tr><tr><td>Add SCC Align Support</td><td>1</td><td>
+              <p>Alignment of Start control character of frame on lane0/lane8 on xlgmii rx interface for 25g speed mode.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXLP_MAIN_MODE != 2</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_SCC_ALGN_EN</p>
+            </td></tr><tr><td>Add EEE Support</td><td>1</td><td>
+              <p>Enables support for Energy Efficient Ethernet (EEE).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(DWCXLP_E56==0)&amp;&amp;(DWCXLP_E112==0)&amp;&amp;!DWCXLP_50G_25G&amp;&amp;!DWCXLP_100G_1LANE&amp;&amp;!DWCXLP_KR4_50G</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_EEE_EN</p>
+            </td></tr><tr><td>Add Automotive Safety Support</td><td>1</td><td>
+              <p>Enables support for Automotive Safety features like FSM Parity, FSM Time out, Data Path Parity, ECC for Memory and Interface Time Out.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXLP_MAIN_MODE==0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_ASP</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Add ECC protection for memories</td><td>1</td><td>
+              <p>Enables support for ECC protection of memories.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>!DWCXLP_ASP&amp;&amp;(DWCXLP_RSFEC_EN||DWCXLP_FEC_EN)&amp;&amp;(DWCXLP_MAIN_MODE==0)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_ADD_ECC_PROT</p>
+            </td></tr><tr><td>Add Debug Bus</td><td>1</td><td>
+              <p>Enables support for Output Debug Bus.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_DBG_BUS</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-Features_PHYInterface"></a>Features / PHY Interface Parameters</h3></div></div></div><div class="table"><a name="paramtable-Features_PHYInterface"></a><p class="title"><b>Table 2. Features / PHY Interface Parameters</b></p><div class="table-contents"><table class="table" summary="Features / PHY Interface Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr bgcolor="#C0C0C0"><td>PHY Receives LSb First</td><td>0</td><td>
+              <p>Indicates that the PHY first receives the least significant bit of the rpcs_rx_data{lane}_i[rpcs_phw:0].</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>!DWCXLP_SNPS_XAUI_PHY&amp;&amp;!(DWCXLP_E56||DWCXLP_E112)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_RX_LSB_FIRST</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>PHY Transmits LSb First</td><td>0</td><td>
+              <p>Indicates that the PHY first transmits the least significant bit of rpcs_tx_data{lane}_o[rpcs_phw:0].</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>!DWCXLP_SNPS_XAUI_PHY&amp;&amp;!(DWCXLP_E56||DWCXLP_E112)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_TX_LSB_FIRST</p>
+            </td></tr><tr><td>PHY Type</td><td>Multi-protocol 32G</td><td>
+              <p>Select the Phy Type. Appropriate logic and I/O signals gets added to DWC_xlgpcs based on the selected PHY.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Non-Synopsys PHY (0)</li><li class="listitem">Multi-protocol 25G (1)</li><li class="listitem">Multi-protocol 16G (2)</li><li class="listitem">Multi-protocol 32G (3)</li><li class="listitem">Multi-protocol 12G (4)</li><li class="listitem">Enterprise 56G (5)</li><li class="listitem">Enterprise 112G (6)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>Non-Synopsys PHY</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_PHY_TYPE</p>
+            </td></tr><tr><td>Reference Clock Frequency</td><td>156.25 MHz</td><td>
+              <p>Indicates the reference clock frequency for Synopsys PHY to program the default MPLL parameters of PHY during power up. This parameter has no impact on DWC_xlgpcs RTL when 'Enterprise 56G' or 'Enterprise 112G" PHY is selected</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">156.25 MHz (0)</li><li class="listitem">78.125MHz (1)</li><li class="listitem">312.5MHz (2)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>156.25 MHz</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXLP_SNPS_XAUI_PHY</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_REF_CLK_FREQ</p>
+            </td></tr><tr><td>Reference Clock Source</td><td>Pad Clk</td><td>
+              <p>Selects the source of reference clock for Synopsys PHY. This parameter has no impact on DWC_xlgpcs RTL when 'Enterprise 56G' or 'Enterprise 112G" PHY is selected</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Pad Clk (0)</li><li class="listitem">Alt Clk (1)</li><li class="listitem">Alt 1 Clk (2)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>Pad Clk</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXLP_SNPS_XAUI_PHY</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_REF_CLK_SRC</p>
+            </td></tr><tr><td>Common Context Select Value</td><td>0x4</td><td>
+              <p>Default value of Common context select value that is driven to PHY. Set this to appropriate value for the default operating speed mode of DWC_xlgpcs as per the PHY ROM/SRAM image used</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xff</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXLP_E32</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_CM_CNTX_SEL</p>
+            </td></tr><tr><td>Rx Context Select Value</td><td>0x4</td><td>
+              <p>Default value of Rx context select value that is driven to PHY. Set this to appropriate value for the default operating speed mode of DWC_xlgpcs as per the PHY ROM/SRAM image used</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xff</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXLP_E32</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_RX_CNTX_SEL</p>
+            </td></tr><tr><td>Tx Context Select Value</td><td>0x4</td><td>
+              <p>Default value of Tx context select value that is driven to PHY. Set this to appropriate value for the default operating speed mode of DWC_xlgpcs as per the PHY ROM/SRAM image used</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xff</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXLP_E32</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_TX_CNTX_SEL</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Add signals to indicate PHY Ready</td><td>0</td><td>
+              <p>PHY Ready input signal. This will enable inclusion of input ports tx_phy_rdy_i and rx_phy_rdy_i, which when asserted indicates that all clocks from PHY are stable and normal operation can be started.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>!DWCXLP_SNPS_XAUI_PHY&amp;&amp;!DWCXLP_E56&amp;&amp;!DWCXLP_E112&amp;&amp;!DWCXLP_CL73_ALT</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_ADD_PHY_RDY</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Add per-lane XSBI Tx clock</td><td>0</td><td>
+              <p>Enables Support for Separate XSBI Tx clock for each lane.
+ This feature is enabled only if the SerDes does not take a transmit clock per-lane as input, but instead samples the input tx{lane} data with an internal per-lane clock.
+ Note that, even though DWC_xlgpcs allows support of separate XSBI tx clock per-lane, it cannot tolerate any ppm difference in frequency between the various XSBI Tx clocks. It can only tolerate differences in jitter. Moreover, the internal datapath still operates with a single clk_rpcs_tx_i.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(DWCXLP_R_SRDS_INTF!=3)&amp;&amp;!DWCXLP_SINGLE_LANE&amp;&amp;(DWCXLP_PHY_TYPE==0)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_XSBI_TX_CLK_PER_LN</p>
+            </td></tr><tr><td>RPCS PHY Interface Width in NRZ Mode</td><td>32</td><td>
+              <p>Specifies the data width of the data interface (rpcs_tx_data{lane}_o[rpcs_phw:0] and rpcs_rx_data{lane}_i[rpcs_phw:0]) to the BASE-R PHY when operating in NRZ mode. When operating in PAM4 modes, effective data-width will be double the chosen width, as 2 lanes of DWC_xlgpcs get connected to a single lane of the PHY.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">16 (0)</li><li class="listitem">32 (1)</li><li class="listitem">33 (2)</li><li class="listitem">66 (3)</li><li class="listitem">20 (4)</li><li class="listitem">64 (5)</li><li class="listitem">80 (6)</li><li class="listitem">40 (7)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>40</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_R_SRDS_INTF</p>
+            </td></tr><tr><td>Enable GPIO</td><td>0</td><td>
+              <p>Enables the General Purpose Inputs/Outputs (GPIO). This option can be enabled if you want some side-band signals for control/status purpose.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>!DWCXLP_E56</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_GPIO_EN</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-Features_MACInterface"></a>Features / MAC Interface Parameters</h3></div></div></div><div class="table"><a name="paramtable-Features_MACInterface"></a><p class="title"><b>Table 3. Features / MAC Interface Parameters</b></p><div class="table-contents"><table class="table" summary="Features / MAC Interface Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td>XLGMII interface data-width</td><td>32</td><td>
+              <p>Specifies the data width of the MAC interface (xlgmii_txd_i and xlgmii_rxd_o) as 128-bit or 64-bit or 32-bit. This selection is available only for 25G_Only configurations. When the chosen option is '64', both 25G and 10G modes operate with 64-bit wide interface. When the chosen option is '32', both 25G and 10G modes operate with 32-bit wide interface. If the chosen option is '128', a 128-bit wide interface is used for all modes except 10G mode. In 10G mode, only lower 32-bits of the 128-bit interface will be active.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">128 (0)</li><li class="listitem">64 (1)</li><li class="listitem">32 (2)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>128</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXLP_MAIN_MODE == 0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_XLGMII_INTF_WIDTH</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-Registers_IEEE_PORTIDDefaultsinCSR"></a>Registers / IEEE / PORT ID Defaults in CSR Parameters</h3></div></div></div><div class="table"><a name="paramtable-Registers_IEEE_PORTIDDefaultsinCSR"></a><p class="title"><b>Table 4. Registers / IEEE / PORT ID Defaults in CSR Parameters</b></p><div class="table-contents"><table class="table" summary="Registers / IEEE / PORT ID Defaults in CSR Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td>Support to Modify Default Values IEEE Registers</td><td>1</td><td>
+              <p>Makes the IEEE Device or Package Identifier registers programmable through Vendor-Specific Control MMD.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_IEEE_REG_WR_SUPPORT</p>
+            </td></tr><tr><td>XS/PCS Device OUI (24-bit)</td><td>0xcda679</td><td>
+              <p>Configures the default value of the 24-bit IEEE XGXS/PCS Device Organizationally Unique Identifier.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xffffff</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0xcda679</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_IEEE_DEV_OUI</p>
+            </td></tr><tr><td>XS/PCS Device Model Number (6-bit)</td><td>0x2d</td><td>
+              <p>Configures the default value of the 6-bit IEEE XGXS/PCS Device Model Number.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0x2f</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x2d</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_IEEE_DEV_MODEL_NO</p>
+            </td></tr><tr><td>XS/PCS Device Revision Number (4-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of the 4-bit IEEE XGXS/PCS Device Revision Number.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xf</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_IEEE_DEV_REV_NO</p>
+            </td></tr><tr><td>Package OUI (24-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of the 24-bit IEEE Package Organizationally Unique Identifier.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xffffff</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_IEEE_PKG_OUI</p>
+            </td></tr><tr><td>Package Model Number (6-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of the 6-bit IEEE Package Model Number.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0x2f</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_IEEE_PKG_MODEL_NO</p>
+            </td></tr><tr><td>Package Revision Number (4-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of the 4-bit IEEE Package Revision Number.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xf</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_IEEE_PKG_REV_NO</p>
+            </td></tr><tr><td>PMA Device OUI (24-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of the 24-bit IEEE PMA Device Organizationally Unique Identifier.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xffffff</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXLP_PMA_MMD == 1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_IEEE_PMA_DEV_OUI</p>
+            </td></tr><tr><td>PMA Device Model Number (6-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of the 6-bit IEEE PMA Device Model Number.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0x2f</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXLP_PMA_MMD == 1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_IEEE_PMA_DEV_MODEL_NO</p>
+            </td></tr><tr><td>PMA Device Revision Number (4-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of the 4-bit IEEE PMA Device Revision Number.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xf</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXLP_PMA_MMD == 1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_IEEE_PMA_DEV_REV_NO</p>
+            </td></tr><tr><td>AN Device OUI (24-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of 24-bit IEEE AN Device Organizationally Unique Identifier (OUI).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xffffff</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_IEEE_AN_DEV_OUI</p>
+            </td></tr><tr><td>AN Device Model Number (6-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of 6-bit IEEE AN Device Model Number.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0x2f</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_IEEE_AN_DEV_MODEL_NO</p>
+            </td></tr><tr><td>AN Device Revision Number (4-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of 4-bit IEEE AN Device Revision Number.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xf</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_IEEE_AN_DEV_REV_NO</p>
+            </td></tr><tr><td>Vendor-Specific MMD1 Device OUI (24-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of 24-bit IEEE Vendor-Specific MMD1 Device Organizationally Unique Identifier (OUI).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xffffff</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_IEEE_VS_DEV_OUI</p>
+            </td></tr><tr><td>Vendor-Specific MMD1 Device Model Number (6-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of 6-bit IEEE Vendor-Specific MMD1 Device Model Number.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0x2f</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_IEEE_VS_DEV_MODEL_NO</p>
+            </td></tr><tr><td>Vendor Specific MMD1 Device Revision Number (4-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of 4-bit IEEE Vendor-Specific MMD1 Device Revision Number.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xf</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXLP_IEEE_VS_DEV_REV_NO</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div></div></div></body></html>

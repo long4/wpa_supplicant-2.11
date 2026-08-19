@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"specstory.cloudSync.enabled": "never",
+		"git.ignoreLimitWarning": true
+	}
+}

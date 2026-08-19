@@ -1,0 +1,1464 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Parameters for DWC_25gmac - 4.20a</title><link rel="stylesheet" type="text/css" href="html.css"><meta name="generator" content="DocBook XSL Stylesheets V1.79.1"><link rel="home" href="#idp45074792" title="Parameters for DWC_25gmac - 4.20a"><link rel="next" href="#Parameter-Descriptions" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="article"><div class="titlepage"><div><div><h2 class="title"><a name="idp45074792"></a>Parameters for DWC_25gmac - 4.20a</h2></div></div><hr></div><div class="sect1"><div class="titlepage"></div><p>These tables define all of the user configuration options for this component. Entries which are grayed-out are disabled (read-only) in the current configuration.</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><a class="link" href="#paramtable-ApplicationInterface" title="Table 1. Application Interface Parameters">Application Interface</a></li><li class="listitem"><a class="link" href="#paramtable-GeneralFeatures" title="Table 2. General Features Parameters">General Features</a></li><li class="listitem"><a class="link" href="#paramtable-GeneralFeatures_CDCSynchronization" title="Table 3. General Features / CDC Synchronization Parameters">General Features / CDC Synchronization</a></li><li class="listitem"><a class="link" href="#paramtable-BufferManagement" title="Table 4. Buffer Management Parameters">Buffer Management</a></li><li class="listitem"><a class="link" href="#paramtable-Filtering" title="Table 5. Filtering Parameters">Filtering</a></li><li class="listitem"><a class="link" href="#paramtable-PHYInterface" title="Table 6. PHY Interface Parameters">PHY Interface</a></li><li class="listitem"><a class="link" href="#paramtable-MultipleQueuesSupport" title="Table 7. Multiple Queues Support Parameters">Multiple Queues Support</a></li><li class="listitem"><a class="link" href="#paramtable-TCP_IPOffloadingFeatures" title="Table 8. TCP/IP Offloading Features Parameters">TCP/IP Offloading Features</a></li><li class="listitem"><a class="link" href="#paramtable-IEEE1588Timestamping" title="Table 9. IEEE 1588 Timestamping Parameters">IEEE 1588 Timestamping</a></li><li class="listitem"><a class="link" href="#paramtable-TimeSensitiveNetworking" title="Table 10. Time Sensitive Networking Parameters">Time Sensitive Networking</a></li><li class="listitem"><a class="link" href="#paramtable-RMONCounters" title="Table 11. RMON Counters Parameters">RMON Counters</a></li><li class="listitem"><a class="link" href="#paramtable-RMONCounters_TransmitCounters" title="Table 12. RMON Counters / Transmit Counters Parameters">RMON Counters / Transmit Counters</a></li><li class="listitem"><a class="link" href="#paramtable-RMONCounters_ReceiveCounters" title="Table 13. RMON Counters / Receive Counters Parameters">RMON Counters / Receive Counters</a></li><li class="listitem"><a class="link" href="#paramtable-RMONCounters_ReceiveIPCCounters" title="Table 14. RMON Counters / Receive IPC Counters Parameters">RMON Counters / Receive IPC Counters</a></li><li class="listitem"><a class="link" href="#paramtable-AutomotiveSafetyFeatures" title="Table 15. Automotive Safety Features Parameters">Automotive Safety Features</a></li><li class="listitem"><a class="link" href="#paramtable-LowPowerManagement" title="Table 16. Low Power Management Parameters">Low Power Management</a></li></ul></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-ApplicationInterface"></a>Application Interface Parameters</h3></div></div></div><div class="table"><a name="paramtable-ApplicationInterface"></a><p class="title"><b>Table 1. Application Interface Parameters</b></p><div class="table-contents"><table class="table" summary="Application Interface Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Top-Level Configuration
+            </td></tr><tr><td>Application Interface Configuration</td><td>XGMAC-AXI</td><td>
+              <p>Configures the top-level application interface.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">XGMAC-CORE (0)</li><li class="listitem">XGMAC-MTL (1)</li><li class="listitem">XGMAC-AXI (2)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>XGMAC-AXI</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG</p>
+            </td></tr><tr><td>External CSR Memory Address Width</td><td>8</td><td>
+              <p>Indicates Address width of External CSR Memory.</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>8</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_HDMA</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_DCSRAW</p>
+            </td></tr><tr><td>External CSR Memory Data Width</td><td>128</td><td>
+              <p>Indicates External CSR Memory Datawidth.</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>128</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_HDMA</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_DCSRDW</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Application Data Path
+            </td></tr><tr><td>Data Width</td><td>128</td><td>
+              <p>Configures the width of the data bus on the system interface.</p>
+              <p><span class="bold"><strong>Values: </strong></span>64, 128</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>128</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_DATAWIDTH</p>
+            </td></tr><tr><td>Endian Mode</td><td>LITTLE_ENDIAN</td><td>
+              <p>Configures the system interface to be either little-endian or big-endian mode or to have an input pin (sbd_endianness_i) to configure both modes. The sbd_endianness_i input pin is added when you select BOTH_OPTIONS.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">LITTLE_ENDIAN (0)</li><li class="listitem">BIG_ENDIAN (1)</li><li class="listitem">BOTH_OPTIONS (2)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>LITTLE_ENDIAN</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_ENDIAN_NESS</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              CSR Port
+            </td></tr><tr><td>CSR Interface</td><td>APB3</td><td>
+              <p>Enables the CSR port to have the MCI, APB3, APB4, AXI4-Lite, or AXI interface as the subordinate interface.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">MCI (0)</li><li class="listitem">APB3 (1)</li><li class="listitem">AXI (2)</li><li class="listitem">AXI4-Lite (3)</li><li class="listitem">APB4 (4)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>AXI</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_CSR_PORT</p>
+            </td></tr><tr><td>Use Different Clock for CSR</td><td>1</td><td>
+              <p>Uses a separate clock port instead of the default application clock for the CSR interface.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG!=0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_CSR_SLV_CLK</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>CSR Port Data Width</td><td>32</td><td>
+              <p>Configures the width of the data bus on the AXI subordinate port.</p>
+              <p><span class="bold"><strong>Values: </strong></span>32, 64, 128</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>32</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_CSR_PORT==2</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_CSR_DATAWIDTH</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              AXI Interface Options
+            </td></tr><tr><td>Address Width</td><td>32</td><td>
+              <p>Configures the width of the address bus on the AXI Manager interface.</p>
+              <p><span class="bold"><strong>Values: </strong></span>32, 40, 48</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>32</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG&gt;1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_ADDRWIDTH</p>
+            </td></tr><tr><td>Maximum Outstanding Read Burst Requests for each Transmit DMA Channel</td><td>16</td><td>
+              <p>Indicates the maximum number of outstanding Read burst requests for each Transmit DMA channel.</p>
+              <p><span class="bold"><strong>Values: </strong></span>2, 4, 8, 16, 32, 64</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>2</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(DWCXG == 2) || DWCXG_HDMA</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MAX_RDBREQ</p>
+            </td></tr><tr><td>Maximum Outstanding Write Burst Requests for each Receive DMA Channel</td><td>16</td><td>
+              <p>Indicates the maximum number of outstanding Write burst requests for each Rx DMA channel.</p>
+              <p><span class="bold"><strong>Values: </strong></span>2, 4, 8, 16, 32, 64</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>2</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(DWCXG == 2) || DWCXG_HDMA</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MAX_WRBREQ</p>
+            </td></tr><tr><td>Enable Unique AXI ID for Descriptor Access</td><td>1</td><td>
+              <p>Enables the logic for assigning Unique AXI IDs for Descriptor Access based on Tx/Rx channel number</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG == 2</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_UAXIID</p>
+            </td></tr><tr><td>AXI Manager Bus ID Width</td><td>6</td><td>
+              <p>Sets the AXI Manager bus ID width.</p>
+              <p><span class="bold"><strong>Values: </strong></span>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>6</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG == 2</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_AXI_GM_AXI_ID_WIDTH</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>AXI Subordinate Bus ID Width</td><td>8</td><td>
+              <p>Sets the AXI subordinate bus ID width.</p>
+              <p><span class="bold"><strong>Values: </strong></span>2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>8</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_CSR_PORT==2</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_GS_ID</p>
+            </td></tr><tr><td>AXI Maximum Outstanding Read Requests</td><td>64</td><td>
+              <p>Indicates the maximum number of outstanding Read requests on the AXI interface.</p>
+              <p><span class="bold"><strong>Values: </strong></span>8, 16, 32, 64, 128, 256</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>32</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG == 2</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_AXI_GM_MAX_RD_REQUESTS</p>
+            </td></tr><tr><td>AXI Maximum Outstanding Write Requests</td><td>64</td><td>
+              <p>Indicates the maximum number of outstanding Write requests on the AXI interface.</p>
+              <p><span class="bold"><strong>Values: </strong></span>8, 16, 32, 64, 128, 256</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>32</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG == 2</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_AXI_GM_MAX_WR_REQUESTS</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Sideband Signals
+            </td></tr><tr><td>Add DMA Start and Stop as Primary inputs</td><td>0</td><td>
+              <p>Enables DMA Starting and Stopping through Side-Band input signals.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>((!DWCXG_CORE)&amp;&amp;(!DWCXG_MTL_SUBSYS)&amp;&amp;DWCXG_EDMA)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_DMA_STRTSTP</p>
+            </td></tr><tr><td>Add Rx Flow Control Enable as Primary Input</td><td>0</td><td>
+              <p>Enables side-band Rx flow control input from the application.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG!=0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_SBD_FC_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Add MAC Tx/Rx Disable as Primary Input</td><td>0</td><td>
+              <p>Enables the top-level inputs for MAC Tx/Rx disable.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(DWCXG==0)||(DWCXG==1)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_ADD_TXRX_DIS_IO</p>
+            </td></tr><tr><td>Add General Purpose IO</td><td>0</td><td>
+              <p>Adds the side-band general purpose IO signals.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_GPIO_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>GP Input Signal Width</td><td>0</td><td>
+              <p>Sets the width of the general purpose input bus.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 4, 8, 12, 16</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_GPIO_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_GIW</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>GP Output Signal Width</td><td>0</td><td>
+              <p>Sets the width of the general purpose output bus.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 4, 8, 12, 16</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_GPIO_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_GOW</p>
+            </td></tr><tr><td>Add Speed Mode/EEE State/MAC_Address0 Register Controls as Primary Input</td><td>0</td><td>
+              <p>External IO control interface for changing the speed mode/EEE state/MAC_Address0 register.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_ADD_SBD_IO</p>
+            </td></tr><tr><td>Per Channel Transmit Descriptor Cache Size</td><td>32</td><td>
+              <p>Specifies Per Tx channel descriptor cache size in number of normal descriptors</p>
+              <p><span class="bold"><strong>Values: </strong></span>16, 32, 64, 128</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>32</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(DWCXG == 2) || DWCXG_HDMA</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_PCHTDC_SZ</p>
+            </td></tr><tr><td>Per Channel Receive Descriptor Cache Size</td><td>32</td><td>
+              <p>Specifies Per Rx channel descriptor cache size in number of normal descriptors</p>
+              <p><span class="bold"><strong>Values: </strong></span>16, 32, 64, 128</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>32</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(DWCXG == 2) || DWCXG_HDMA</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_PCHRDC_SZ</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Descriptor Cache Memory Size in Bytes</td><td>12288</td><td>
+              <p>Specifies the size of the separate memory of pre-fetched descriptors.</p>
+              <p><span class="bold"><strong>Values: </strong></span>512, ..., 524288</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>12288</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_CACHE_MEM_EN&amp;&amp;DWCXG_EDMA&amp;&amp;DWCXG_TSO_MEM_EN&amp;&amp;DWCXG_DIFF_CACHE_MEM_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_DCACHE_MEM_SIZE</p>
+            </td></tr><tr><td>TSO (and Descriptor Cache) Memory Size in Bytes</td><td>15360</td><td>
+              <p>Specifies the size of the separate memory and/or pre-fetched descriptors.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, ..., 1064960</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>15360</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_TSO_MEM_EN||DWCXG_EDMA</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_CACHE_MEM_SIZE</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-GeneralFeatures"></a>General Features Parameters</h3></div></div></div><div class="table"><a name="paramtable-GeneralFeatures"></a><p class="title"><b>Table 2. General Features Parameters</b></p><div class="table-contents"><table class="table" summary="General Features Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Reset Mode
+            </td></tr><tr><td>Enable Asynchronous or Synchronous Resets for All Flops</td><td>Asynchronous Reset</td><td>
+              <p>Specifies the asynchronous or synchronous reset for all flip-flops.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Synchronous Reset (0)</li><li class="listitem">Asynchronous Reset (1)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>Asynchronous Reset</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_RESET_MODE</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Duplex Mode
+            </td></tr><tr><td>Enables Full Duplex Only Mode</td><td>1</td><td>
+              <p>Enables Full Duplex Only Mode. When GMII is selected and this feature is deselected in configuration, Half-Duplex mode can be enabled through programming when operating in 10/100M speed modes.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_XGMII_GMII==1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_FDUPLX_ONLY</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              USER DEFINED VERSION
+            </td></tr><tr><td>User-Defined Controller Version</td><td>0x10</td><td>
+              <p>Specifies the user-defined version# inserted in the MAC_Version register (for example, 8'h10 for version 1.0).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x10, ..., 0xff</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x10</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_USER_VER</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Double VLAN
+            </td></tr><tr><td>Enable Double VLAN Processing</td><td>1</td><td>
+              <p>Enables the logic to process up to two VLAN tags.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_DOUBLE_VLAN_EN</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              SA-VLAN Insertion
+            </td></tr><tr><td>Enable Queue/Channel based VLAN tag insertion on Tx</td><td>1</td><td>
+              <p>Enables Queue/Channel based VLAN tag insertion.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_NUM_TXQ&gt;1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_CBTI_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable SA and VLAN Insertion on Tx</td><td>1</td><td>
+              <p>Enables the logic for the following features for Transmit packets:
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+Source address insertion or replacement
+</li><li class="listitem">
+VLAN insertion, replacement, or deletion
+</li></ul></div>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>!DWCXG_CBTI_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_SA_VLAN_INS_CTRL_EN</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Transmit Status
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable Transmit Status Interface in XGMAC-MTL</td><td>0</td><td>
+              <p>Enables transmit status forwarding in the MTL.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG==1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_TXSTSE</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              ITU-T G.999.1 Function
+            </td></tr><tr><td>Enable ITU-T G.999.1 Function</td><td>0</td><td>
+              <p>Enables the support for processing Ethernet Encapsulated ITU-T G.999.1 packets.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_G9991_EN</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-GeneralFeatures_CDCSynchronization"></a>General Features / CDC Synchronization Parameters</h3></div></div></div><div class="table"><a name="paramtable-GeneralFeatures_CDCSynchronization"></a><p class="title"><b>Table 3. General Features / CDC Synchronization Parameters</b></p><div class="table-contents"><table class="table" summary="General Features / CDC Synchronization Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              CDC Synchronization Configuration
+            </td></tr><tr><td>Number of Stages in CDC Synchronizer</td><td>TWO_STAGE</td><td>
+              <p>Configures the number of stages in the CDC synchronizer</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">TWO_STAGE (2)</li><li class="listitem">THREE_STAGE (3)</li><li class="listitem">FOUR_STAGE (4)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>TWO_STAGE</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_F_SYNC_TYPE</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              CDC Synchronization Selection
+            </td></tr><tr><td>Synchronize CSR MAC Address to Tx/Rx Clock Domain</td><td>1</td><td>
+              <p>Enables the synchronization of MAC address registers to the Transmit or Receive clock domain. Otherwise, the CSR MAC Address Register value that is written with the application clock is directly used in the Transmit or Receive clock domain.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_SYNC_MACADDR</p>
+            </td></tr><tr><td>Synchronize Pause Time to Tx Clock Domain</td><td>1</td><td>
+              <p>Enables the synchronization of the Pause Timer register to the Transmit clock domain.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_SYNC_PAUSETIME</p>
+            </td></tr><tr><td>Synchronize VLAN Tag Register to Rx/Tx Clock Domain</td><td>1</td><td>
+              <p>Enables the synchronization of the VLAN tag register to the Receive and Transmit clock domain.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_SYNC_VLANTAG</p>
+            </td></tr><tr><td>Synchronize VLAN Hash Table to Rx Clock Domain</td><td>1</td><td>
+              <p>Enables the synchronization of the VLAN Hash Table register to the Receive clock domain.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_VLAN_HASH_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_SYNC_VLAN_HASHTABLE</p>
+            </td></tr><tr><td>Synchronize Hash Table to Rx Clock Domain</td><td>1</td><td>
+              <p>Enables the synchronization of the Hash Table register to the Receive clock domain.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_DA_HASH_EN&amp;&amp;(DWCXG_HASH_TABLE&gt;0)&amp;&amp;(DWCXG_HASH_TABLE&lt;=256)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_SYNC_HASHTABLE</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Synchronize PMT Remote Wake-Up Packet Filter Registers to Rx Clock Domain</td><td>0</td><td>
+              <p>Enables the synchronization of the PMT Remote Wake-Up packet filter registers to the Receive clock domain.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_PMT_RWK_EN==1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_SYNC_PMT_RWK_FILT</p>
+            </td></tr><tr><td>Synchronize ARP Protocol Address Register to Rx and Tx Clock Domains</td><td>1</td><td>
+              <p>Enables the synchronization of the ARP Protocol Address Register to the receive and transmit clock domain.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_ARP_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_SYNC_ARP_PROT_ADDR</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-BufferManagement"></a>Buffer Management Parameters</h3></div></div></div><div class="table"><a name="paramtable-BufferManagement"></a><p class="title"><b>Table 4. Buffer Management Parameters</b></p><div class="table-contents"><table class="table" summary="Buffer Management Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Receive FIFO Depth
+            </td></tr><tr><td>MTL Receive FIFO Size in bytes</td><td>131072</td><td>
+              <p>Specifies the size of the MTL Receive FIFO.</p>
+              <p><span class="bold"><strong>Values: </strong></span>1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>4096</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG != 0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_RXFIFO_SIZE</p>
+            </td></tr><tr><td>MTL Rx FIFO Address Bus Width</td><td>13</td><td>
+              <p>Specifies the address bus width for the selected Receive FIFO depth.</p>
+              <p><span class="bold"><strong>Values: </strong></span>3, ..., 16</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>13</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG&gt;0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_RX_FIFO_PTR_WIDTH</p>
+            </td></tr><tr><td>MTL Rx FIFO Data Width</td><td>133</td><td>
+              <p>Specifies the data bus width to MTL Receive FIFO DPRAM including overhead bits.</p>
+              <p><span class="bold"><strong>Values: </strong></span>68, ..., 263</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>133</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG != 0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_RXFIFO_DATA_WIDTH</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Transmit FIFO Depth
+            </td></tr><tr><td>MTL Transmit FIFO Size in bytes</td><td>131072</td><td>
+              <p>Specifies the size of the MTL Transmit FIFO.</p>
+              <p><span class="bold"><strong>Values: </strong></span>1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>4096</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG != 0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_TXFIFO_SIZE</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Maximum Number of Packets in the Transmit FIFO</td><td>2</td><td>
+              <p>Specifies the maximum number of packets that can be pushed into the Transmit FIFO at a time without any transmit status being read out on the ATI interface.</p>
+              <p><span class="bold"><strong>Values: </strong></span>2, 4, 8</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>2</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG == 1 &amp;&amp; DWCXG_TXSTSE</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MAX_FRAME_IN_TXFIFO</p>
+            </td></tr><tr><td>MTL Transmit FIFO Address Bus Width</td><td>13</td><td>
+              <p>Specifies the address bus width for selected Transmit FIFO depth.</p>
+              <p><span class="bold"><strong>Values: </strong></span>4, ..., 15</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>13</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG != 0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_TX_FIFO_PTR_WIDTH</p>
+            </td></tr><tr><td>MTL Transmit FIFO Data Width</td><td>133</td><td>
+              <p>Specifies the data bus width to MTL Transmit FIFO DPRAM including overhead bits.</p>
+              <p><span class="bold"><strong>Values: </strong></span>68, ..., 263</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>133</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG != 0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_TXFIFO_DATA_WIDTH</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Memory Type
+            </td></tr><tr><td>MTL Tx and Rx Memory Type</td><td>SPRAM</td><td>
+              <p>Select RAM interfaces: ASYNC DPRAM, SYNC DPRAM, and SPRAM.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">ASYNC_DPRAM (0)</li><li class="listitem">SYNC_DPRAM (1)</li><li class="listitem">SPRAM (2)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>ASYNC_DPRAM</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG!=0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MTL_MEMTYP</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Debug Mode Enable
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable Debug Memory Access</td><td>1</td><td>
+              <p>Enables read, write, and debug access to the Transmit, Receive, and TSO memories through the CSR interface.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(DWCXG&gt;0)&amp;&amp;!DWCXG_ASP_ECC</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_DBG_FIFO_ACCESS</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-Filtering"></a>Filtering Parameters</h3></div></div></div><div class="table"><a name="paramtable-Filtering"></a><p class="title"><b>Table 5. Filtering Parameters</b></p><div class="table-contents"><table class="table" summary="Filtering Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Additional MAC Address Registers
+            </td></tr><tr><td>Enable Additional 1-63 MAC Address Registers</td><td>31</td><td>
+              <p>Enables MAC address registers 1-63 for the address filter block.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 39, 47, 63</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_ADD_MAC_ADDR_REG</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              DA Hash Filter
+            </td></tr><tr><td>Enable Destination Address Hash Table Filter</td><td>1</td><td>
+              <p>Enables the DA Hash Table register and related filter logic.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>!(DWCXG_FPGA||DWCXG_FPGA_V2)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_DA_HASH_EN</p>
+            </td></tr><tr><td>Destination Address Hash Table Size</td><td>256</td><td>
+              <p>Specifies the size (width for internal table or number of entries for external table) of the Destination Address Hash Table for its filtering and routing logic. Up to 256 size selection, IP implements internal register-based table. For more than 256 size selection, IP implements external RXF memory-based table.</p>
+              <p><span class="bold"><strong>Values: </strong></span>64, 128, 256, 512, 1024, 2048, 4096</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>64</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_DA_HASH_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_HASH_TABLE</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              VLAN Filter
+            </td></tr><tr><td>Enable Address Filter VLAN Hash Table</td><td>1</td><td>
+              <p>Enables the VLAN Hash Table register and related filter logic.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>!DWCXG_FPGA</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_VLAN_HASH_EN</p>
+            </td></tr><tr><td>Extended Rx VLAN Filter Enable</td><td>1</td><td>
+              <p>Enables the VLAN tags based Filtering and Routing logic.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_ERVFE</p>
+            </td></tr><tr><td>Number of VLAN Tag Filters</td><td>32</td><td>
+              <p>Specifies the number of VLAN tag based filters. When 4096 option is selected, the VLAN Tag filters are implemented in External Receive Filter (RXF) Memory.</p>
+              <p><span class="bold"><strong>Values: </strong></span>1, 4, 8, 16, 24, 32, 40, 48, 64, 4096</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>4</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_NRVF</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              IP Filter
+            </td></tr><tr><td>Enable Layer 3 and Layer 4 Packet Filter</td><td>1</td><td>
+              <p>Enables Layer 3 and Layer 4 based frame filtering for Receive packets.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_L3_L4_FILTER_EN</p>
+            </td></tr><tr><td>Number of Layer 3 and Layer 4 Packet Filters</td><td>32</td><td>
+              <p>Specifies the number of additional Layer 3 and Layer 4 packet filters.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1, 2, 3, 4, 5, 6, 7, 8, 16, 24, 32, 40, 48, 64</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_L3_L4_FILTER_EN==1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_L3_L4_FILTER_NUM</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Flexible Receive Parser
+            </td></tr><tr><td>Enable Flexible Receive Parser</td><td>1</td><td>
+              <p>Selects the Flexible Receive Parser logic to filter or forward received packets to specific Receive DMA channel.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(DWCXG&gt;1)&amp;&amp;(DWCXG_NUM_DMA_RX_CH&gt;1)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_FRP_EN</p>
+            </td></tr><tr><td>Maximum FRP Parsable Bytes from Start of Packet</td><td>128</td><td>
+              <p>Decides the maximum number of bytes from the Start of Packet that is parsed by the Parser.</p>
+              <p><span class="bold"><strong>Values: </strong></span>64, 128, 256</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>256</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_FRP_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_FRP_PB</p>
+            </td></tr><tr><td>Maximum Entries of Parser Instruction Table</td><td>128</td><td>
+              <p>Specifies the maximum number of Parser Instructions.</p>
+              <p><span class="bold"><strong>Values: </strong></span>64, 128, 256, 512</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>256</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_FRP_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_FRP_ENTRIES</p>
+            </td></tr><tr><td>Number of Parallel Instruction Processor Engines</td><td>6</td><td>
+              <p>Specifies the number of Parallel Instruction Processor Engines to implement inside FRP processor.</p>
+              <p><span class="bold"><strong>Values: </strong></span>2, 3, 4, 5, 6</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>6</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_FRP_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_FRP_PIPE</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Receive Filter Memory
+            </td></tr><tr><td>Enable MAC Receive Filter (RXF) Memory</td><td>1</td><td>
+              <p>Enable External Memory for MAC Receive Filters. This is automatically selected when any or all of following features are selected: DA Hash Table Size greater than 256, Number of VLAN Tag Filters equal to 4096, RSS Lookup Depth greater than 256.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_EXT_DAH_EN||DWCXG_EXT_RVTL_EN||DWCXG_EXT_RSSL_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_RXF_MEM_EN</p>
+            </td></tr><tr><td>MAC RXF Memory address width</td><td>9</td><td>
+              <p>Specifies the address width for MAC RXF memory</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, ..., 14</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>9</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_RXF_MEM_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_RXF_MEM_AW</p>
+            </td></tr><tr><td>MAC RXF Memory data width</td><td>7</td><td>
+              <p>Specifies the data width for MAC RXF Memory. Note: It must be less than or equal to 32bits.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, ..., 10</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>7</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_RXF_MEM_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_RXF_MEM_DW</p>
+            </td></tr><tr><td>MAC RXF Memory ECC width</td><td>6</td><td>
+              <p>Specifies the Error-Correcting Code width for MAC RXF Memory.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, ..., 9</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>6</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_RXF_MEM_EN&amp;&amp;DWCXG_ASP_ECC</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_RXF_MEM_EW</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-PHYInterface"></a>PHY Interface Parameters</h3></div></div></div><div class="table"><a name="paramtable-PHYInterface"></a><p class="title"><b>Table 6. PHY Interface Parameters</b></p><div class="table-contents"><table class="table" summary="PHY Interface Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Line Interface
+            </td></tr><tr><td>PHY Interface Configuration</td><td>XGMII-GMII</td><td>
+              <p>Select PHY interfaces: XGMII or XGMII + GMII. XGMII is used for 10G and USXGMII 2.5G/5G, GMII is used for 1G/2.5G (over-clocked 1G) and GMII (4-bit) for 10M/100M.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">XGMII-ONLY (0)</li><li class="listitem">XGMII-GMII (1)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>XGMII-ONLY</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>!DWCXG_FPGA</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_XGMII_GMII</p>
+            </td></tr><tr><td>Add GMII Port</td><td>1</td><td>
+              <p>This option allows separate GMII Interface. When this feature is not selected, GMII/MII is shared with XGMII interface (lower 8-bit/4-bit of TXD/RXD for Data and lower 2-bit of TXC/RXC for Controls).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_XGMII_GMII == 1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_ADD_GMII_PORT</p>
+            </td></tr><tr><td>Enable RGMII</td><td>1</td><td>
+              <p>This option allows RGMII support on separate PHY interface (Shared with RMII, if selected). The interface is Dual clock-edged and operates in 10M/100M/1G/2.5G (overclocked 1G).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_ADD_GMII_PORT</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_RGMII_EN</p>
+            </td></tr><tr><td>Enable RMII</td><td>0</td><td>
+              <p>This option allows RMII support on separate PHY interface (Shared with RGMII, if selected). The interface operates in 10M/100M.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_ADD_GMII_PORT</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_RMII_EN</p>
+            </td></tr><tr><td>XGMII Interface Configuration</td><td>XGMII-SDR</td><td>
+              <p>Specifies the XGMII interface type (XGMII-DDR selection is deprecated). The XGMII-SDR and XGMII-DDW interface is 32-bit and 64-bit, respectively.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">XGMII-SDR (0)</li><li class="listitem">XGMII-DDR (1)</li><li class="listitem">XGMII-DDW (2)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>XGMII-SDR</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_XGMII</p>
+            </td></tr><tr><td>Add Handshake/Backpressure Function in XGMII Interface</td><td>0</td><td>
+              <p>This option adds the handshake/backpressure function in the XGMII Interface. This Handshake interface is not valid when operating in GMII/RGMII/RMII PHY interface mode.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_XGMII==0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_XGMII_SDR_BCKPRES</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              VARIABLE PREAMBLE
+            </td></tr><tr><td>Receive Frames with Variable Preamble</td><td>1</td><td>
+              <p>This option allows frames with variable preamble to be received. Otherwise, they are dropped.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>!DWCXG_FPGA&amp;&amp;!(DWCXG!=0&amp;&amp;DWCXG_DATAWIDTH_64)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_VARIABLE_PREAMBLE</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              SMA
+            </td></tr><tr><td>Enable Station Management Block (MDIO Interface)</td><td>1</td><td>
+              <p>Enables the Station Management Agent block for communicating with or configuring the PHY through MDIO interface.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_SMA_EN</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-MultipleQueuesSupport"></a>Multiple Queues Support Parameters</h3></div></div></div><div class="table"><a name="paramtable-MultipleQueuesSupport"></a><p class="title"><b>Table 7. Multiple Queues Support Parameters</b></p><div class="table-contents"><table class="table" summary="Multiple Queues Support Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td>Number of Traffic Classes</td><td>8</td><td>
+              <p>Specifies the number of traffic classes.</p>
+              <p><span class="bold"><strong>Values: </strong></span>1, 2, 3, 4, 5, 6, 7, 8</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>2</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG&gt;0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_NUM_TC</p>
+            </td></tr><tr><td>Number of Transmit Queues</td><td>12</td><td>
+              <p>Specifies the number of transmit queues.</p>
+              <p><span class="bold"><strong>Values: </strong></span>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>8</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_NUM_TXQ</p>
+            </td></tr><tr><td>Number of Receive Queues</td><td>12</td><td>
+              <p>Specifies the number of receive queues.</p>
+              <p><span class="bold"><strong>Values: </strong></span>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>2</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_NUM_RXQ</p>
+            </td></tr><tr><td>Number of DMA channels on Receive side</td><td>12</td><td>
+              <p>Specifies the number of DMA channels on the Receive side.</p>
+              <p><span class="bold"><strong>Values: </strong></span>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 20, 24, 28, 32, 40, 48, 56, 64, 80, 96, 112, 128</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG&gt;1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_NUM_DMA_RX_CH</p>
+            </td></tr><tr><td>Number of DMA channels on Transmit side.</td><td>12</td><td>
+              <p>Specifies the number of DMA channels on the Transmit side. This is automatically set equal to Number of Transmit Queues selected.</p>
+              <p><span class="bold"><strong>Values: </strong></span>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 20, 24, 28, 32, 40, 48, 56, 64, 80, 96, 112, 128</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>12</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_NUM_DMA_TX_CH</p>
+            </td></tr><tr><td>Select Number of Entries in Receive Channel List for Packet Duplication</td><td>8</td><td>
+              <p>Specifies the Number of Entries in Receive Channel List for Packet Duplication. The selection of this feature automatically selects packet duplication capability in the highest numbered Receive Queue.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 8, 16, 32, 64</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>8</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(DWCXG&gt;1)&amp;&amp;(DWCXG_NUM_DMA_RX_CH&gt;1)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_RCHLIST_CNT</p>
+            </td></tr><tr><td>Enable Data Center Bridging Schedulers</td><td>1</td><td>
+              <p>Enables the Scheduler Algorithms Specified in Data Centre Bridging Standard.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_DCB_EN</p>
+            </td></tr><tr><td>Enable Priority Flow Control</td><td>1</td><td>
+              <p>Enables the Priority Flow Control feature.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_PFC_EN</p>
+            </td></tr><tr><td>Enables Audio Video Bridging Feature.</td><td>1</td><td>
+              <p>Adds logic for supporting the Audio Video functionality and provides the option to select additional channels for queueing the time-sensitive traffic.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_AV_ENABLE</p>
+            </td></tr><tr><td>Enable Support for AV in TC1</td><td>1</td><td>
+              <p>Enables AV Support in TC1.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_AV_ENABLE&amp;&amp;(DWCXG_NUM_TC&gt;2||DWCXG_NUM_TC==2)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_TC1_AV_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable Support for AV in TC2</td><td>1</td><td>
+              <p>Enables AV Support in TC2.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_AV_ENABLE&amp;&amp;(!DWCXG_TC1_AV_EN&amp;&amp;(DWCXG_NUM_TC&gt;3||DWCXG_NUM_TC==3))</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_TC2_AV_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable Support for AV in TC3</td><td>1</td><td>
+              <p>Enables AV Support in TC3.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_AV_ENABLE&amp;&amp;(!DWCXG_TC2_AV_EN&amp;&amp;(DWCXG_NUM_TC&gt;4||DWCXG_NUM_TC==4))</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_TC3_AV_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable Support for AV in TC4</td><td>1</td><td>
+              <p>Enables AV Support in TC4.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_AV_ENABLE&amp;&amp;(!DWCXG_TC3_AV_EN&amp;&amp;(DWCXG_NUM_TC&gt;5||DWCXG_NUM_TC==5))</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_TC4_AV_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable Support for AV in TC5</td><td>1</td><td>
+              <p>Enables AV Support in TC5.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_AV_ENABLE&amp;&amp;(!DWCXG_TC4_AV_EN&amp;&amp;(DWCXG_NUM_TC&gt;6||DWCXG_NUM_TC==6))</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_TC5_AV_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable Support for AV in TC6</td><td>1</td><td>
+              <p>Enables AV Support in TC6.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_AV_ENABLE&amp;&amp;(!DWCXG_TC5_AV_EN&amp;&amp;(DWCXG_NUM_TC&gt;7||DWCXG_NUM_TC==7))</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_TC6_AV_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable Support for AV in TC7</td><td>1</td><td>
+              <p>Enables AV Support in TC7.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_AV_ENABLE&amp;&amp;(!DWCXG_TC6_AV_EN&amp;&amp;DWCXG_NUM_TC==8)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_TC7_AV_EN</p>
+            </td></tr><tr><td>Enable External Lookup Interface</td><td>0</td><td>
+              <p>Enables the interface with an external lookup engine, which provides the RxDMA channel selection for the received packet.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(DWCXG&gt;1)&amp;&amp;(DWCXG_NUM_DMA_RX_CH&gt;1)&amp;&amp;(DWCXG_NUM_DMA_RX_CH&lt;=16)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_EXT_LKUP_EN</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-TCP_IPOffloadingFeatures"></a>TCP/IP Offloading Features Parameters</h3></div></div></div><div class="table"><a name="paramtable-TCP_IPOffloadingFeatures"></a><p class="title"><b>Table 8. TCP/IP Offloading Features Parameters</b></p><div class="table-contents"><table class="table" summary="TCP/IP Offloading Features Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              TCP Segmentation Offload
+            </td></tr><tr><td>Enable TCP Segmentation Offloading for TCP/IP Packets</td><td>1</td><td>
+              <p>Enables TCP Segmentation Offload (TSO) on the transmit side.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG == 2</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_TSO_EN</p>
+            </td></tr><tr><td>Number of Transmit DMA Channels Enabled for TSO</td><td>12</td><td>
+              <p>Specifies the number of DMA channels enabled for TSO.</p>
+              <p><span class="bold"><strong>Values: </strong></span>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_TSO_EN&amp;&amp;DWCXG_NUM_TXQ&gt;1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_NUM_DMA_TSO_CH</p>
+            </td></tr><tr><td>Enable Memory for TCP/IP Headers</td><td>1</td><td>
+              <p>Enables the use of a separate memory for TCP/IP headers used in the TCP Segmentation Offloading. Otherwise, during segmentation, the DMA reads the header data multiple times from the system memory.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_TSO_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_TSO_MEM_EN</p>
+            </td></tr><tr><td>Per-Channel TSO Memory Size in Bytes</td><td>256</td><td>
+              <p>Specifies the size of the external memory (in bytes) for each channel that is used for storing the TCP/IP headers in TCP Segmentation Offloading.</p>
+              <p><span class="bold"><strong>Values: </strong></span>64, 128, 256, 512, 1024</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>256</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_TSO_MEM_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_TSO_MEM_SIZE</p>
+            </td></tr><tr><td>Descriptor Cache &amp; TSO Memory Datawidth</td><td>129</td><td>
+              <p>Specifies the data bus width of the TSO Memory.</p>
+              <p><span class="bold"><strong>Values: </strong></span>64, ..., 129</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>129</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_TSOMEM_DW</p>
+            </td></tr><tr><td>TSO (and Descriptor Cache) Memory Address Width</td><td>10</td><td>
+              <p>Address bus width of the separate memory for TCP/IP headers or pre-fetched descriptors.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, ..., 18</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>10</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_TSO_MEM_EN||DWCXG_EDMA</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_CACHE_MEM_ADDR_WIDTH</p>
+            </td></tr><tr><td>Cache Memory Width for Descriptors</td><td>129</td><td>
+              <p>Specifies the data bus width of the Descriptor Cache memory.</p>
+              <p><span class="bold"><strong>Values: </strong></span>64, ..., 129</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>129</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_DCACHE_DW</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              DMA Descriptor Cache Memory
+            </td></tr><tr><td>Enable Separate Descriptor Cache Memory</td><td>0</td><td>
+              <p>Enables different memory for Descriptor Cache</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_EDMA&amp;&amp;DWCXG_TSO_MEM_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_DIFF_CACHE_MEM_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Descriptor Cache Memory Address Width</td><td>10</td><td>
+              <p>Address bus width of the pre-fetched descriptors memory.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, ..., 17</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>10</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_CACHE_MEM_EN&amp;&amp;DWCXG_EDMA&amp;&amp;((DWCXG_TSO_MEM_EN&amp;&amp;DWCXG_DIFF_CACHE_MEM_EN)||!DWCXG_TSO_MEM_EN)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_DCACHE_MEM_ADDR_WIDTH</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Checksum Offload Engine
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable Receive TCP/IP Checksum Check</td><td>1</td><td>
+              <p>Enables the Checksum Offload Engine (COE) in the Receive path. The COE checks and detects the IPv4 header checksum errors and the TCP, UDP, or ICMP checksum errors encapsulated in IPv4 or IPv6 datagrams payload of Received packets.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>!DWCXG_VXN_ENA&amp;&amp;!DWCXG_TIME_STAMPING&amp;&amp;!DWCXG_L3_L4_FILTER_EN&amp;&amp;!DWCXG_SPLIT_HDR_EN&amp;&amp;!DWCXG_RSS_EN&amp;&amp;!DWCXG_OOS_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_RX_COE</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable Transmit TCP/IP Checksum Offload</td><td>1</td><td>
+              <p>Enables the Checksum Offload Engine in the transmit path. In this mode, the DWC_25gmac can calculate and insert the checksums for TCP, UDP, or ICMP segments encapsulated in IPv4 or IPv6 datagrams. The DWC_25gmac can also insert IPv4 header checksums in the transmitted frames.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG&gt;0&amp;&amp;!DWCXG_TSO_EN&amp;&amp;!DWCXG_VXN_ENA&amp;&amp;!DWCXG_POU_OST_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_TX_COE</p>
+            </td></tr><tr><td>Number of Tx Queues Enabled with Tx COE</td><td>12</td><td>
+              <p>Specifies the number of Tx Queues that support TxCOE.</p>
+              <p><span class="bold"><strong>Values: </strong></span>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>12</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_TX_COE&amp;&amp;DWCXG_NUM_TXQ&gt;1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_NUM_TX_COE</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              IPv4 ARP Offload
+            </td></tr><tr><td>Enable IPv4 ARP Offload</td><td>1</td><td>
+              <p>Enables the IPv4 Address Recognition Protocol Offload feature. In this mode, the DWC_25gmac can process the ARP request in the receive path and generate a corresponding ARP response packet in the transmit path.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_ARP_EN</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Header-Payload Split
+            </td></tr><tr><td>Enable Header-Payload Split Feature</td><td>1</td><td>
+              <p>Enables the logic to split the packet header (Layer 2, Layer 3, and Layer 4) in a different buffer and the payload in a different buffer.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG == 2</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_SPLIT_HDR_EN</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              RSS
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable Receive Side Scaling</td><td>1</td><td>
+              <p>Enables the RSS function, DMA channel, and packet drop indication in the controller.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_AXI_SUBSYS&amp;&amp;!DWCXG_VXN_ENA</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_RSS_EN</p>
+            </td></tr><tr><td>RSS Lookup Table Size</td><td>512</td><td>
+              <p>Specifies the size of the Lookup table. The width of the table depends on the number of Rx DMA channels. When the option selected is greater than 256, the Lookup table shall be implemented in External Receive Filter Memory (RXF).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 16, 32, 64, 128, 256, 512, 1024, 2048</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>64</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_RSS_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_RSS_TABLE_SIZE</p>
+            </td></tr><tr><td>Enable Support for Virtualized Network</td><td>1</td><td>
+              <p>Enables the support for L2 Virtualized network over L3 network.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_EDMA&amp;&amp;DWCXG_DATAWIDTH==128</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_VXN_ENA</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-IEEE1588Timestamping"></a>IEEE 1588 Timestamping Parameters</h3></div></div></div><div class="table"><a name="paramtable-IEEE1588Timestamping"></a><p class="title"><b>Table 9. IEEE 1588 Timestamping Parameters</b></p><div class="table-contents"><table class="table" summary="IEEE 1588 Timestamping Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              IEEE 1588 Timestamping
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable IEEE 1588 Timestamp Support</td><td>1</td><td>
+              <p>Adds logic for supporting IEEE1588 timestamping protocol. Snoops the Receive packets and captures Timestamp for packets marked as PTP packets. The Timestamp is also captured for Transmit packets marked as PTP packets.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_AV_ENABLE==0&amp;&amp;DWCXG_SGF==0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_TIME_STAMPING</p>
+            </td></tr><tr><td>IEEE 1588 System Time Source</td><td>Internal</td><td>
+              <p>Specifies the source of 64-bit reference System Time to take the Timestamps that are provided with the status.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Internal (0)</li><li class="listitem">External (1)</li><li class="listitem">Both Options (2)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>Internal</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_TIME_STAMPING==1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_SYSTIME_SOURCE</p>
+            </td></tr><tr><td>Add IEEE 1588 Higher Word Register</td><td>1</td><td>
+              <p>Adds a register to store the most significant 16 bits [47:32] of the seconds value if IEEE 1588 version 2 format of Timestamp is used.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_TIME_STAMPING&amp;&amp;DWCXG_SYSTIME_SOURCE!=1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_ADV_TIME_HIGH_WORD</p>
+            </td></tr><tr><td>Enable Interface for Higher Accuracy Timestamping</td><td>0</td><td>
+              <p>This feature provides additional input signals that provides the dynamic latency delay of the packet through the PHY as per IEEE 802.3cx. This information is used to adjust the timestamp of ingress and egress packets and make it more accurate.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_TIME_STAMPING</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_ETA</p>
+            </td></tr><tr><td>Enable Dual Time Source Domain Capability</td><td>0</td><td>
+              <p>Enables the Additional Free Running Time Source Compliant to IEEE 802.1AS Standard to enable TSN networks with multiple (g)PTP domains.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_TIME_STAMPING</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_DSTS</p>
+            </td></tr><tr><td>Add IEEE 1588 Auxiliary Snapshot</td><td>1</td><td>
+              <p>Stores the timestamp snapshots taken with an external trigger into a FIFO.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_TIME_STAMPING==1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_ADV_TIME_AUX_SNAP</p>
+            </td></tr><tr><td>Number of IEEE 1588 Auxiliary Snapshot Inputs</td><td>4</td><td>
+              <p>Specifies the number of IEEE 1588 Auxiliary snapshot inputs.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1, 2, 3, 4</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_ADV_TIME_AUX_SNAP==1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_AUX_SNAP_IN_NUM</p>
+            </td></tr><tr><td>FIFO Depth for IEEE 1588 Auxiliary Snapshots</td><td>16</td><td>
+              <p>Specifies the depth of the FIFO to store the IEEE 1588 Auxiliary snapshots.</p>
+              <p><span class="bold"><strong>Values: </strong></span>4, 8, 16</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>4</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_ADV_TIME_AUX_SNAP==1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_AUX_FIFO_DEPTH</p>
+            </td></tr><tr><td>Enable Flexible Pulse-Per-Second Output</td><td>1</td><td>
+              <p>Enables the feature to program the start or stop time, width, and interval of the pulse generated on the ptp_pps_o output.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_TIME_STAMPING==1&amp;&amp;DWCXG_SYSTIME_SOURCE!=1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_FLEXI_PPS_OUT_EN</p>
+            </td></tr><tr><td>Number of Pulse-Per-Second Outputs</td><td>4</td><td>
+              <p>Specifies the number of Pulse-Per-Second (PPS) Outputs.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1, 2, 3, 4</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_FLEXI_PPS_OUT_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_PPS_OUT_NUM</p>
+            </td></tr><tr><td>Enable PTP Timestamp Offload Feature</td><td>1</td><td>
+              <p>Enables PTP Offload (SYNC, Delay_Resp, Pdelay_Req, and Pdelay_Resp PTP packet generation) in the Transmit path.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_TIME_STAMPING==1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_PTO_EN</p>
+            </td></tr><tr><td>Enable One step timestamp for PTP over UDP/IP feature</td><td>1</td><td>
+              <p>Enables One step timestamp operation for PTP message sent over UDP/IP</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_TIME_STAMPING==1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_POU_OST_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable One-Step Timestamp Feature</td><td>1</td><td>
+              <p>Enables One-Step Timestamp in the Transmit path.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_TIME_STAMPING&amp;&amp;!DWCXG_PTO_EN&amp;&amp;!DWCXG_POU_OST_EN&amp;&amp;!DWCXG_PCH_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_OST_EN</p>
+            </td></tr><tr><td>Enable IEEE 1588 Sub-Nanoseconds Timestamp Support</td><td>1</td><td>
+              <p>Adds sub-nanoseconds resolution to the system timestamp and timestamp correction.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_OST_EN&amp;&amp;DWCXG_SYSTIME_SOURCE!=1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_ADV_SUBNSEC_SUPPORT</p>
+            </td></tr><tr><td>FIFO Depth for IEEE 1588 Tx Timestamp</td><td>16</td><td>
+              <p>
+Specifies the FIFO depth to store the IEEE 1588 Tx Timestamp for PTP  packets.
+This FIFO is used to store the Transmit Timestamp and the associated packet  ID.</p>
+              <p><span class="bold"><strong>Values: </strong></span>1, 2, 4, 8, 16</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(DWCXG_TIME_STAMPING||DWCXG_OST_EN)&amp;&amp;!DWCXG_CORE</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_TTS_FIFO_DEPTH</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-TimeSensitiveNetworking"></a>Time Sensitive Networking Parameters</h3></div></div></div><div class="table"><a name="paramtable-TimeSensitiveNetworking"></a><p class="title"><b>Table 10. Time Sensitive Networking Parameters</b></p><div class="table-contents"><table class="table" summary="Time Sensitive Networking Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Enhancements to Scheduling Traffic
+            </td></tr><tr><td>Enable Enhancements to Scheduling Traffic (EST)</td><td>1</td><td>
+              <p>Supports IEEE 802.1Qbv Enhancements to Scheduling Traffic Using Gate Control List.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_AV_ENABLE&amp;&amp;DWCXG_NUM_TC&gt;1&amp;&amp;(DWCXG_TC1_AV_EN||DWCXG_TC2_AV_EN||DWCXG_TC3_AV_EN||DWCXG_TC4_AV_EN||DWCXG_TC5_AV_EN||DWCXG_TC6_AV_EN||DWCXG_TC7_AV_EN)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_AV_EST</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Stream Gate Filtering
+            </td></tr><tr><td>Enable Stream Gate Filtering (SGF)</td><td>1</td><td>
+              <p>Enables Partial IEEE 802.1 Qci Specification, Stream-Gate Filtering Based on Stream-Gate Instance and Stream Filter Instance.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_FRP_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_SGF</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Gate Control List
+            </td></tr><tr><td>Depth of one instance of Gate Control List</td><td>256</td><td>
+              <p>Depth of one instance of Gate Control List used in single feature (EST or SGF).</p>
+              <p><span class="bold"><strong>Values: </strong></span>64, 128, 256, 512, 1024</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>256</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_AV_EST||DWCXG_SGF</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_GCL_DEP</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Frame Preemption Support
+            </td></tr><tr><td>Enable Frame Preemption Support</td><td>1</td><td>
+              <p>IEEE 802.3br Frame Preemption Support for Prioritizing the Express Traffic.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG&gt;0&amp;&amp;DWCXG_NUM_TC&gt;1&amp;&amp;DWCXG_NUM_RXQ&gt;1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_FPE</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Policing Counters
+            </td></tr><tr><td>Enable Policing Counters (PC)</td><td>1</td><td>
+              <p>Enables Policing counters (PC) functionality.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_PC</p>
+            </td></tr><tr><td>Number of Policing counters (PC)</td><td>16</td><td>
+              <p>Indicates number of Policing counters (PC).</p>
+              <p><span class="bold"><strong>Values: </strong></span>16, 32</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>16</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_PC</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_NUM_PC</p>
+            </td></tr><tr><td>Enable Time Based Scheduling</td><td>1</td><td>
+              <p>Adds logic for Time Based Scheduling.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(DWCXG&gt;0)&amp;&amp;DWCXG_TIME_STAMPING&amp;&amp;(DWCXG_NUM_TXQ&gt;1)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_TBS</p>
+            </td></tr><tr><td>Select Number of Transmit DMA channels with TBS</td><td>8</td><td>
+              <p>Specifies the number of DMA channels enabled for TBS (starting from the highest Transmit channel in descending order).</p>
+              <p><span class="bold"><strong>Values: </strong></span>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_TBS&amp;&amp;DWCXG_NUM_TXQ&gt;1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_NUM_DMA_TBS_CH</p>
+            </td></tr><tr><td>Asynchronous Traffic Shaper</td><td>1</td><td>
+              <p>Adds logic for IEEE 802.1Qcr Asynchronous Traffic Shaper (ATS)</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(DWCXG&gt;0)&amp;&amp;DWCXG_TIME_STAMPING&amp;&amp;(DWCXG_NUM_TXQ&gt;1)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_ATS</p>
+            </td></tr><tr><td>Select Number of Transmit DMA channels with ATS</td><td>12</td><td>
+              <p>Specifies the number of DMA channels enabled for ATS (starting from the highest Transmit channel in descending order).</p>
+              <p><span class="bold"><strong>Values: </strong></span>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_ATS&amp;&amp;DWCXG_NUM_TXQ&gt;1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_NUM_DMA_ATS_CH</p>
+            </td></tr><tr><td>ATS Channel offset</td><td>0</td><td>
+              <p>Specifies the ATS channel offset</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, ..., ((DWCXG_NUM_TXQ)-(DWCXG_NUM_DMA_ATS_CH))</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_ATS&amp;&amp;DWCXG_NUM_TXQ&gt;1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_DMA_ATS_CH_OFFSET</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-RMONCounters"></a>RMON Counters Parameters</h3></div></div></div><div class="table"><a name="paramtable-RMONCounters"></a><p class="title"><b>Table 11. RMON Counters Parameters</b></p><div class="table-contents"><table class="table" summary="RMON Counters Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td>Enable MAC Management Counter (MMC)</td><td>1</td><td>
+              <p>Enables the selection of Link Remote Monitoring (RMON) counters for statistics of ingress and egress Ethernet packets.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_EN</p>
+            </td></tr><tr><td>Enable the Receive Management Counters for TCP/UDP/ICMP/IP Packets</td><td>1</td><td>
+              <p>Enables the Management counters for monitoring and collection statistics of ingress Ethernet packets with TCP/UDP/ICMP/IP payloads.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;DWCXG_RX_COE</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_IPC_EN</p>
+            </td></tr><tr><td>Enable Rx MMC Counters based on Destination RxDMA Channel</td><td>1</td><td>
+              <p>This allows the option to update the Rx MAC/IPC Management Counters only for ingress packets that is destined to be serviced or transferred by selected RxDMA channels.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(DWCXG&gt;1)&amp;&amp;(DWCXG_NUM_DMA_RX_CH&gt;1)&amp;&amp;(DWCXG_MMC_RX_EN_ATLEAST_ONE||DWCXG_MMC_PRIORITY_EN||DWCXG_MMC_IPC_RX_EN_ATLEAST_ONE)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_RMMC_RCH_MAP</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              64-bit Counter Enable
+            </td></tr><tr><td>Enable 64-bit MMC Counter</td><td>1</td><td>
+              <p>Enable 64-bit wide counter for frame counters and error counters.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(DWCXG_MMC_EN&amp;&amp;(DWCXG_MMC_RX_EN_ATLEAST_ONE||DWCXG_MMC_TX_EN_ATLEAST_ONE))</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_EN_64BIT_CNT</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Per Priority
+            </td></tr><tr><td>Enable Management (RMON) counters for Each Priority Group.</td><td>1</td><td>
+              <p>Enables Management (RMON) Counters for each VLAN Priority group.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(DWCXG_MMC_EN_TX_ALL&amp;&amp;DWCXG_MMC_EN_RX_ALL)&amp;&amp;(DWCXG_PFC_EN||DWCXG_NUM_RXQ&gt;1)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_PRIORITY_EN</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-RMONCounters_TransmitCounters"></a>RMON Counters / Transmit Counters Parameters</h3></div></div></div><div class="table"><a name="paramtable-RMONCounters_TransmitCounters"></a><p class="title"><b>Table 12. RMON Counters / Transmit Counters Parameters</b></p><div class="table-contents"><table class="table" summary="RMON Counters / Transmit Counters Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Transmit Counters
+            </td></tr><tr><td>Select All MMC Tx Counters</td><td>1</td><td>
+              <p>Selects all RMON Counters for Transmit management.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_EN_TX_ALL</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Select Individual Transmit Counters
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Tx Frame Counter for Various Frame Sizes</td><td>1</td><td>
+              <p>Enables the frame counters for all the transmitted frames of different sizes (64, 65-127, 128-255, 256-511, 512-1023, 1024-maxsize).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_TX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_TXADDR_RNG_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Tx Frame size Counter for all Good and Bad Frames</td><td>1</td><td>
+              <p>Enables the frame size counter for all the good and bad transmitted frames.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_TX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_TXOCTGB_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Tx Frame Counter for Good and Bad Frames</td><td>1</td><td>
+              <p>Enables frame counter for good and bad transmitted frames.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_TX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_TXFRMGB_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Tx Frame Counter for Good Broadcast Frames</td><td>1</td><td>
+              <p>Enables frame counter for good transmitted broadcast frames.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_TX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_TXBCASTG_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Tx Frame Counter for Good Multicast Frames</td><td>1</td><td>
+              <p>Enables frame counter for good transmitted multicast frames.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_TX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_TXMCASTG_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Tx Frame Counter for Good and Bad Unicast Frames</td><td>1</td><td>
+              <p>Enables frame counter for good and bad transmitted unicast frames.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_TX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_TXUCASTGB_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Tx Frame Counter for Good and Bad Multicast Frames</td><td>1</td><td>
+              <p>Enables frame counter for good or bad transmitted multicast frames.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_TX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_TXMCASTGB_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Tx Frame Counter for Good and Bad Broadcast Frames</td><td>1</td><td>
+              <p>Enables frame counter for good or bad transmitted broadcast frames.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_TX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_TXBCASTGB_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Tx Frame Counter for Underflow Errors</td><td>1</td><td>
+              <p>Enables frame counter for frames transmitted with Underflow Error bit set.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_TX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_TXUNDRFLW_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Tx Frame size Counter for all Good Frames</td><td>1</td><td>
+              <p>Enables the frame size counter for good transmitted frames only.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_TX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_TXOCTG_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Tx Frame Counter for Good Frames</td><td>1</td><td>
+              <p>Enables the frame counter for good transmitted frames.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_TX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_TXFRMG_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Tx Frame Counter for Pause Frames</td><td>1</td><td>
+              <p>Enables the frame counter for good transmitted PAUSE frames.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_TX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_TXPAUSE_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Tx Frame Counter for VLAN Frames</td><td>1</td><td>
+              <p>Enables the frame counter for transmitted VLAN-tagged frames.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_TX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_TXVLAN_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC LPI Tx Micro Second Timer</td><td>1</td><td>
+              <p>Enables the LPI Transmit Micro Second Timer</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;DWCXG_EEE_EN&amp;&amp;!DWCXG_MMC_EN_TX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_TXLPI_USEC_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC LPI Tx Entry Transition Counter</td><td>1</td><td>
+              <p>Enables the LPI Transmit Entry Transition Counter.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;DWCXG_EEE_EN&amp;&amp;!DWCXG_MMC_EN_TX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_TXLPI_TRANS_CNTR_EN</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-RMONCounters_ReceiveCounters"></a>RMON Counters / Receive Counters Parameters</h3></div></div></div><div class="table"><a name="paramtable-RMONCounters_ReceiveCounters"></a><p class="title"><b>Table 13. RMON Counters / Receive Counters Parameters</b></p><div class="table-contents"><table class="table" summary="RMON Counters / Receive Counters Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Receive Counters
+            </td></tr><tr><td>Select All MMC Rx Counters</td><td>1</td><td>
+              <p>Selects all RMON counters for Receive management.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_EN_RX_ALL</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Select Individual Receive Counters
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Rx Frame Counter for Good and Bad Frames</td><td>1</td><td>
+              <p>Enables a counter for received good or bad frames.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RXFRMGB_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Rx Frame size Counter for all Good Frames</td><td>1</td><td>
+              <p>Enables the frame size counter for received good frames.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RXOCTG_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Rx Frame size Counter for Good and Bad Frames</td><td>1</td><td>
+              <p>Enables the frame size counter for all received frames.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RXOCTGB_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Rx Frame Counter for Good Broadcast Frames</td><td>1</td><td>
+              <p>Enables a counter for good broadcast frames received.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RXBCASTG_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Rx Frame Counter for Good Multicast Frames</td><td>1</td><td>
+              <p>Enables a counter for good multicast frames received.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RXMCASTG_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Rx Frame Counter for CRC Errors</td><td>1</td><td>
+              <p>Enables a counter for frames received with a CRC error.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RXCRCERR_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Rx Frame Counter for Runt Frames</td><td>1</td><td>
+              <p>Enables a counter for received runt (less-than-64-byte, with CRC error) frames.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RXRUNTERR_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Rx Frame Counter for Jabber Error Frames</td><td>1</td><td>
+              <p>Enables a counter for frames received with a Jabber error.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RXJABERR_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Rx Frame Counter for Undersize Frames</td><td>1</td><td>
+              <p>Enables a counter for received undersize (less than 64-byte, no error) frames.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RXUNDERSZG_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Rx Frame Counter for Giant Frames</td><td>1</td><td>
+              <p>Enables a counter for received oversize (size &gt; 1,518 or 1,522 bytes) frames.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RXOVERSZG_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Rx Frame Counter for Various Frame Sizes</td><td>1</td><td>
+              <p>Enables the frame counters for all received frames of different sizes (64, 65-127, 128-255, 256-511, 512-1023, 1024-maxsize).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RXADDR_RNG_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Rx Frame Counter for Unicast Frames</td><td>1</td><td>
+              <p>Enables a counter for unicast frames received.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RXUCASTG_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Rx Frame Counter for Length Errors</td><td>1</td><td>
+              <p>Enables a counter for frames received with a length error.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RXLENERR_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Rx Frame Counter for Out of Range Errors</td><td>1</td><td>
+              <p>Enables out-of-range (Length field between 1,500 and 1,536) frame counter.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RXOUTOFRNG_TYP_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Rx Frame Counter for Pause Frames</td><td>1</td><td>
+              <p>Enables a counter for received PAUSE frames.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RXPAUSEFRM_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Rx Frame Counter for Overflow Errors</td><td>1</td><td>
+              <p>Enables a counter to count the number of times Rx MTL FIFO has overflowed.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_RX_ALL&amp;&amp;!DWCXG_CORE</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RXFIFOOVFL_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Rx Frame Counter for VLAN Frames</td><td>1</td><td>
+              <p>Enables counter for VLAN good or bad frames received.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RXVLANFRGB_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Rx Frame Counter for Watchdog Timeout Errors</td><td>1</td><td>
+              <p>Enables a counter for frames with watchdog time-out errors.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RXWDGERR_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Rx Frame Counter for Discarded frames due to filter fail</td><td>1</td><td>
+              <p>Enables a counter for frames which are discarded due to filter failure.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RXFRMDISGB_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Rx Frame Counter for Packets with Alignment Error</td><td>1</td><td>
+              <p>Enables counter for packets received with Alignment Error (dribble) in the 10/100 Mbps mode.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_RX_ALL&amp;&amp;DWCXG_MII_SUPPORT</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RXALGNERR_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC Rx Frame size Counter for Discarded frames due to filter fail</td><td>1</td><td>
+              <p>Enables a Frame size counter for frames which are discarded due to filter failure.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;!DWCXG_MMC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RXOCTDISGB_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC LPI Rx Micro Second Timer</td><td>1</td><td>
+              <p>Enables the LPI Rx Micro Second Timer</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;DWCXG_EEE_EN&amp;&amp;!DWCXG_MMC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RXLPI_USEC_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>MMC LPI Rx Entry Transition Counter</td><td>1</td><td>
+              <p>Enables the LPI Rx Entry Transition Counter.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_EN&amp;&amp;DWCXG_EEE_EN&amp;&amp;!DWCXG_MMC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RXLPI_TRANS_CNTR_EN</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-RMONCounters_ReceiveIPCCounters"></a>RMON Counters / Receive IPC Counters Parameters</h3></div></div></div><div class="table"><a name="paramtable-RMONCounters_ReceiveIPCCounters"></a><p class="title"><b>Table 14. RMON Counters / Receive IPC Counters Parameters</b></p><div class="table-contents"><table class="table" summary="RMON Counters / Receive IPC Counters Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Receive IPC Counters
+            </td></tr><tr><td>Enable All MMC IPC Rx Counters</td><td>1</td><td>
+              <p>Enables all Rx IPC counters.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_IPC_EN_RX_ALL</p>
+            </td></tr><tr bgcolor="#EEEEEE"><td colspan="3" align="center">
+              Select Individual Receive IPC Counters
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Counter for Good IPv4 Packets</td><td>1</td><td>
+              <p>Enables MMC Counter for IPv4 packets with no checksum errors.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_IPV4_GD_PKTS_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Counter for IPv4 Packets with Header Error</td><td>1</td><td>
+              <p>Enables MMC Counter for IPv4 packets with checksum errors.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_IPV4_HDRERR_PKTS_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Counter for IPv4 Packets without TCP, UDP, and ICMP</td><td>1</td><td>
+              <p>Enables MMC Counter for IPv4 packets which do not have TCP, UDP, or ICMP.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_IPV4_NOPAY_PKTS_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Counter for Fragmented IPv4 Packets</td><td>1</td><td>
+              <p>Enables Rx frame counter for all IPv4 packets received with fragments.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_IPV4_FRAG_PKTS_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Counter for IPv4 UDP Packets with Checksum Disabled</td><td>1</td><td>
+              <p>Enables MMC Counter for IPv4 UDP packets with checksum disabled.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_IPV4_UDSBL_PKTS_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Counter for Good IPv6 Packets</td><td>1</td><td>
+              <p>Enables MMC Counter for IPv6 packets that do not have checksum-related errors.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_IPV6_GD_PKTS_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Counter for IPv6 Packets with Header Error</td><td>1</td><td>
+              <p>Enables MMC Counter for IPv6 packets received with header error.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_IPV6_HDRERR_PKTS_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Counter for IPv6 Packets without TCP, UDP, and ICMP</td><td>1</td><td>
+              <p>Enables MMC Counter for IPv6 packets not having TCP, UDP, or ICMP.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_IPV6_NOPAY_PKTS_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Counter for UDP Packets without Error</td><td>1</td><td>
+              <p>Enables MMC Counter for packets containing UDP with no errors.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_UDP_GD_PKTS_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Counter for UDP Packets with Error</td><td>1</td><td>
+              <p>Enables MMC Counter for packets containing UDP with errors.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_UDP_ERR_PKTS_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Counter for TCP Packets without Error</td><td>1</td><td>
+              <p>Enables MMC Counter for packets containing TCP with no errors.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_TCP_GD_PKTS_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Counter for TCP Packets with Error</td><td>1</td><td>
+              <p>Enables MMC Counter for packets containing TCP with errors.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_TCP_ERR_PKTS_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Counter for ICMP Packets without Error</td><td>1</td><td>
+              <p>Enables MMC Counter for packets containing ICMP with no errors.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_ICMP_GD_PKTS_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Counter for ICMP Packets with Error</td><td>1</td><td>
+              <p>Enables MMC Counter for packets containing ICMP with errors.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_ICMP_ERR_PKTS_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Octet Counter for IPv4 Packets without Checksum Error</td><td>1</td><td>
+              <p>Enables MMC Counter counting IPv4 datagrams bytes when there are no checksum errors.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_IPV4_GD_OCTET_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Octet Counter for IPv4 Packets with Header Checksum Error</td><td>1</td><td>
+              <p>Enables an Rx octet counter for all IPv4 datagrams received with a header error.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_IPV4_HDRERR_OCTET_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Octet Counter for IPv4 Packets without UDP, TCP, and ICMP</td><td>1</td><td>
+              <p>Enables MMC Counter counting bytes of IPv4 datagrams with no UDP, TCP, or ICMP.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_IPV4_NOPAY_OCTET_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Octet Counter for Fragmented IPv4 Packets</td><td>1</td><td>
+              <p>Enables an Rx octet counter for all IPv4 datagrams received with fragments.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_IPV4_FRAG_OCTET_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Octet Counter for IPv4 UDP Packets with Checksum Disabled</td><td>1</td><td>
+              <p>Enables MMC Counter counting bytes in IPv4 UDP datagram which has checksum disabled. This includes only UDP bytes and not the IPv4 header.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_IPV4_UDSBL_OCTET_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Octet Counter for IPv6 Packets without Checksum Error</td><td>1</td><td>
+              <p>Enables MMC Counter counting bytes in IPv6 datagram having no checksum errors.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_IPV6_GD_OCTET_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Octet Counter for IPv6 Packets with Header Error</td><td>1</td><td>
+              <p>Enables MMC Counter counting bytes in IPv6 datagram having header errors.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_IPV6_HDRERR_OCTET_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Octet Counter for IPv6 Packets without TCP, UDP, and ICMP</td><td>1</td><td>
+              <p>Enables MMC Counter counting bytes in IPv6 datagram not having TCP, UDP, or ICMP.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_IPV6_NOPAY_OCTET_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Octet Counter for UDP Packets without Checksum Error</td><td>1</td><td>
+              <p>Enables MMC Counter counting bytes in UDP which do not have checksum errors.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_UDP_GD_OCTET_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Octet Counter for UDP Packets with Checksum Error</td><td>1</td><td>
+              <p>Enables MMC Counter counting bytes in UDP which have checksum errors.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_UDP_ERR_OCTET_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Octet Counter for TCP Packets without Checksum Error</td><td>1</td><td>
+              <p>Enables MMC Counter counting bytes in TCP which do not have checksum errors.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_TCP_GD_OCTET_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Octet Counter for TCP Packets with Checksum Error</td><td>1</td><td>
+              <p>Enables MMC Counter counting bytes in TCP which have checksum errors.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_TCP_ERR_OCTET_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Octet Counter for ICMP Packets without Checksum Error</td><td>1</td><td>
+              <p>Enables MMC Counter counting bytes in ICMP which do not have checksum errors.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_ICMP_GD_OCTET_CNT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable MMC Octet Counter for ICMP Packets with Checksum Error</td><td>1</td><td>
+              <p>Enables MMC Counter counting bytes in ICMP which have checksum errors.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_MMC_IPC_EN&amp;&amp;!DWCXG_MMC_IPC_EN_RX_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_MMC_RX_ICMP_ERR_OCTET_CNT_EN</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-AutomotiveSafetyFeatures"></a>Automotive Safety Features Parameters</h3></div></div></div><div class="table"><a name="paramtable-AutomotiveSafetyFeatures"></a><p class="title"><b>Table 15. Automotive Safety Features Parameters</b></p><div class="table-contents"><table class="table" summary="Automotive Safety Features Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td>Enable All Automotive Safety Features</td><td>1</td><td>
+              <p>Selects all the Automotive Safety Features such as, SECDED Protection for External Memories, On-chip Data Path Parity Protection, FSM State Parity and FSM Timeout Protection, Application and CSR Interface Timeout Protection.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG&gt;0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_ASP_ALL</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable SECDED ECC protection for external memories</td><td>1</td><td>
+              <p>Adds Error Correcting code(SECDED) for external memory interface</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>!DWCXG_ASP_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_ASP_ECC</p>
+            </td></tr><tr><td>ECC Code Width for Tx FIFO</td><td>9</td><td>
+              <p>ECC code width for Transmit FIFO memory. This along with MTL FIFO data width determine the data width of the MTL Transmit FIFO when SECDED ECC protection for external memories feature is selected.</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>9</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG&gt;0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_TX_ECW</p>
+            </td></tr><tr><td>ECC Code Width for Rx FIFO</td><td>9</td><td>
+              <p>ECC code width for Receive FIFO memory. This along with MTL FIFO data width determine the data width of the MTL Receive FIFO when SECDED ECC protection for external memories feature is selected.</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>9</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG&gt;0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_RX_ECW</p>
+            </td></tr><tr><td>ECC Code Width for GCL Memory</td><td>7</td><td>
+              <p>Width of the ECC Code Word Computed for the Entries in the GCL Memory of EST and SGF Features.</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>7</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_AV_EST||DWCXG_SGF</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_GCL_ECW</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>ECC Code Width for Descriptor Cache Memory</td><td>0</td><td>
+              <p>Width of the ECC Code Word Computed for the Descriptors in Descriptor Cache Memory.</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(DWCXG_EDMA&amp;&amp;DWCXG_DIFF_CACHE_MEM_EN)||(DWCXG_EDMA&amp;&amp;!DWCXG_TSO_MEM_EN)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_DCACHE_ECW</p>
+            </td></tr><tr><td>ECC Code Width for External CSR Memory</td><td>9</td><td>
+              <p>Width of the ECC Code Word Computed for the data in External CSR Memory.</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>9</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_HDMA</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_HDMA_ECW</p>
+            </td></tr><tr><td>ECC Code Width for Descriptor Cache and TSO Memory</td><td>9</td><td>
+              <p>Width of the ECC Code Word Computed for the Descriptors and Header Entries in the Descriptor Cache and TSO Memory.</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>9</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_TSO_MEM_EN||DWCXG_EDMA</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_CACHE_ECW</p>
+            </td></tr><tr><td>Adds ECC or Parity Ports on Application interface</td><td>DATA_PARITY_ONLY</td><td>
+              <p>Selects the Mode (Parity for Data/Control Signals or ECC for Data Signals) for the ECC or Parity Ports on Application Interface.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">NO_PARITY_ECC (0)</li><li class="listitem">DATA_PARITY_ONLY (1)</li><li class="listitem">CTRL_PARITY_DATA_ECC (2)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>NO_PARITY_ECC</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_ASP_ALL</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_ASP_PPE</p>
+            </td></tr><tr><td>Enable Odd Parity ports on Application interface</td><td>0</td><td>
+              <p>Selects the Odd Parity ports on external application interface enabling Interface Odd Parity Checking.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_ASP_PPE!=0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_ASP_PPE_ODD</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable AXI Interface Parity/ECC Mode</td><td>0</td><td>
+              <p>Selects the Normal Parity/ECC Mode (One Parity Bit Per 8-bit Data) or ARC Mode Parity/ECC Computation.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_ASP_PPE==2</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_AISPM</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Select AXI Interface ECC Granularity</td><td>ECCDW</td><td>
+              <p>Selects the Granularity for ECC Computation, Separate ECC Word for Each Group of 32-bit, 64-bit or Full Data Word.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">ECCDW (0)</li><li class="listitem">ECC32 (1)</li><li class="listitem">ECC64 (2)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>ECCDW</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_ASP_PPE==2&amp;&amp;!DWCXG_AISPM</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_AISEG</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-LowPowerManagement"></a>Low Power Management Parameters</h3></div></div></div><div class="table"><a name="paramtable-LowPowerManagement"></a><p class="title"><b>Table 16. Low Power Management Parameters</b></p><div class="table-contents"><table class="table" summary="Low Power Management Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td>Enable Power Management (PMT) Block</td><td>0</td><td>
+              <p>Selects the Power Management feature using Magic Packet or Wake-up frames.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_PMT_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable Detection of Magic Packet Frame</td><td>0</td><td>
+              <p>Selects the AMD Magic Packet frame detection.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_PMT_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_PMT_MGK_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable Detection of Remote Wake-Up Frame</td><td>0</td><td>
+              <p>Selects the Power Management block Remote Wake-up frame detection.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_PMT_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_PMT_RWK_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Number of Remote Wake-Up Packet Filters</td><td>0</td><td>
+              <p>Selects the number of remote wake-up packet filters.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 4, 8, 16</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_PMT_RWK_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_NUM_PMT_RWK_FILT</p>
+            </td></tr><tr><td>Enable Energy Efficient Ethernet (EEE)</td><td>1</td><td>
+              <p>Adds Logic for Supporting the Energy Efficient Ethernet (EEE) functionality.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWCXG_FPGA!=1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWCXG_EEE_EN</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div></div></div></body></html>

@@ -1,0 +1,65 @@
+#SPDX-License-Identifier: GPL-2.0-only
+#Copyright (c) 2026-2030, OMNI CORPORATION & AFFILIATES. All rights reserved.
+
+OSI_COMMON := hardware/osi/common
+OSI_CORE := hardware/osi/core
+OSI_DMA := hardware/osi/dma
+OSI_MACSEC := hardware/osi/macsec
+OSI_PHY := hardware/osi/phy
+
+obj-$(CONFIG_OMNI_APB_EMAC) += omnieth.o
+
+CONFIG_OMNI_PTP ?= y
+ifeq ($(CONFIG_OMNI_PTP),y)
+ccflags-y += -DCONFIG_OMNI_PTP
+endif
+
+# These CFLAGS must not be shared/used in OSI. These are local to Linux
+ccflags-y += -DLINUX_OS -DOBPKCS_MACSEC -mno-outline-atomics -Werror \
+	     -I$(src)/hardware/include \
+
+ccflags-y += -Wframe-larger-than=8192
+
+#ccflags-y += -DOSI_DEBUG -DMACSEC_SUPPORT -DDEBUG_MACSEC -DMACSEC_KEY_PROGRAM
+ccflags-y += -DMACSEC_SUPPORT
+ccflags-y += -DBW_TEST
+
+omnieth-y:= ether_linux.o \
+		  osd.o \
+		  ethtool.o \
+		  ether_tc.o \
+		  sysfs.o \
+		  ioctl.o \
+		  ptp.o \
+		  macsec.o \
+		  selftests.o \
+		  ether_test_tx.o \
+		  $(OSI_CORE)/osi_core.o \
+		  $(OSI_CORE)/osi_hal.o \
+		  $(OSI_CORE)/common_macsec.o \
+		  $(OSI_MACSEC)/dwc_macsec.o \
+		  $(OSI_MACSEC)/macsec_debugfs.o \
+		  $(OSI_PHY)/oxpcs.o \
+		  $(OSI_DMA)/osi_dma.o \
+		  $(OSI_DMA)/osi_dma_txrx.o \
+		  $(OSI_CORE)/eqos_core.o \
+		  $(OSI_CORE)/ivc_core.o \
+		  $(OSI_CORE)/mgbe_core.o \
+		  $(OSI_CORE)/core_common.o \
+		  $(OSI_CORE)/xpcs.o \
+		  $(OSI_DMA)/mgbe_dma.o \
+		  $(OSI_CORE)/eqos_mmc.o \
+		  $(OSI_DMA)/eqos_dma.o \
+		  $(OSI_DMA)/eqos_desc.o \
+		  $(OSI_DMA)/mgbe_desc.o \
+		  $(OSI_DMA)/debug.o \
+		  $(OSI_CORE)/mgbe_mmc.o \
+		  $(OSI_CORE)/frp.o \
+		  $(OSI_CORE)/vlan_filter.o \
+		  $(OSI_CORE)/debug.o
+
+include $(src)/hardware/include/config.tmk
+
+ifeq ($(IS_OMNI_TEST),1)
+ccflags-y += -DOMNI_TEST
+endif

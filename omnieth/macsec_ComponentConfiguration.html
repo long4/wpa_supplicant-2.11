@@ -1,0 +1,421 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Parameters for DWC_macsec - 1.05a</title><link rel="stylesheet" type="text/css" href="html.css"><meta name="generator" content="DocBook XSL Stylesheets V1.79.1"><link rel="home" href="#idp21211128" title="Parameters for DWC_macsec - 1.05a"><link rel="next" href="#Parameter-Descriptions" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="article"><div class="titlepage"><div><div><h2 class="title"><a name="idp21211128"></a>Parameters for DWC_macsec - 1.05a</h2></div></div><hr></div><div class="sect1"><div class="titlepage"></div><p>These tables define all of the user configuration options for this component. Entries which are grayed-out are disabled (read-only) in the current configuration.</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><a class="link" href="#paramtable-Config" title="Table 1. Config Parameters">Config</a></li><li class="listitem"><a class="link" href="#paramtable-Info" title="Table 2. Info Parameters">Info</a></li></ul></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-Config"></a>Config Parameters</h3></div></div></div><div class="table"><a name="paramtable-Config"></a><p class="title"><b>Table 1. Config Parameters</b></p><div class="table-contents"><table class="table" summary="Config Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td>Automotive Support Selection</td><td>Automotive support</td><td>
+              <p>Configure the product to support an automotive or non-automotive version.
+When using the Synopsys Ethernet Controller, both products need to match on the automotive support requirement.
+Using automotive or non-automotive versions requires different product licenses.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Non-Automotive support (0)</li><li class="listitem">Automotive support (1)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>Automotive support</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_AUTO_AC_VERS</p>
+            </td></tr><tr><td>MACsec Max Performance</td><td>up to 25Gbps</td><td>
+              <p>MACsec Performance Rate Selection
+Selection of maximum performance for MACsec
+This selection is always full duplex, which means that the performance is achieved for both the channels (and not an aggregated performance).</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">up to 1Gbps/2.5Gbps with GMII (0)</li><li class="listitem">up to 10Gbps (1)</li><li class="listitem">up to 25Gbps (2)</li><li class="listitem">up to 50Gbps (3)</li><li class="listitem">up to 100Gbps (4)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>up to 1Gbps/2.5Gbps with GMII</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_PERF_RATE</p>
+            </td></tr><tr><td>Frame Preemption support</td><td>1</td><td>
+              <p>MACsec frame preemption support
+Support for frame preemption as defined in the 802.3br standard
+Enabled for configurations with 2 or more RX and 2 or more TX Secure channels.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>((DWC_MACSEC_RX_NUM_SC_SUPPORTED &gt;= 2) &amp;&amp; (DWC_MACSEC_TX_NUM_SC_SUPPORTED &gt;= 2))</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_PREEMPTION_EN</p>
+            </td></tr><tr><td>Data Interface Selection</td><td>XLGMII (128-bits)</td><td>
+              <p>Selection of the data interface for Ingress and Egress.
+The selection of the interface is done automatically and is dependent on the selected performance rate (e.g. one cannot have 50Gb with an 8-bit GMII Interface).</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">GMII (8-bits) (0)</li><li class="listitem">XLGMII (128-bits) (1)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>XLGMII (128-bits)</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_DATA_IF</p>
+            </td></tr><tr><td>Rxt0 support Enabled</td><td>Rxt0 support not enabled</td><td>
+              <p>When set, it enables the receive advance indication signal mac_xlgmii_rxt0_next.
+This indicates that in the next valid clk cycle, the terminate control character is located on lane 0 and all other lanes contain the IDLE character.
+It can be used for all XLGMII data modes, including CGMII (100Gbps 128-bit XLGMII).</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Rxt0 support not enabled (0)</li><li class="listitem">Rxt0 support enabled (1)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>Rxt0 support not enabled</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWC_MACSEC_DATA_IF == 1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_RXT0_NEXT_SUPPORT</p>
+            </td></tr><tr><td>Dual-IF Enabled</td><td>Dual interface enabled</td><td>
+              <p>When set, it enables the usage of either a GMII or XGMII/XLGMII interface on boot time.
+This allows to support different modes</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Dual Interface not enabled (0)</li><li class="listitem">Dual interface enabled (1)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>Dual Interface not enabled</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWC_MACSEC_DATA_IF == 1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_DUAL_IF</p>
+            </td></tr><tr><td>Number of Tx Secure Channels</td><td>16</td><td>
+              <p>Number of Secure Channels supported by DWC MACSEC on Tx.
+Supported from 1-32 Secure Channels.</p>
+              <p><span class="bold"><strong>Values: </strong></span>1, ..., 32</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_TX_NUM_SC_SUPPORTED</p>
+            </td></tr><tr><td>Number of Tx Secure Associations</td><td>32</td><td>
+              <p>Number of Secure Associations supported by DWC MACSEC on Tx.
+The number of Secure Associations is automatically calculated as Number of TX Secure Channels * 2</p>
+              <p><span class="bold"><strong>Values: </strong></span>2, ..., 64</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>32</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_TX_NUM_SA_SUPPORTED</p>
+            </td></tr><tr><td>Number of Rx Secure Associations</td><td>512</td><td>
+              <p>Number of Secure Associations supported by DWC MACSEC on Rx. Must be equal or greather than DWC_MACSEC_RX_NUM_SC_SUPPORTED</p>
+              <p><span class="bold"><strong>Values: </strong></span>1, ..., 512</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>2</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_RX_NUM_SA_SUPPORTED</p>
+            </td></tr><tr><td>Number of Rx Secure Channels</td><td>128</td><td>
+              <p>Number of Secure Channels supported by DWC MACSEC on Rx. This parameter cannot be greater than DWC_MACSEC_RX_NUM_SA_SUPPORTED
+since each SC must have at least one SA associated
+Supported from 1-256 Secure Channels.</p>
+              <p><span class="bold"><strong>Values: </strong></span>1, ..., 256</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_RX_NUM_SC_SUPPORTED</p>
+            </td></tr><tr><td>Maximum Key Size Selection</td><td>256-bit</td><td>
+              <p>Maximum Key Size Selection.
+Selection of 256-bit key or 128-bit key size</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">128-bit (0)</li><li class="listitem">256-bit (1)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>256-bit</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_MAX_KEY_SIZE</p>
+            </td></tr><tr><td>Jumbo Frames Support</td><td>Jumbo Frames supported</td><td>
+              <p>Enable Jumbo Frames support up to 9k bytes</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Jumbo Frames NOT supported (0)</li><li class="listitem">Jumbo Frames supported (1)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>Jumbo Frames supported</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_JUMBO_FRAMES_SUPPORTED</p>
+            </td></tr><tr><td>Anti-Replay Window Type</td><td>Logarithmic</td><td>
+              <p>Defines how anti-replay windows can be defined: in a linear mode or logarithmic mode.
+The recommendation is to set logarithmic mode, where windows are defined on power of 2 values only, due to the fact that saves significant logic resources.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Linear (0)</li><li class="listitem">Logarithmic (1)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>Logarithmic</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_WIN_SIZE_MODE</p>
+            </td></tr><tr><td>MACsec Extended Packet Numbering Support</td><td>1</td><td>
+              <p>MACsec Extended Packet Numbering support
+This is the AES-GCM-XPN feature that creates additional PN security resilience for high speed ethernet applications (100Gb+).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_XPN_SEL</p>
+            </td></tr><tr><td>Number of stages in CDC Synchronizers</td><td>2</td><td>
+              <p>Number of flip-flops in CDC synchronizer</p>
+              <p><span class="bold"><strong>Values: </strong></span>2, 3, 4</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>2</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_SYNC_DEPTH</p>
+            </td></tr><tr><td>Number of stages in RDC Synchronizers</td><td>3</td><td>
+              <p>Number of flip-flops in RDC synchronizer</p>
+              <p><span class="bold"><strong>Values: </strong></span>2, 3, 4</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>3</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_RDC_SYNC_DEPTH</p>
+            </td></tr><tr><td>SRAM Zeroization Support</td><td>1</td><td>
+              <p>MACsec External SRAM Zeroization Support
+Enabling this feature, will offer a way for the external SRAMs to be written with 0s
+The writing of 0s will be done by the MACsec IP automatically dependent on the status of an input control pin</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_SRAM_ZERO_EN</p>
+            </td></tr><tr><td>APB version</td><td>APB-4</td><td>
+              <p>Selects the APB version and corresponding features to be supported.
+The following options can be selected:
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">
+DWC_MACSEC_APB_VER = 0 | "APB-4"           : follows the AMBA APB Specification (Issue C), commonly referred to as APB-4.
+</li><li class="listitem">
+DWC_MACSEC_APB_VER = 1 | "APB-5 RME"       : follows the AMBA APB Specification (Issue E), adding only Realm Management Extension (RME) support.
+</li><li class="listitem">
+DWC_MACSEC_APB_VER = 2 | "APB-5 Parity"    : follows the AMBA APB Specification (Issue D), adding only parity protection and check signals.
+</li><li class="listitem">
+DWC_MACSEC_APB_VER = 3 | "APB-5 RME Parity": follows the AMBA APB Specification (Issue E), adding only Realm Management Extension (RME) support and parity protection and check signals.
+</li></ul></div>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">APB-4 (0)</li><li class="listitem">APB-5 RME (1)</li><li class="listitem">APB-5 Parity (2)</li><li class="listitem">APB-5 RME PARITY (3)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>APB-4</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_APB_VER</p>
+            </td></tr><tr><td>TX SAI Lookup architecture</td><td>Direct decoding</td><td>
+              <p>Selection of TX SAI Lookup architecture for TX Security Association decoding</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Direct decoding (0)</li><li class="listitem">Linear search (1)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>Direct decoding</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_TX_SAI_LOOKUP_SEARCH_METHOD</p>
+            </td></tr><tr><td>TX SAI Memory type</td><td>Internal FFs</td><td>
+              <p>Selection of TX SAI Memory type for TX Lookup process for a MACsec performance selection of more than 1Gbps</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Internal FFs (0)</li><li class="listitem">External TCAM memory (1)</li><li class="listitem">External SRAM memory (2)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>Internal FFs</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_TX_SAI_MEM_TYPE</p>
+            </td></tr><tr><td>Pipeline stages to include in TX SAI Lookup process</td><td>1 pipeline stage</td><td>
+              <p>Selects (or not) how many pipeline stages will be included in TX SAI Lookup process</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Direct decoding (0 stages) (0)</li><li class="listitem">1 pipeline stage (1)</li><li class="listitem">2 pipeline stages (2)</li><li class="listitem">3 pipeline stages (3)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1 pipeline stage</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWC_MACSEC_TX_SAI_MEM_TYPE==0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_TX_SAI_LOOKUP_NUM_PIPE_STAGES</p>
+            </td></tr><tr><td>VLAN tags include in TX SAI Lookup process</td><td>Two VLAN tags</td><td>
+              <p>Selects (or not) how many VLAN TAGs are used for TX Security Association decoding</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">No VLAN tags (0)</li><li class="listitem">One VLAN tag (1)</li><li class="listitem">Two VLAN tags (2)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>Two VLAN tags</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_TX_SAI_LOOKUP_NUM_VLANTAGS</p>
+            </td></tr><tr><td>RX SAI Lookup architecture</td><td>Direct decoding</td><td>
+              <p>Selection of RX SAI Lookup architecture for RX Security Association decoding</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Direct decoding (0)</li><li class="listitem">Linear search (1)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>Direct decoding</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_RX_SAI_LOOKUP_SEARCH_METHOD</p>
+            </td></tr><tr><td>RX SAI Memory type</td><td>Internal FFs</td><td>
+              <p>Selection of RX SAI Memory type for RX Lookup process for a MACsec performance selection of more than 1Gbps</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Internal FFs (0)</li><li class="listitem">External TCAM memory (1)</li><li class="listitem">External SRAM memory (2)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>Internal FFs</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_RX_SAI_MEM_TYPE</p>
+            </td></tr><tr><td>Pipeline stages to include in RX SAI Lookup process</td><td>2 pipeline stages</td><td>
+              <p>Selects (or not) how many pipeline stages will be included in RX SAI Lookup process</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Direct decoding (0 stages) (0)</li><li class="listitem">1 pipeline stage (1)</li><li class="listitem">2 pipeline stages (2)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>2 pipeline stages</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWC_MACSEC_RX_SAI_MEM_TYPE==0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_RX_SAI_LOOKUP_NUM_PIPE_STAGES</p>
+            </td></tr><tr><td>VLAN tags include in RX SAI Lookup process</td><td>Two VLAN tags</td><td>
+              <p>Selects (or not) how many VLAN TAGs are used for RX Security Association decoding</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">No VLAN tags (0)</li><li class="listitem">One VLAN tag (1)</li><li class="listitem">Two VLAN tags (2)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>Two VLAN tags</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_RX_SAI_LOOKUP_NUM_VLANTAGS</p>
+            </td></tr><tr><td>TX SALT memory type</td><td>Internal FFs</td><td>
+              <p>Selection of TX SALT Memory type</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Internal FFs (0)</li><li class="listitem">External Two Port SRAM (1)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>External Two Port SRAM</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>((DWC_MACSEC_XPN_SEL == 1))</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_TX_SALT_MEM_TYPE</p>
+            </td></tr><tr><td>RX SALT memory type</td><td>Internal FFs</td><td>
+              <p>Selection of RX SALT Memory type</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Internal FFs (0)</li><li class="listitem">External Two Port SRAM (1)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>External Two Port SRAM</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>((DWC_MACSEC_XPN_SEL == 1))</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_RX_SALT_MEM_TYPE</p>
+            </td></tr><tr><td>RX ARW memory type</td><td>Internal FFs</td><td>
+              <p>Selection of RX ARW Memory type</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Internal FFs (0)</li><li class="listitem">External Two Port SRAM (1)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>External Two Port SRAM</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_RX_ARW_MEM_TYPE</p>
+            </td></tr><tr><td>TX SAD memory type</td><td>Internal FFs</td><td>
+              <p>Selection of TX SAD Memory type</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Internal FFs (0)</li><li class="listitem">External Dual Port SRAM (1)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>External Dual Port SRAM</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_TX_SAD_MEM_TYPE</p>
+            </td></tr><tr><td>RX SAD memory type</td><td>Internal FFs</td><td>
+              <p>Selection of RX SAD Memory type</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Internal FFs (0)</li><li class="listitem">External Dual Port SRAM (1)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>External Dual Port SRAM</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_RX_SAD_MEM_TYPE</p>
+            </td></tr><tr><td>TX MIB SA memory type</td><td>Internal FFs</td><td>
+              <p>Selection of TX MIB SA Memory type</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Internal FFs (0)</li><li class="listitem">External Two Port SRAM (1)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>External Two Port SRAM</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_TX_MIB_SA_MEM_TYPE</p>
+            </td></tr><tr><td>RX MIB SA memory type</td><td>Internal FFs</td><td>
+              <p>Selection of RX MIB SA Memory type</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Internal FFs (0)</li><li class="listitem">External Two Port SRAM (1)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>External Two Port SRAM</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_RX_MIB_SA_MEM_TYPE</p>
+            </td></tr><tr><td>RX MIB SC memory type</td><td>Internal FFs</td><td>
+              <p>Selection of RX MIB SC Memory type</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Internal FFs (0)</li><li class="listitem">External Two Port SRAM (1)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>External Two Port SRAM</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_RX_MIB_SC_MEM_TYPE</p>
+            </td></tr><tr><td>AES SBOX Architecture Selection</td><td>High-Speed Optimized</td><td>
+              <p>Select the architecture of the S-boxes used within the AES cores.
+Selecting high-speed architecture will offer better results for reaching high operating frequencies, but will increase the size of the IP.
+Selecting area optimized architecture will offer lower IP area footprint, but lower maximum operating frequency.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">High-Speed Optimized (0)</li><li class="listitem">Low-Area Optimized (1)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>Low-Area Optimized</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_AES_SBOX_ARCH</p>
+            </td></tr><tr><td>AES-GCM with 2 rounds per cycle (less latency)</td><td>Enabled</td><td>
+              <p>AES GCM two rounds per cycle enable. When enabled the AES-GCM computes 2 XOR rounds per cycle, minimizing the latency.
+This impacts the overall timing and for some configs,the target frequency may not be met.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Disabled (0)</li><li class="listitem">Enabled (1)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>Enabled</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_AES_2_ROUNDS_PER_CYCLE_EN</p>
+            </td></tr><tr><td>AES Cipher Key Memory Selection</td><td>Synthesized Memory</td><td>
+              <p>AES cores Cipher Key Memory Interface: External SRAM or Internal Synthesized Memory.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">External SRAM (0)</li><li class="listitem">Synthesized Memory (1)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>External SRAM</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_AES_SYNTH_CKEY_MEM</p>
+            </td></tr><tr><td>AES Hash Key Memory Selection</td><td>Synthesized Memory</td><td>
+              <p>AES cores Hash Key Memory Interface: External SRAM or Internal Synthesized Memory.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">External SRAM (0)</li><li class="listitem">Synthesized Memory (1)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>External SRAM</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_AES_SYNTH_HKEY_MEM</p>
+            </td></tr><tr><td>AES Cipher Context Memory Selection</td><td>Synthesized Memory</td><td>
+              <p>AES cores Cipher Context Memory Interface: External SRAM or Internal Synthesized Memory.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">External SRAM (0)</li><li class="listitem">Synthesized Memory (1)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>External SRAM</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_AES_SYNTH_CCTX_MEM</p>
+            </td></tr><tr><td>AES FIPS140-3 Self Test Support</td><td>1</td><td>
+              <p>FIPS140-3 support selection.</p><p class="BLANK"></p><p>
+If FIPS140-3 is enabled, an internal self-test module is availabe and the pass/fail checker logic is utilized.
+Power-up and on-demand BIST use hard-coded self-test vectors.
+In FW-driven FIPS test-mode vectors are injected by software registers.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_AES_FIPS_EN</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-Info"></a>Info Parameters</h3></div></div></div><div class="table"><a name="paramtable-Info"></a><p class="title"><b>Table 2. Info Parameters</b></p><div class="table-contents"><table class="table" summary="Info Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td>Number of AES key contexts</td><td>546</td><td>
+              <p>AES number of AES key contexts.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, ..., (64+512+1+1)</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>546</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_AES_NCTX</p>
+            </td></tr><tr><td>Maximum MSG size per round (in bits).</td><td>128</td><td>
+              <p>During the FIPS Firmware Driven Test Mode, the number of MSG bits cannot exceed this value in each round.</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>128</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_AES_MSG_WIDTH</p>
+            </td></tr><tr><td>Maximum AAD+MSG size per round (in bits).</td><td>256</td><td>
+              <p>During the FIPS Firmware Driven Test mode, the number of written AAD+MSG bits cannot exceed this value in each round.</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>256</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_AES_DP_WIDTH</p>
+            </td></tr><tr><td>Cipher Key Context Index for FIPS</td><td>544</td><td>
+              <p>The context index to load the key into when performing a FIPS test.
+By default it's the last context.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, ..., (DWC_MACSEC_AES_NCTX - 2)</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>544</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_AES_DEFAULT_FIPS_CTX_IDX</p>
+            </td></tr><tr><td>Hash Key Memory Depth for AES Core(in rows)</td><td>0</td><td>
+              <p>The depth of the Hash Key Memory for AES Cores.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, ..., (64+512+1+1)</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_AES_HKEY_SRAM_DEPTH_INFO</p>
+            </td></tr><tr><td>Cipher Key Memory Depth for AES Core(in rows)</td><td>0</td><td>
+              <p>The depth of the Cipher Key Memory for AES Core.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, ..., (64+512+1+1)</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_AES_CKEY_SRAM_DEPTH_INFO</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Cipher Context Memory Depth for AES Core(in rows)</td><td>0</td><td>
+              <p>The depth of the Cipher Context Memory for AES Core.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, ..., (64+512+1+1)</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>((DWC_MACSEC_AES_SYNTH_CCTX_MEM==0) &amp;&amp; (DWC_UAES_CFG_ILEAVE_EN==1))</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_AES_CCTX_MEM_DATA_SRAM_DEPTH_INFO</p>
+            </td></tr><tr><td>Hash Key Memory Width for AES Core(in bits)</td><td>0</td><td>
+              <p>The width of the Hash Key Memory for AES Core.</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_AES_HKEY_SRAM_WIDTH_INFO</p>
+            </td></tr><tr><td>Cipher Key Memory Width for AES Core(in bits)</td><td>0</td><td>
+              <p>The width of the Cipher Key Memory for AES Core.</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_AES_CKEY_SRAM_WIDTH_INFO</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Cipher Context Memory Width for AES Core(in bits)</td><td>0</td><td>
+              <p>The width of the Cipher Context Memory for AES Core.</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>((DWC_MACSEC_AES_SYNTH_CCTX_MEM==0) &amp;&amp; (DWC_UAES_CFG_ILEAVE_EN==1))</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_AES_CCTX_MEM_DATA_SRAM_WIDTH_INFO</p>
+            </td></tr><tr><td>TX SALT SRAM depth (in rows)</td><td>32</td><td>
+              <p>Two Port TX SALT SRAM Memory depth</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>32</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>((DWC_MACSEC_XPN_SEL == 1))</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_TX_SALT_MEM_DEPTH_INFO</p>
+            </td></tr><tr><td>TX SALT SRAM Memory width (in bits)</td><td>111</td><td>
+              <p>Two Port TX SALT SRAM Memory width</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>111</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>((DWC_MACSEC_XPN_SEL == 1))</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_TX_SALT_SRAM_WIDTH_INFO</p>
+            </td></tr><tr><td>RX SALT SRAM depth (in rows)</td><td>512</td><td>
+              <p>Two Port RX SALT SRAM Memory depth</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>512</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>((DWC_MACSEC_XPN_SEL == 1))</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_RX_SALT_MEM_DEPTH_INFO</p>
+            </td></tr><tr><td>RX SALT SRAM Memory width (in bits)</td><td>111</td><td>
+              <p>Two Port RX SALT SRAM Memory width</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>111</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>((DWC_MACSEC_XPN_SEL == 1))</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_RX_SALT_SRAM_WIDTH_INFO</p>
+            </td></tr><tr><td>RX ARW SRAM depth (in rows)</td><td>512</td><td>
+              <p>Two Port RX AntiReplay Window SRAM Memory depth</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>512</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_RX_ARW_MEM_DEPTH_INFO</p>
+            </td></tr><tr><td>RX ARW SRAM width (in bits)</td><td>11</td><td>
+              <p>Two Port RX AntiReplay Window SRAM Memory width</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>11</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_RX_ARW_SRAM_WIDTH_INFO</p>
+            </td></tr><tr><td>TX SA MIB SRAM memory depth(in rows)</td><td>64</td><td>
+              <p>The depth of the TX SA MIB memory (can be SRAM or FFs, depending on DWC_MACSEC_TX_MIB_SA_MEM_TYPE)</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>64</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_TX_SA_MIB_SRAM_DEPTH_INFO</p>
+            </td></tr><tr><td>TX SA MIB SRAM memory width(in bits)</td><td>39</td><td>
+              <p>The width of the TX SA MIB counters.</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>39</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_TX_MIB_SA_SRAM_WIDTH_INFO</p>
+            </td></tr><tr><td>RX SA MIB SRAM memory depth(in rows)</td><td>2560</td><td>
+              <p>The depth of the RX SA MIB memory (can be SRAM or FFs, depending on DWC_MACSEC_RX_MIB_SA_MEM_TYPE)</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>2560</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_RX_SA_MIB_SRAM_DEPTH_INFO</p>
+            </td></tr><tr><td>RX SA MIB SRAM memory width(in bits)</td><td>39</td><td>
+              <p>The width of the RX SA MIB counters.</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>39</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_RX_MIB_SA_SRAM_WIDTH_INFO</p>
+            </td></tr><tr><td>RX SC MIB SRAM bank 1 memory depth(in rows)</td><td>0</td><td>
+              <p>The depth of the RX SC MIB SRAM bank 1 memory. Each RX SC bank can be independently placed internally as FFs, or externally in an SRAM</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_RX_SC_MIB_SRAM_1_DEPTH_INFO</p>
+            </td></tr><tr><td>RX SC MIB SRAM bank 2 memory depth(in rows)</td><td>0</td><td>
+              <p>The depth of the RX SC MIB SRAM bank 2 memory. Each RX SC bank can be independently placed internally as FFs, or externally in an SRAM</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_RX_SC_MIB_SRAM_2_DEPTH_INFO</p>
+            </td></tr><tr><td>RX SC MIB SRAM memory depth(in rows)</td><td>0</td><td>
+              <p>The depth of the RX SC MIB SRAM total memory.</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_RX_SC_MIB_SRAM_DEPTH_INFO</p>
+            </td></tr><tr><td>RX SC MIB SRAM memory width (in bits)</td><td>78</td><td>
+              <p>The width of the RX SC MIB counters.</p>
+              <p><span class="bold"><strong>Values: </strong></span>-2147483648, ..., 2147483647</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>78</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_MACSEC_RX_MIB_SC_SRAM_WIDTH_INFO</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div></div></div></body></html>

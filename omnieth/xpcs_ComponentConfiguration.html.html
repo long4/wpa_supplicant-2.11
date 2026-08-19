@@ -1,0 +1,412 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Parameters for DWC_xpcs - 3.50a</title><link rel="stylesheet" type="text/css" href="html.css"><meta name="generator" content="DocBook XSL Stylesheets V1.79.1"><link rel="home" href="#idp60854440" title="Parameters for DWC_xpcs - 3.50a"><link rel="next" href="#Parameter-Descriptions" title=""></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="article"><div class="titlepage"><div><div><h2 class="title"><a name="idp60854440"></a>Parameters for DWC_xpcs - 3.50a</h2></div></div><hr></div><div class="sect1"><div class="titlepage"></div><p>These tables define all of the user configuration options for this component. Entries which are grayed-out are disabled (read-only) in the current configuration.</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><a class="link" href="#paramtable-Features_SystemConfigurationsSettings" title="Table 1. Features / System Configurations Settings Parameters">Features / System Configurations Settings</a></li><li class="listitem"><a class="link" href="#paramtable-Features_XGMIIInterface" title="Table 2. Features / XGMII Interface Parameters">Features / XGMII Interface</a></li><li class="listitem"><a class="link" href="#paramtable-Features_PHYInterface" title="Table 3. Features / PHY Interface Parameters">Features / PHY Interface</a></li><li class="listitem"><a class="link" href="#paramtable-Registers_IEEEPORTIDDefaultsinCSR" title="Table 4. Registers / IEEE PORT ID Defaults in CSR Parameters">Registers / IEEE PORT ID Defaults in CSR</a></li><li class="listitem"><a class="link" href="#paramtable-Registers_IEEEPMADelayDefaultsinCSR" title="Table 5. Registers / IEEE PMA Delay Defaults in CSR Parameters">Registers / IEEE PMA Delay Defaults in CSR</a></li><li class="listitem"><a class="link" href="#paramtable-SafetySubordinateCoreConfiguration" title="Table 6. SafetySubordinateCoreConfiguration Parameters">SafetySubordinateCoreConfiguration</a></li></ul></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-Features_SystemConfigurationsSettings"></a>Features / System Configurations Settings Parameters</h3></div></div></div><div class="table"><a name="paramtable-Features_SystemConfigurationsSettings"></a><p class="title"><b>Table 1. Features / System Configurations Settings Parameters</b></p><div class="table-contents"><table class="table" summary="Features / System Configurations Settings Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td>Mode of Operation</td><td>Backplane Ethernet PCS</td><td>
+              <p>Configures the mode of operation of the DWC_xpcs.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">XGXS PCS (0)</li><li class="listitem">10GBASE-X PCS (1)</li><li class="listitem">Backplane Ethernet PCS (2)</li><li class="listitem">1000BaseX-Only PCS (3)</li><li class="listitem">10GBASE-R PCS (4)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>XGXS PCS</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>MAIN_MODE</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Add 1G Support (1000BASE-X)</td><td>0</td><td>
+              <p>Adds the 1000BASE-X PCS functionality.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>MAIN_MODE == 0 || MAIN_MODE == 1 || MAIN_MODE == 4</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>SUPPORT_1G</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>XGXS Mode</td><td>XGXS in DTE</td><td>
+              <p>Configures the DWC_xpcs to operate on the DTE or the PHY side.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">XGXS in DTE (0)</li><li class="listitem">XGXS in PHY (1)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>XGXS in DTE</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>MAIN_MODE == 0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DTE_PHY_SEL</p>
+            </td></tr><tr><td>Backplane Ethernet PCS Speed</td><td>KR_KX(KR and KX Links)</td><td>
+              <p>Specifies the speed mode for Backplane Ethernet PCS configurations.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">KX4_KX (KX4 and KX Links) (0)</li><li class="listitem">KX4_Only (4x3.125Gbps link) (1)</li><li class="listitem">KX_Only (1x1.25Gbps link) (2)</li><li class="listitem">KR_KX4_KX(KR, KX4 and KX Links) (3)</li><li class="listitem">KR_KX4(KR and KX4 links) (4)</li><li class="listitem">KR_KX(KR and KX Links) (5)</li><li class="listitem">KR_Only (1x10.3125Gbps link) (6)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>KX4_KX (KX4 and KX Links)</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>MAIN_MODE == 2</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>BACKPLANE_ETH_CONFIG</p>
+            </td></tr><tr><td>Add 2.5GBASE-X Support</td><td>1</td><td>
+              <p>Adds XGMII-interface based 2.5GBASE-X functionality as per IEEE 802.3cb, to the controller. Overclocked GMII-based 2.5GBASE-X functionality is automatically supported when selected configuration has 1000BASE-X feature.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>KX4_KX||KR_KX4_KX||KR_KX||((MAIN_MODE==1||MAIN_MODE==4)&amp;&amp;SUPPORT_1G)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>ADD_2PT5G</p>
+            </td></tr><tr><td>Add 5GBASE-R Support</td><td>1</td><td>
+              <p>Adds 5GBASE-R functionality to the controller, as per the IEEE 802.3cb standard.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>KR_ONLY||KR_KX||KR_KX4||KR_KX4_KX||(MAIN_MODE==4)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>ADD_5G</p>
+            </td></tr><tr><td>Add Quad-port USXGMII Support</td><td>0</td><td>
+              <p>Adds Support for 10G-QXGMII mode in the controller. If this option is selected, Single-port and Dual-port support is automatically added.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(MAIN_MODE == 4||KR_PRESENT)&amp;&amp;&lt;DWC-ETHERNET-XPCS-MULTIPORT feature authorized&gt;</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>USXG_QPORT</p>
+            </td></tr><tr><td>Add Dual-port USXGMII Support</td><td>0</td><td>
+              <p>Adds support for 10G-DXGMII and 5G-DXGMII support in the controller. If this option is selected, Single-port support is automatically added.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(MAIN_MODE == 4||KR_PRESENT)&amp;&amp;!USXG_QPORT&amp;&amp;&lt;DWC-ETHERNET-XPCS-MULTIPORT feature authorized&gt;</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>USXG_DPORT</p>
+            </td></tr><tr><td>Add Single-port USXGMII Support</td><td>1</td><td>
+              <p>Adds Support for Single-port USXGMII modes (10G-SXGMII,5G-SXGMII,2.5G-SXGMII modes).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(MAIN_MODE == 4||KR_PRESENT)&amp;&amp;!USXG_DPORT</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>USXG_SPORT</p>
+            </td></tr><tr><td>Management Interface</td><td>APB3 Interface (32-bit register)</td><td>
+              <p>Specifies the parallel micro-controller interface (MCI), the serial Management Data Input/Output (MDIO) interface, or APB3 interface (3 types) with the Control and Status registers.
+ For 'APB3 Interface (legacy)' interface, DWC_xpcs registers are 16-bit wide and addresses of registers are multiples of 1. This is the legacy APB3 interface supported till 3.30a.
+ For 'APB3 Interface (16-bit register)' interface, DWC_xpcs registers are 16-bit wide but addresses of registers are multiples of 2.
+ For 'APB3 Interface (32-bit register)' interface, DWC_xpcs registers are 32-bit wide but addresses of registers are multiples of 4.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">MDIO Interface (0)</li><li class="listitem">MicroController Interface (1)</li><li class="listitem">APB3 Interface (legacy) (2)</li><li class="listitem">APB3 Interface (16-bit register) (3)</li><li class="listitem">APB3 Interface (32-bit register) (4)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>MDIO Interface</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>CSR_INTERFACE</p>
+            </td></tr><tr><td>Enable Indirect Register Access</td><td>1</td><td>
+              <p>Enables indirect access to registers in the DWC_xpcs. By default, each DWC_xpcs register is accessible through 21-bit/22-bit(APB3_16)/23-bit (APB3_32) wide address. By enabling this mode, the upper 13-bit of the address can be written to a pre-defined register so that only 8-bit or 9-bit (APB3_16) or 10-bit (APB3_32) address bus is used for all register accesses in the DWC_xpcs.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>CSR_INTERFACE!=0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>INDIRECT_ACCESS</p>
+            </td></tr><tr><td>Add Forward Error Correction Support</td><td>1</td><td>
+              <p>Enables the support for the Forward Error Correction (FEC) sub layer embedded in the 10GBASE-KR PCS. This feature is useful for erroneous channels, especially for the backplane application with 10GBASE-KR, when 10GBASE-R type serial data (10.31232 Gbps) is transmitted or received on copper.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>KR_ONLY||KR_KX4||KR_KX||KR_KX4_KX</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>FEC_EN</p>
+            </td></tr><tr><td>Add Error Forwarding Support</td><td>1</td><td>
+              <p>Enables the FEC block to forward error information to the Block Synchronization module. This option adds more design latency and hardware in the Receive path.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>FEC_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>FEC_ERROR_FWD</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Add Clause 72 KR Training Support</td><td>1</td><td>
+              <p>Enables the support for Clause 72 KR training protocol in the PCS layer.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(KR_ONLY||KR_KX4||KR_KX||KR_KX4_KX)&amp;&amp;!SNPS_XAUI_PHY</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>CL72_EN</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable Clause 37 Auto-Negotiation</td><td>1</td><td>
+              <p>Configures the DWC_xpcs to support the Clause 37 auto-negotiation feature.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(SUPPORT_1G == 1||KX_ONLY||KX4_KX||KR_KX||KR_KX4_KX)&amp;&amp;!USXGMII_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>CL37_AN</p>
+            </td></tr><tr><td>Add SGMII or QSGMII Support</td><td>SGMII Only</td><td>
+              <p>Add Support for SGMII or QSGMII functionality into the controller.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">None (0)</li><li class="listitem">SGMII Only (1)</li><li class="listitem">SGMII and QSGMII (2)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>None</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(CL37_AN&amp;&amp;(SUPPORT_1G||KX_PRESENT))||BASE1000X_ONLY</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>SGM_OR_QSGM_SEL</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Default SGMII PHY</td><td>0</td><td>
+              <p>Configures default operating mode of DWC_xpcs as SGMII-PHY.This option is available when Mode of operation is "1000BaseX-Only PCS" and 'Add SGMII or QSGMII Support' option is chosen as "SGMII Only".</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>SGMII_EN&amp;&amp;BASE1000X_ONLY</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>SGMII_PHY_DFLT</p>
+            </td></tr><tr><td>Add SGMII PHY Automate</td><td>0</td><td>
+              <p>Support to automate the clause 37 SGMII auto-negotiation restart in PHY mode. When this option is enabled, additional input ports to indicate the speed (xpcs_sgmii_link_speed_i), duplex mode (xpcs_sgmii_full_duplex_i) and link-status (xpcs_sgmii_link_sts_i) of the network link gets added to DWC_xpcs controller. In this mode, any change to these input ports results in automatic re-triggering of SGMII auto-negotiation to convey the new speed/duplex mode/link-status to the MAC-side of the SGMII link. You can enable this option to use DWC_xpcs at PHY-side of the SGMII link and indicate the network link speed/status to DWC_xpcs using input ports (instead of Register programmed values).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>SGMII_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>SGMII_PHY_AN_AUTO_RESTART</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Add QSGMII PHY Automate</td><td>0</td><td>
+              <p>Support to automate the clause 37 QSGMII auto-negotiation restart in PHY mode.When this option is enabled, additional input ports (4 sets of ports) to indicate the speed, duplex mode and link-status of the network link gets added to DWC_xpcs controller. In this mode, any change to these input ports results in automatic re-triggering of corresponding QSGMII auto-negotiation to convey the new speed/duplex mode/link-status to the corresponding MAC at the other side of the QSGMII link. You can enable this option to use DWC_xpcs at PHY-side of the QSGMII link and indicate the network link speed/status to DWC_xpcs using input ports (instead of Register programmed values).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>QSGMII_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>QSGMII_PHY_AN_AUTO_RESTART</p>
+            </td></tr><tr><td>Add USXGMII PHY Automate</td><td>0</td><td>
+              <p>Support to automate the clause 37 USXGMII auto-negotiation restart in PHY mode.When this option is enabled, additional input ports to indicate the speed, duplex mode, link-status, EEE capability and EEE clock-stop capability of the network link gets added to DWC_xpcs controller. In this mode, any change to these input ports results in automatic re-triggering of corresponding USXGMII auto-negotiation to convey the new speed/duplex mode/link-status/EEE cap/EEE clock-stop cap to the corresponding MAC at the other side of the USXGMII link. You can enable this option to use DWC_xpcs at PHY-side of the USXGMII link and indicate the network link speed/status/EEE_cap/EEE_clk_stop_cap to DWC_xpcs using input ports (instead of Register programmed values).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>USXGMII_EN</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>USXG_PHY_AN_AUTO_RESTART</p>
+            </td></tr><tr><td>Add EEE Support</td><td>1</td><td>
+              <p>Enables support for Energy Efficient Ethernet (EEE).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>EEE_EN</p>
+            </td></tr><tr><td>Add Automotive Safety Support</td><td>1</td><td>
+              <p>Enables support for Automotive Safety (ISO26262) features like FSM/Data-path parity protection, FSM time-outs and so on.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>SNPS_XAUI_PHY||!MDIO_INTF</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_XPCS_ASP</p>
+            </td></tr><tr><td>Add Safety Subordinate Support</td><td>0</td><td>
+              <p>Enables support for Safety Subordinate features.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWC_XPCS_ASP</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>DWC_XPCS_SS</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-Features_XGMIIInterface"></a>Features / XGMII Interface Parameters</h3></div></div></div><div class="table"><a name="paramtable-Features_XGMIIInterface"></a><p class="title"><b>Table 2. Features / XGMII Interface Parameters</b></p><div class="table-contents"><table class="table" summary="Features / XGMII Interface Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr bgcolor="#C0C0C0"><td>Add Separate GMII Port</td><td>1</td><td>
+              <p>Configures the DWC_xpcs to have a parallel GMII port, along with the XGMII Port, for the 1G mode. This port is used when the DWC_xpcs is operating in the 1G mode.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>(KX4_KX||KR_KX4_KX||SUPPORT_10GX_1GX)&amp;&amp;!(SGMII_EN||QSGMII_EN||USXGMII_EN)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>ADD_GMII</p>
+            </td></tr><tr><td>XGMII Interface</td><td>Single Data Rate (SDR)</td><td>
+              <p>Configures the XGMII interface to operate in the Single Data Rate (SDR), Dual Data Rate (DDR), or Double Data Rate (DDW) mode.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Single Data Rate (SDR) (0)</li><li class="listitem">Double Data Rate (DDR) (1)</li><li class="listitem">Double Data Width (DDW) (2)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>Single Data Rate (SDR)</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>!(KX_ONLY||BASE1000X_ONLY)&amp;&amp;!MP_USXGMII</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>XGMII</p>
+            </td></tr><tr><td>Enable Clock Compensation</td><td>1</td><td>
+              <p>Enables the clock compensation module in the Receive path. It enables the transfer of XGMII or GMII receive data to the XGMII or GMII Transmit clock domain and thus, having a common clock domain for XGMII or GMII Transmit and Receive interfaces.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>!(KR_PHY&amp;&amp;RPCS_PRESENT)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>CLKCOMP</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-Features_PHYInterface"></a>Features / PHY Interface Parameters</h3></div></div></div><div class="table"><a name="paramtable-Features_PHYInterface"></a><p class="title"><b>Table 3. Features / PHY Interface Parameters</b></p><div class="table-contents"><table class="table" summary="Features / PHY Interface Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr bgcolor="#C0C0C0"><td>PHY Receives LSb First</td><td>0</td><td>
+              <p>Indicates that the PHY first receives the least significant bit of the xgxs_rx_data{lane}_i[9:0] or rpcs_rx_data_i[rpcs_phw:0].</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>!SNPS_XAUI_PHY</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>RX_LSB_FIRST</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>PHY Transmits LSb First</td><td>0</td><td>
+              <p>Indicates that the PHY first transmits the least significant bit of xgxs_tx_data{lane}_o[9:0] or rpcs_tx_data_o[rpcs_phw:0].</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>!SNPS_XAUI_PHY</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>TX_LSB_FIRST</p>
+            </td></tr><tr><td>Enable Synopsys PHY Interface</td><td>1</td><td>
+              <p>Enables the logic and input and output signals to interface with the Synopsys PHY.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>1</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>SNPS_XAUI_PHY</p>
+            </td></tr><tr><td>Synopsys PHY Type</td><td>Multi-protocol 32G</td><td>
+              <p>Select the Synopsys PHY Type</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Multi-protocol 6G (0)</li><li class="listitem">Multi-protocol 12G (1)</li><li class="listitem">Multi-protocol 16G (2)</li><li class="listitem">Multi-protocol 25G (3)</li><li class="listitem">Multi-protocol 32G (4)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>Multi-protocol 12G</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>SNPS_XAUI_PHY==1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>SNPS_PHY_TYPE</p>
+            </td></tr><tr><td>Reference Clock Frequency</td><td>156.25 MHz</td><td>
+              <p>Indicates the reference clock frequency for Synopsys PHY to program the default MPLL parameters of PHY during power up.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">156.25 MHz (0)</li><li class="listitem">125 MHz (1)</li><li class="listitem">78.125 MHz (2)</li><li class="listitem">62.5 MHz (3)</li><li class="listitem">50 MHz (4)</li><li class="listitem">25 MHz (5)</li><li class="listitem">312.5 MHz (6)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>156.25 MHz</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>SNPS_XAUI_PHY</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>REF_CLK_FREQ</p>
+            </td></tr><tr><td>Reference Clock Source</td><td>Pad Clk</td><td>
+              <p>Selects the source of reference clock for Synopsys PHY.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">Pad Clk (0)</li><li class="listitem">Alt/Core Clk (1)</li><li class="listitem">Alt 1 Clk (2)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>Pad Clk</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>SNPS_XAUI_PHY</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>REF_CLK_SRC</p>
+            </td></tr><tr><td>Tx Context Select Value</td><td>0x9</td><td>
+              <p>Default value of Tx context select value that is driven to PHY. Set this to appropriate value for the default operating speed mode of DWC_xpcs as per the the PHY ROM/SRAM image used</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xff</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x4</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>E32||C20</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>TX_CNTX_SEL</p>
+            </td></tr><tr><td>Common Context Select Value</td><td>0x9</td><td>
+              <p>Default value of Common context select value that is driven to PHY. Set this to appropriate value for the default operating speed mode of DWC_xpcs as per the the PHY ROM/SRAM image used</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xff</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x4</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>E32</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>CM_CNTX_SEL</p>
+            </td></tr><tr><td>Rx Context Select Value</td><td>0x9</td><td>
+              <p>Default value of Rx context select value that is driven to PHY. Set this to appropriate value for the default operating speed mode of DWC_xpcs as per the the PHY ROM/SRAM image used</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xff</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x4</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>E32||C20</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>RX_CNTX_SEL</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Add side-band signal for Non-Synopsys PHY 'Ready' Indication</td><td>0</td><td>
+              <p>If this option is selected, a primary input 'xpcs_phy_rdy_i' gets added to DWC_xpcs controller. This input is used to indicate if non-Synopsys PHY is 'ready' or not. This input should be driven to 1 when PHY is stable and all clocks from the PHY are at desired frequencies. DWC_xpcs keeps its internal data-path modules at reset, when this signal is 0.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>!SNPS_XAUI_PHY</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>ADD_PHY_RDY</p>
+            </td></tr><tr><td>RPCS PHY Interface Type</td><td>32x322.265MHz</td><td>
+              <p>Specifies the data width and the operating frequency of the data interface (rpcs_tx_data_o[rpcs_phw:0] and rpcs_rx_data_i[rpcs_phw:0]) to the 10GBASE-R or KR PHY.</p>
+              <p><span class="bold"><strong>Values: </strong></span>          </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">16x644.53MHz (0)</li><li class="listitem">32x322.265MHz (1)</li><li class="listitem">33x312.5MHz (2)</li><li class="listitem">66x156.25MHz (3)</li><li class="listitem">20x515.625MHz (4)</li><li class="listitem">64x161.1328125MHz (5)</li><li class="listitem">40x257.8125MHz (6)</li></ul></div>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>16x644.53MHz</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>RPCS_PRESENT</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>R_SRDS_INTF</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable Lane Control</td><td>0</td><td>
+              <p>Enables control over the number of lanes in the XGXS PCS, 10GBASE-X PCS, and KX4 speed modes. Using this option, you can enable 2.5 Gbps, 5.0 Gbps, and 7.5 Gbps speed modes, along with the default 10 Gbps speed mode, by disabling some of the operating lanes in a vendor-specific way.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>!(KX_ONLY||BASE1000X_ONLY||(MAIN_MODE==4)||KR_ONLY||KR_KX)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>LANE_CONTROL</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable Extended Lane-to-Lane De-Skew</td><td>0</td><td>
+              <p>Enables the extended lane-to-lane deskew of 80UI. The default lane-to-lane deskew is 40UI.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>!SINGLE_LANE_CFG</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>EXT_DSKW</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable RXAUI Support(2x6.25 Gbps Link)</td><td>0</td><td>
+              <p>Enables the RXAUI functionality. The DWC_xpcs supports the implementations of the RXAUI. A. Dune Networks implementation B.Marvell implementation. When this feature is enabled, the DWC_xpcs supports RXAUI with two lanes (each of 20-bit data width), operating at 312.5 MHz clock, to get the speed of 2x6.25 Gbps. When this feature is disabled, the DWC_xpcs does not support RXAUI.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>!(KX_ONLY||BASE1000X_ONLY||(MAIN_MODE==4)||KR_ONLY||KR_KX)</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>RXAUI</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Enable RXAUI Mode by Default</td><td>0</td><td>
+              <p>Enables the RXAUI mode by default in the DWC_xpcs. You can switch to the XAUI mode by programming registers.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>RXAUI&amp;&amp;!BACKPLANE_ETHERNET_PCS</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>RXAUI_DEFAULT</p>
+            </td></tr><tr><td>Enable GPIO</td><td>0</td><td>
+              <p>Enables the General Purpose Inputs/Outputs (GPIO) for Synopsys PHY. You can use these IOs as the Control or Status interface to a PHY or from a PHY.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>GPIO_EN</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-Registers_IEEEPORTIDDefaultsinCSR"></a>Registers / IEEE PORT ID Defaults in CSR Parameters</h3></div></div></div><div class="table"><a name="paramtable-Registers_IEEEPORTIDDefaultsinCSR"></a><p class="title"><b>Table 4. Registers / IEEE PORT ID Defaults in CSR Parameters</b></p><div class="table-contents"><table class="table" summary="Registers / IEEE PORT ID Defaults in CSR Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td>Support to Modify Default Values IEEE Registers</td><td>1</td><td>
+              <p>Makes the IEEE Device or Package Identifier registers programmable through Vendor-Specific Control MMD.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0, 1</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>IEEE_REG_WR_SUPPORT</p>
+            </td></tr><tr><td>XS/PCS Device OUI (24-bit)</td><td>0xcda679</td><td>
+              <p>Configures the default value of the 24-bit IEEE XGXS/PCS Device Organizationally Unique Identifier.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xffffff</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0xcda679</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>IEEE_DEV_OUI</p>
+            </td></tr><tr><td>XS/PCS Device Model Number (6-bit)</td><td>0x2d</td><td>
+              <p>Configures the default value of the 6-bit IEEE XGXS/PCS Device Model Number.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0x2f</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x2d</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>IEEE_DEV_MODEL_NO</p>
+            </td></tr><tr><td>XS/PCS Device Revision Number (4-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of the 4-bit IEEE XGXS/PCS Device Revision Number.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xf</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>IEEE_DEV_REV_NO</p>
+            </td></tr><tr><td>Package OUI (24-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of the 24-bit IEEE Package Organizationally Unique Identifier.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xffffff</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>BASE1000X_ONLY == 0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>IEEE_PKG_OUI</p>
+            </td></tr><tr><td>Package Model Number (6-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of the 6-bit IEEE Package Model Number.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0x2f</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>BASE1000X_ONLY == 0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>IEEE_PKG_MODEL_NO</p>
+            </td></tr><tr><td>Package Revision Number (4-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of the 4-bit IEEE Package Revision Number.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xf</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>BASE1000X_ONLY == 0</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>IEEE_PKG_REV_NO</p>
+            </td></tr><tr><td>PMA Device OUI (24-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of the 24-bit IEEE PMA Device Organizationally Unique Identifier.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xffffff</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>PMA_MMD == 1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>IEEE_PMA_DEV_OUI</p>
+            </td></tr><tr><td>PMA Device Model Number (6-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of the 6-bit IEEE PMA Device Model Number.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0x2f</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>PMA_MMD == 1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>IEEE_PMA_DEV_MODEL_NO</p>
+            </td></tr><tr><td>PMA Device Revision Number (4-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of the 4-bit IEEE PMA Device Revision Number.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xf</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>PMA_MMD == 1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>IEEE_PMA_DEV_REV_NO</p>
+            </td></tr><tr><td>AN Device OUI (24-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of 24-bit IEEE AN Device Organizationally Unique Identifier (OUI).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xffffff</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>BACKPLANE_ETHERNET_PCS == 1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>IEEE_AN_DEV_OUI</p>
+            </td></tr><tr><td>AN Device Model Number (6-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of 6-bit IEEE AN Device Model Number.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0x2f</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>BACKPLANE_ETHERNET_PCS == 1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>IEEE_AN_DEV_MODEL_NO</p>
+            </td></tr><tr><td>AN Device Revision Number (4-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of 4-bit IEEE AN Device Revision Number.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xf</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>BACKPLANE_ETHERNET_PCS == 1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>IEEE_AN_DEV_REV_NO</p>
+            </td></tr><tr><td>Vendor-Specific MMD1 Device OUI (24-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of 24-bit IEEE Vendor-Specific MMD1 Device Organizationally Unique Identifier (OUI).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xffffff</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>IEEE_VS_DEV_OUI</p>
+            </td></tr><tr><td>Vendor-Specific MMD1 Device Model Number (6-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of 6-bit IEEE Vendor-Specific MMD1 Device Model Number.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0x2f</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>IEEE_VS_DEV_MODEL_NO</p>
+            </td></tr><tr><td>Vendor Specific MMD1 Device Revision Number (4-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of 4-bit IEEE Vendor-Specific MMD1 Device Revision Number.</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xf</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>Always</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>IEEE_VS_DEV_REV_NO</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-Registers_IEEEPMADelayDefaultsinCSR"></a>Registers / IEEE PMA Delay Defaults in CSR Parameters</h3></div></div></div><div class="table"><a name="paramtable-Registers_IEEEPMADelayDefaultsinCSR"></a><p class="title"><b>Table 5. Registers / IEEE PMA Delay Defaults in CSR Parameters</b></p><div class="table-contents"><table class="table" summary="Registers / IEEE PMA Delay Defaults in CSR Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr><td>PMA Tx Max Delay-lower (16-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of the 16-bit IEEE Time Sync PMA/PMD Transmit Path Maximum Data Delay (lower 16-bit).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xffff</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>PMA_MMD == 1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>PMA_TX_MAX_DLY_LWR</p>
+            </td></tr><tr><td>PMA Tx Max Delay-upper (16-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of the 16-bit IEEE Time Sync PMA/PMD Transmit Path Maximum Data Delay (upper 16-bit).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xffff</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>PMA_MMD == 1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>PMA_TX_MAX_DLY_UPR</p>
+            </td></tr><tr><td>PMA Tx Min Delay-lower (16-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of the 16-bit IEEE Time Sync PMA/PMD Transmit Path Minimum Data Delay (lower 16-bit).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xffff</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>PMA_MMD == 1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>PMA_TX_MIN_DLY_LWR</p>
+            </td></tr><tr><td>PMA Tx Min Delay-upper (16-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of the 16-bit IEEE Time Sync PMA/PMD Transmit Path Minimum Data Delay (upper 16-bit).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xffff</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>PMA_MMD == 1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>PMA_TX_MIN_DLY_UPR</p>
+            </td></tr><tr><td>PMA Rx Max Delay-lower (16-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of the 16-bit IEEE Time Sync PMA/PMD Receive Path Maximum Data Delay (lower 16-bit).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xffff</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>PMA_MMD == 1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>PMA_RX_MAX_DLY_LWR</p>
+            </td></tr><tr><td>PMA Rx Max Delay-upper (16-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of the 16-bit IEEE Time Sync PMA/PMD Receive Path Maximum Data Delay (upper 16-bit).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xffff</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>PMA_MMD == 1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>PMA_RX_MAX_DLY_UPR</p>
+            </td></tr><tr><td>PMA Rx Min Delay-lower (16-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of the 16-bit IEEE Time Sync PMA/PMD Receive Path Minimum Data Delay (lower 16-bit).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xffff</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>PMA_MMD == 1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>PMA_RX_MIN_DLY_LWR</p>
+            </td></tr><tr><td>PMA Rx Min Delay-upper (16-bit)</td><td>0x0</td><td>
+              <p>Configures the default value of the 16-bit IEEE Time Sync PMA/PMD Receive Path Minimum Data Delay (upper 16-bit).</p>
+              <p><span class="bold"><strong>Values: </strong></span>0x0, ..., 0xffff</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>0x0</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>PMA_MMD == 1</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>PMA_RX_MIN_DLY_UPR</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div><div class="sect2"><div class="titlepage"><div><div><h3 class="title"><a name="H2-sect2-paramtable-SafetySubordinateCoreConfiguration"></a>SafetySubordinateCoreConfiguration Parameters</h3></div></div></div><div class="table"><a name="paramtable-SafetySubordinateCoreConfiguration"></a><p class="title"><b>Table 6. SafetySubordinateCoreConfiguration Parameters</b></p><div class="table-contents"><table class="table" summary="SafetySubordinateCoreConfiguration Parameters" cellpadding="4" width="100%" border="1"><colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup><thead><tr bgcolor="#C0C0C0"><th>Label</th><th>Value</th><th>Description</th></tr></thead><tbody><tr bgcolor="#C0C0C0"><td>Core register start offset</td><td>32</td><td>
+              <p>Indicates the Core register start offset. This parameter is used to select the starting offset of the core diagnostic register. Minimum Value = 0x20, Maximum = (based on the SSM_BUS_ADDR_SIZE)</p>
+              <p><span class="bold"><strong>Values: </strong></span>32, ..., 65516</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>32</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWC_XPCS_SS</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>SS_CORE_REG_START_OFFSET</p>
+            </td></tr><tr bgcolor="#C0C0C0"><td>Core register depth</td><td>10</td><td>
+              <p>Indicates the Core register depth. Minimum Depth = 4(Here there are no diagnostic registers), Maximum Depth = 68 (4 core registrs+ 64 diagnostic registers)</p>
+              <p><span class="bold"><strong>Values: </strong></span>4, ..., 68</p>
+              <p><span class="bold"><strong>DefaultValue: </strong></span>10</p>
+              <p><span class="bold"><strong>Enabled: </strong></span>DWC_XPCS_SS</p>
+              <p><span class="bold"><strong>Parameter Name: </strong></span>SS_CORE_REG_DEPTH</p>
+            </td></tr></tbody></table></div></div><br class="table-break"></div></div></div></body></html>
